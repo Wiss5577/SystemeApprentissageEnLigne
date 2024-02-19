@@ -1,12 +1,25 @@
 package org.sid.elearningspringboot.models;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-public class Enrollment 
-{
+@Table(name="Enrollment")
+
+//lombok 
+
+@Data 
+@AllArgsConstructor 
+@NoArgsConstructor
+
+//classe d'inscription
+
+public class Enrollment{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	private String coursename;
 	private String courseid;
 	private String enrolleddate;
@@ -23,31 +36,10 @@ public class Enrollment
 	private String language;
 	private String description;
 	
-	public Enrollment() 
-	{
-		super();
-	}
-
-	public Enrollment(int id, String coursename, String courseid, String enrolleddate, String enrolledusername, String enrolleduserid, String enrolledusertype, String instructorname, String instructorinstitution, String enrolledcount, String youtubeurl, String websiteurl, String coursetype, String skilllevel, String language, String description)
-	{
-		super();
-		this.id = id;
-		this.coursename = coursename;
-		this.courseid = courseid;
-		this.enrolleddate = enrolleddate;
-		this.enrolledusername = enrolledusername;
-		this.enrolleduserid = enrolleduserid;
-		this.enrolledusertype = enrolledusertype;
-		this.instructorname = instructorname;
-		this.instructorinstitution = instructorinstitution;
-		this.enrolledcount = enrolledcount;
-		this.youtubeurl = youtubeurl;
-		this.websiteurl = websiteurl;
-		this.coursetype = coursetype;
-		this.skilllevel = skilllevel;
-		this.language = language;
-		this.description = description;
-	}
+	//rls entre insc et user ( insc 1..n----appartient à---- 1 user)
+	// rls entre insc et course  ( insc 1..n----contient---- 1..n courses)
+	
+	
 	
 	public int getId()
 	{

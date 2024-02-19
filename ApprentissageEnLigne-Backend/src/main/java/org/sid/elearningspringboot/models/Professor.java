@@ -1,11 +1,25 @@
 package org.sid.elearningspringboot.models;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-public class Professor 
-{
+@Table(name="Professor")
+
+//lombok 
+
+@Data 
+@AllArgsConstructor 
+@NoArgsConstructor
+
+//classe des profs 
+
+public class Professor {
+	//id : email string ! 
 	@Id
 	private String email;
+	
 	private String professorname;
 	private String professorid;
 	private String degreecompleted;
@@ -17,27 +31,8 @@ public class Professor
 	private String password;
 	private String status;
 	
-	public Professor() 
-	{
-		super();
-	}
-
-	public Professor(String email, String professorname, String professorid, String degreecompleted, String institutionname, String department, String experience, String mobile, String gender, String password, String status) 
-	{
-		super();
-		this.email = email;
-		this.professorname = professorname;
-		this.professorid = professorid;
-		this.degreecompleted = degreecompleted;
-		this.institutionname = institutionname;
-		this.department = department;
-		this.experience = experience;
-		this.mobile = mobile;
-		this.gender = gender;
-		this.password = password;
-		this.status = status;
-	}
-
+	//Normalement  relation entre prof et course ( prof 1..n ---teach--- 1..n course)
+	
 	public String getEmail() 
 	{
 		return email;

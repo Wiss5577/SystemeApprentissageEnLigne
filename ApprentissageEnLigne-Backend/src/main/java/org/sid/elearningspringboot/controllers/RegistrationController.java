@@ -39,9 +39,10 @@ public class RegistrationController
 		userObj = userService.saveUser(user);
 		return userObj;
 	}
-	
+	//register as professor
 	@PostMapping("/registerprofessor")
 	@CrossOrigin(origins = "http://localhost:4200")
+	
 	public Professor registerDoctor(@RequestBody Professor professor) throws Exception
 	{
 		String currEmail = professor.getEmail();

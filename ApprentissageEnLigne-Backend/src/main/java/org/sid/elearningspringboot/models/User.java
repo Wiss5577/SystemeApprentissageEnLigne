@@ -1,11 +1,27 @@
 package org.sid.elearningspringboot.models;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+//Créer table User
 @Entity
-public class User 
-{
+@Table(name="User")
+
+//en utilisant lombok on peut générer les constucteurs sans arg et avec arg  et getters setters .. :)
+
+@Data 
+@AllArgsConstructor 
+@NoArgsConstructor
+
+//classe de la liste des utilisateurs de l'app
+
+public class User{
+	//id : email string ! 
 	@Id
 	private String email;
+	
+	
 	private String username;
 	private String userid;
 	private String mobile;
@@ -13,25 +29,9 @@ public class User
 	private String profession;
 	private String address;
 	private String password;
+
+	//rls entre user et insc (user 1---lancer--- 1..n insc)
 	
-	public User() 
-	{
-		super();
-	}
-
-	public User(String email, String username, String userid, String mobile, String gender, String profession, String address, String password) 
-	{
-		super();
-		this.email = email;
-		this.username = username;
-		this.userid = userid;
-		this.mobile = mobile;
-		this.gender = gender;
-		this.profession = profession;
-		this.address = address;
-		this.password = password;
-	}
-
 	public String getEmail() 
 	{
 		return email;

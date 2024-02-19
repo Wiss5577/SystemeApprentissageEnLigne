@@ -1,11 +1,24 @@
 package org.sid.elearningspringboot.models;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-public class Wishlist 
-{
+@Table(name="Wishlist")
+
+//lombok 
+
+@Data 
+@AllArgsConstructor 
+@NoArgsConstructor
+
+//classe des favories 
+
+public class Wishlist {
 	@Id
 	private String coursename;
+	
 	private String courseid;
 	private String likeduser;
 	private String likedusertype;
@@ -18,27 +31,6 @@ public class Wishlist
 	private String language;
 	private String description;
 	
-	public Wishlist() 
-	{
-		super();
-	}
-
-	public Wishlist(String coursename, String courseid, String likeduser, String likedusertype, String instructorname, String instructorinstitution, String enrolledcount, String coursetype, String websiteurl, String skilllevel, String language, String description) 
-	{
-		super();
-		this.coursename = coursename;
-		this.courseid = courseid;
-		this.likeduser = likeduser;
-		this.likedusertype = likedusertype;
-		this.instructorname = instructorname;
-		this.instructorinstitution = instructorinstitution;
-		this.enrolledcount = enrolledcount;
-		this.coursetype = coursetype;
-		this.websiteurl= websiteurl;
-		this.skilllevel = skilllevel;
-		this.language = language;
-		this.description = description;
-	}
 
 	public String getCoursename() 
 	{

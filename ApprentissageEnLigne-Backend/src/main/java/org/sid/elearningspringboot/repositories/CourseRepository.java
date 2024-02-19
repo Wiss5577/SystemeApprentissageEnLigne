@@ -8,8 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.sid.elearningspringboot.models.Course;
 
-public interface CourseRepository extends CrudRepository<Course, Integer>
-{    
+public interface CourseRepository extends CrudRepository<Course, Integer>{    
     public Course findByCoursename(String coursename);
 	
 	public Course findByCourseid(String courseid);

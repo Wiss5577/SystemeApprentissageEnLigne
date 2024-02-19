@@ -22,8 +22,7 @@ import org.sid.elearningspringboot.services.ProfessorService;
 import org.sid.elearningspringboot.services.WishlistService;
 
 @RestController
-public class ProfessorController 
-{	
+public class ProfessorController {	
 	@Autowired
 	private ProfessorService professorService;
 	
@@ -36,26 +35,26 @@ public class ProfessorController
 	@Autowired
 	private WishlistService wishlistService;
 	
+	
+	
+	//Liste des profs
 	@GetMapping("/professorlist")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public ResponseEntity<List<Professor>> getProfessorList() throws Exception
-	{
+	public ResponseEntity<List<Professor>> getProfessorList() throws Exception{
 		List<Professor> professors = professorService.getAllProfessors();
 		return new ResponseEntity<List<Professor>>(professors, HttpStatus.OK);
 	}
 	
+	
+	//Cours de type youtube 
 	@GetMapping("/youtubecourselist")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public ResponseEntity<List<Course>> getYoutubeCourseList() throws Exception
-	{
+	public ResponseEntity<List<Course>> getYoutubeCourseList() throws Exception{
 		List<Course> youtubeCourseList = courseService.fetchByCoursetype("Youtube");
-//		for(Course list:youtubeCourseList)
-//		{
-//			System.out.println(list.getYoutubeurl());
-//		}
 		return new ResponseEntity<List<Course>>(youtubeCourseList, HttpStatus.OK);
 	}
 	
+	//cours de type website
 	@GetMapping("/websitecourselist")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<Course>> getWebsiteCourseList() throws Exception
@@ -64,6 +63,7 @@ public class ProfessorController
 		return new ResponseEntity<List<Course>>(websiteCourseList, HttpStatus.OK);
 	}
 	
+	//cours by name
 	@GetMapping("/courselistbyname/{coursename}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<Course>> getCourseListByName(@PathVariable String coursename) throws Exception
@@ -75,6 +75,9 @@ public class ProfessorController
 		return new ResponseEntity<List<Course>>(courselist, HttpStatus.OK);
 	}
 	
+	
+	//prof par email
+	
 	@GetMapping("/professorlistbyemail/{email}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<Professor>> getProfessorListByEmail(@PathVariable String email) throws Exception
@@ -83,10 +86,14 @@ public class ProfessorController
 		return new ResponseEntity<List<Professor>>(professors, HttpStatus.OK);
 	}
 	
+	
+	
+	
+	//Ajouter prof
+	
 	@PostMapping("/addProfessor")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Professor addNewProfessor(@RequestBody Professor professor) throws Exception
-	{
+	public Professor addNewProfessor(@RequestBody Professor professor) throws Exception{
 		Professor professorObj = null;
 		String newID = getNewID();
 		professor.setProfessorid(newID);
@@ -95,6 +102,8 @@ public class ProfessorController
 		return professorObj;
 	}
 	
+	
+	//Ajouter cours
 	@PostMapping("/addCourse")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public Course addNewCourse(@RequestBody Course course) throws Exception
@@ -107,6 +116,7 @@ public class ProfessorController
 		return courseObj;
 	}
 	
+	//Ajouter Chapitre
 	@PostMapping("/addnewchapter")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public Chapter addNewChapters(@RequestBody Chapter chapter) throws Exception
@@ -116,6 +126,7 @@ public class ProfessorController
 		return chapterObj;
 	}
 	
+	//Pour accepter prof
 	@GetMapping("/acceptstatus/{email}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<String>> updateStatus(@PathVariable String email) throws Exception
@@ -126,6 +137,8 @@ public class ProfessorController
 		return new ResponseEntity<List<String>>(al,HttpStatus.OK);
 	}
 	
+	
+	//Pour refuser prof
 	@GetMapping("/rejectstatus/{email}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<String>> rejectStatus(@PathVariable String email) throws Exception
@@ -136,6 +149,7 @@ public class ProfessorController
 		return new ResponseEntity<List<String>>(al,HttpStatus.OK);
 	}
 	
+	//les info d'un prof
 	@GetMapping("/professorprofileDetails/{email}")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<Professor>> getProfileDetails(@PathVariable String email) throws Exception
@@ -144,6 +158,7 @@ public class ProfessorController
 		return new ResponseEntity<List<Professor>>(professors, HttpStatus.OK);
 	}
 	
+	//modifier info de prof
 	@PutMapping("/updateprofessor")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<Professor> updateProfessorProfile(@RequestBody Professor professor) throws Exception
@@ -152,6 +167,7 @@ public class ProfessorController
 		return new ResponseEntity<Professor>(professorobj, HttpStatus.OK);
 	}
 	
+	//nombre des profs
 	@GetMapping("/gettotalprofessors")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<Integer>> getTotalProfessors() throws Exception
@@ -161,6 +177,8 @@ public class ProfessorController
 		professorsCount.add(professors.size());
 		return new ResponseEntity<List<Integer>>(professorsCount, HttpStatus.OK);
 	}
+	
+	//nombre des chapitres
 	
 	@GetMapping("/gettotalchapters")
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -172,6 +190,8 @@ public class ProfessorController
 		return new ResponseEntity<List<Integer>>(chaptersCount, HttpStatus.OK);
 	}
 	
+	//nombre des cours
+	
 	@GetMapping("/gettotalcourses")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<Integer>> getTotalCourses() throws Exception
@@ -181,6 +201,8 @@ public class ProfessorController
 		coursesCount.add(courses.size());
 		return new ResponseEntity<List<Integer>>(coursesCount, HttpStatus.OK);
 	}
+	
+	//nbr des wishlist
 	
 	@GetMapping("/gettotalwishlist")
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -192,6 +214,8 @@ public class ProfessorController
 		return new ResponseEntity<List<Integer>>(wishlistCount, HttpStatus.OK);
 	}
   
+//les noms des cours
+	
   @GetMapping("/getcoursenames")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<String>> getCourseNames() throws Exception
@@ -204,6 +228,7 @@ public class ProfessorController
 		}
 		return new ResponseEntity<List<String>>(coursenames, HttpStatus.OK);
 	}
+  
 	
 	public String getNewID()
 	{

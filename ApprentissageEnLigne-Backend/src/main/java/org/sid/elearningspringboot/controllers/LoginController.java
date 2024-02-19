@@ -20,12 +20,14 @@ public class LoginController
 	@Autowired
 	private ProfessorService professorService;
 	
+	//pour tester from browser or postman
 	@GetMapping("/")
     public String welcomeMessage()
     {
     	return "Welcome to Elearning Management system !!!";
     }
 	
+	//login de user
 	@PostMapping("/loginuser")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public User loginUser(@RequestBody User user) throws Exception
@@ -45,6 +47,7 @@ public class LoginController
 		return userObj;
 	}
 	
+	//login de prof
 	@PostMapping("/loginprofessor")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public Professor loginDoctor(@RequestBody Professor professor) throws Exception
@@ -59,7 +62,7 @@ public class LoginController
 		}
 		if(professorObj == null)
 		{
-			throw new Exception("wiwi Professor does not exists!!! Please enter valid credentials...");
+			throw new Exception("Professor does not exists!!! Please enter valid credentials...");
 		}		
 		return professorObj;
 	}

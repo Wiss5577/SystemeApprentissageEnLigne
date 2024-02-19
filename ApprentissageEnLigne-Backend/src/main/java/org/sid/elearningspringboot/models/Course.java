@@ -1,12 +1,25 @@
 package org.sid.elearningspringboot.models;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-public class Course 
-{
+@Table(name="Course")
+
+//lombok 
+
+@Data 
+@AllArgsConstructor 
+@NoArgsConstructor
+
+//classes des cours des profs
+
+public class Course {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO) //auto-inc
 	private int id;
+	
 	private String coursename;
 	private String courseid;
 	private String enrolleddate;
@@ -20,28 +33,11 @@ public class Course
 	private String language;
 	private String description;
 	
-	public Course() 
-	{
-		super();
-	}
-
-	public Course(int id, String coursename, String courseid, String enrolleddate, String instructorname, String instructorinstitution, String enrolledcount, String youtubeurl, String websiteurl, String coursetype, String skilllevel, String language, String description) 
-	{
-		super();
-		this.id = id;
-		this.coursename = coursename;
-		this.courseid = courseid;
-		this.enrolleddate = enrolleddate;
-		this.instructorname = instructorname;
-		this.instructorinstitution = instructorinstitution;
-		this.enrolledcount = enrolledcount;
-		this.youtubeurl = youtubeurl;
-		this.websiteurl = websiteurl;
-		this.coursetype = coursetype;
-		this.skilllevel = skilllevel;
-		this.language = language;
-		this.description = description;
-	}
+	
+	//je pense relation entre course et prof  
+		//course et chap (course 1---contient---1..n chap)
+		//course et ins ( course 1..n---dans---1..n insc)
+	
 	
 	public int getId()
 	{

@@ -1,24 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Aladin&family=Merienda+One&family=Staatliches&display=swap');
 
-.register{
+.register {
     background: white;
     margin-top: 0.8%;
     margin-bottom: 3%;
     border-radius: 15px;
     padding: 3%;
 }
-.register-right{
+
+.register-right {
     background: #ffffff;
     border-radius: 15px;
-    box-shadow: 5px 5px 35px 8px rgb(147, 158, 147); 
+    box-shadow: 2px 2px 2px 2px gray;
     margin-left: auto;
     margin-right: auto;
 }
-.register .register-form{
+
+.register .register-form {
     padding: 10%;
     margin-top: 10%;
 }
-.btnRegister{
+
+.btnRegister {
     float: right;
     margin-top: 1%;
     margin-bottom: 3%;
@@ -26,15 +29,15 @@
     border: none;
     border-radius: 1.5rem;
     padding: 1%;
-    border: 1px solid #440707;
-    color: #440707;
+    border: 1px solid rgb(0, 13, 30);
+    color: rgb(0, 13, 30);
     font-weight: 600;
     font-size: 20px;
     width: 30%;
     cursor: pointer;
 }
-.loginbtn
-{
+
+.loginbtn {
     float: right;
     margin-top: 10%;
     margin-right: 25%;
@@ -47,25 +50,29 @@
     width: 50%;
     cursor: pointer;
 }
-.loginbtn:hover{
+
+.loginbtn:hover {
     cursor: pointer;
     background: #ffffff;
     color: #0a3d3b;
 }
-.btnRegister:hover{
-    background: #440707;
+
+.btnRegister:hover {
+    background: rgb(121, 122, 124);
     color: #fff;
     cursor: pointer;
 }
-.register .nav-tabs{
+
+.register .nav-tabs {
     margin-top: 3%;
     border: none;
-    background: #971515;
+    background: rgb(0, 13, 30);
     border-radius: 1.5rem;
     width: 28%;
     float: right;
 }
-.register .nav-tabs .nav-link{
+
+.register .nav-tabs .nav-link {
     padding: 2%;
     height: 34px;
     font-weight: 600;
@@ -73,28 +80,35 @@
     border-top-right-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
 }
-.register .nav-tabs .nav-link:hover{
+
+.register .nav-tabs .nav-link:hover {
     border: none;
 }
-.register .nav-tabs .nav-link.active{
+
+.register .nav-tabs .nav-link.active {
     width: 100px;
     color: #0062cc;
     border: 2px solid #0062cc;
     border-top-left-radius: 1.5rem;
     border-bottom-left-radius: 1.5rem;
 }
-.highlight1, .highlight2{
+
+.highlight1,
+.highlight2 {
     width: 100px;
     color: #fdfdfd;
-    background-color: #f14747;
-    border: 2px solid #440707;
+    background-color: rgb(129, 130, 132);
+    border: 2px solid black;
     border-top-left-radius: 1.5rem;
     border-bottom-left-radius: 1.5rem;
 }
-.nav1:hover, .nav2:hover{
+
+.nav1:hover,
+.nav2:hover {
     cursor: pointer;
 }
-.register-heading{
+
+.register-heading {
     text-align: center;
     margin-top: 8%;
     font-weight: bold;
@@ -102,17 +116,17 @@
     letter-spacing: 1.5px;
     margin-bottom: -15%;
     font-family: 'Aladin', cursive;
-    color: #413613;
+    color: black;
 }
-#home-tab
-{
+
+#home-tab {
     background-color: none;
 }
-input
-{
+
+input {
     border-radius: 10px;
 }
-.form-group
-{
+
+.form-group {
     margin-bottom: 4%;
 }

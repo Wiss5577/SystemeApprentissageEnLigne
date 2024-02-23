@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor 
 @NoArgsConstructor
 
-//classe des cours des profs
+//classes des cours des profs
 
 public class Course {
 	@Id

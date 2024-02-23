@@ -1,20 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
 
-.panel-body{
+.panel-body {
   margin-left: 1%;
   margin-right: 2%;
 }
-thead{
-  background-color: rgb(85, 14, 14);
+
+thead {
+  background-color: rgb(98, 157, 199);
   padding: 10px 5px 10px 5px;
 }
-table, td{
+
+table,
+td {
   text-align: center;
   align-items: center;
   vertical-align: middle;
 }
-table, td, tr{
+
+table,
+td,
+tr {
   border: 1px solid rgb(163, 161, 161);
   font-family: serif;
   font-weight: bold;
@@ -22,20 +28,22 @@ table, td, tr{
   font-size: large;
 }
 
-th{
+th {
   text-transform: uppercase;
   color: white;
   font-family: Helvetica;
-  font-style: italic;
+  font-style: solid;
   font-size: normal;
   padding: 10px 10px 10px 10px;
   border: 1px solid white;
 }
-td{
-  text-transform:none;
+
+td {
+  text-transform: none;
   padding: 10px;
 }
-.accepted{
+
+.accepted {
   border: 1px solid black;
   border-radius: 10px;
   background-color: rgb(30, 116, 30);
@@ -43,7 +51,8 @@ td{
   color: white;
   font-weight: bolder;
 }
-.pending{
+
+.pending {
   border: 1px solid black;
   border-radius: 10px;
   background-color: rgb(196, 137, 28);
@@ -51,7 +60,8 @@ td{
   color: white;
   font-weight: bolder;
 }
-.rejected{
+
+.rejected {
   border: 1px solid black;
   border-radius: 10px;
   background-color: red;
@@ -59,8 +69,8 @@ td{
   color: white;
   font-weight: bolder;
 }
-.date-cover
-{
+
+.date-cover {
   border-radius: 10px;
   background-color: rgb(14, 9, 58);
   padding: 5px 10px 5px 10px;
@@ -69,7 +79,15 @@ td{
   font-size: 18px;
   font-weight: bolder;
 }
-.headercolor
-{
-  background-color: rgb(3, 70, 3);
+
+.headercolor {
+  background-color: rgb(98, 157, 199);
+}
+
+.panel-heading h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
 }

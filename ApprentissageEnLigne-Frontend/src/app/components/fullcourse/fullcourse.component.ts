@@ -17,18 +17,18 @@ const FileSaver = require('file-saver');
 export class FullcourseComponent implements OnInit {
 
   video = 'P2wNzig_SLA';
-  courseName = 'springboot';
-  chapterlist : Observable<Chapter[]> | undefined;
-  courselist : Observable<Course[]> | undefined;
+  courseName = '';
+  chapterlist: Observable<Chapter[]> | undefined;
+  courselist: Observable<Course[]> | undefined;
   chapter = new Chapter();
 
-  constructor(private _router : Router, private _service : UserService, private activatedRoute: ActivatedRoute) { }
+  constructor(private _router: Router, private _service: UserService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
     $("#overview").show();
     $("#qa, #notes, #announcements, #questions, #notestxt, #downloads").hide();
-    $("#downloadalert").css("display","none");
+    $("#downloadalert").css("display", "none");
     this.courseName = this.activatedRoute.snapshot.params['coursename'];
 
     const target = 'https://www.youtube.com/iframe_api'
@@ -44,115 +44,98 @@ export class FullcourseComponent implements OnInit {
 
   }
 
-  openOverview()
-  {
+  openOverview() {
     $("#overview").show();
     $("#qa,#announcements,#notes,#downloads").hide();
-    $("#downloadalert").css("display","none");
+    $("#downloadalert").css("display", "none");
   }
-  openQandA()
-  {
+  openQandA() {
     $("#qa").show();
     $("#overview,#announcements,#notes,#downloads").hide();
-    $("#downloadalert").css("display","none");
+    $("#downloadalert").css("display", "none");
   }
-  openNotes()
-  {
+  openNotes() {
     $("#notes").show();
     $("#overview,#announcements,#qa,#downloads").hide();
-    $("#downloadalert").css("display","none");
+    $("#downloadalert").css("display", "none");
   }
-  openAnnouncements()
-  {
+  openAnnouncements() {
     $("#announcements").show();
     $("#overview,#qa,#notes,#downloads").hide();
-    $("#downloadalert").css("display","none");
+    $("#downloadalert").css("display", "none");
   }
-  openDownloads()
-  {
+  openDownloads() {
     $("#downloads").show();
     $("#overview,#qa,#notes,#announcements").hide();
-    $("#downloadalert").css("display","block");
+    $("#downloadalert").css("display", "block");
   }
-  newQuestion()
-  {
+  newQuestion() {
     $("#questions").toggle();
   }
-  newNotes()
-  {
+  newNotes() {
     $("#notestxt").toggle();
   }
 
-  set1()
-  {
-    $(".box1").css("background-color","green");
+  set1() {
+    $(".box1").css("background-color", "green");
     $(".chapter1").addClass("selected");
-    $(".box2,.box3,.box4,.box5,.box6,.box7,.box8").css("background-color","white");
+    $(".box2,.box3,.box4,.box5,.box6,.box7,.box8").css("background-color", "white");
     $(".chapter2,.chapter3,.chapter4,.chapter5,.chapter6,.chapter7,.chapter8").removeClass("selected");
   }
-  set2()
-  {
-    $(".box2").css("background-color","green");
+  set2() {
+    $(".box2").css("background-color", "green");
     $(".chapter2").addClass("selected");
-    $(".box1,.box3,.box4,.box5,.box6,.box7,.box8").css("background-color","white");
+    $(".box1,.box3,.box4,.box5,.box6,.box7,.box8").css("background-color", "white");
     $(".chapter1,.chapter3,.chapter4,.chapter5,.chapter6,.chapter7,.chapter8").removeClass("selected");
   }
-  set3()
-  {
-    $(".box3").css("background-color","green");
+  set3() {
+    $(".box3").css("background-color", "green");
     $(".chapter3").addClass("selected");
-    $(".box1,.box2,.box4,.box5,.box6,.box7,.box8").css("background-color","white");
+    $(".box1,.box2,.box4,.box5,.box6,.box7,.box8").css("background-color", "white");
     $(".chapter1,.chapter2,.chapter4,.chapter5,.chapter6,.chapter7,.chapter8").removeClass("selected");
   }
-  set4()
-  {
-    $(".box4").css("background-color","green");
+  set4() {
+    $(".box4").css("background-color", "green");
     $(".chapter4").addClass("selected");
-    $(".box1,.box2,.box3,.box5,.box6,.box7,.box8").css("background-color","white");
+    $(".box1,.box2,.box3,.box5,.box6,.box7,.box8").css("background-color", "white");
     $(".chapter1,.chapter2,.chapter3,.chapter5,.chapter6,.chapter7,.chapter8").removeClass("selected");
   }
-  set5()
-  {
-    $(".box5").css("background-color","green");
+  set5() {
+    $(".box5").css("background-color", "green");
     $(".chapter5").addClass("selected");
-    $(".box1,.box2,.box3,.box4,.box6,.box7,.box8").css("background-color","white");
+    $(".box1,.box2,.box3,.box4,.box6,.box7,.box8").css("background-color", "white");
     $(".chapter1,.chapter2,.chapter3,.chapter4,.chapter6,.chapter7,.chapter8").removeClass("selected");
   }
-  set6()
-  {
-    $(".box6").css("background-color","green");
+  set6() {
+    $(".box6").css("background-color", "green");
     $(".chapter6").addClass("selected");
-    $(".box1,.box2,.box3,.box4,.box5,.box7,.box8").css("background-color","white");
+    $(".box1,.box2,.box3,.box4,.box5,.box7,.box8").css("background-color", "white");
     $(".chapter1,.chapter2,.chapter3,.chapter4,.chapter5,.chapter7,.chapter8").removeClass("selected");
   }
-  set7()
-  {
-    $(".box7").css("background-color","green");
+  set7() {
+    $(".box7").css("background-color", "green");
     $(".chapter7").addClass("selected");
-    $(".box1,.box2,.box3,.box4,.box5,.box6,.box8").css("background-color","white");
+    $(".box1,.box2,.box3,.box4,.box5,.box6,.box8").css("background-color", "white");
     $(".chapter1,.chapter2,.chapter3,.chapter4,.chapter5,.chapter6,.chapter8").removeClass("selected");
   }
-  set8()
-  {
-    $(".box8").css("background-color","green");
+  set8() {
+    $(".box8").css("background-color", "green");
     $(".chapter8").addClass("selected");
-    $(".box1,.box2,.box3,.box4,.box5,.box6,.box7").css("background-color","white");
+    $(".box1,.box2,.box3,.box4,.box5,.box6,.box7").css("background-color", "white");
     $(".chapter1,.chapter2,.chapter3,.chapter4,.chapter5,.chapter6,.chapter7").removeClass("selected");
   }
 
-  openChapter(chapterid : string)
-  {
+  openChapter(chapterid: string) {
     this.video = chapterid;
   }
 
-  isScriptLoaded(target: string): boolean
-  {
+  isScriptLoaded(target: string): boolean {
     return document.querySelector('script[src="' + target + '"]') ? true : false
   }
 
   downloadPdf() {
-    const pdfUrl = './assets/Introduction to Spring MVC.pdf';
-    const pdfName = 'Introduction to Spring MVC';
+    const pdfUrl = '';
+    const pdfName = '';
     FileSaver.saveAs(pdfUrl, pdfName);
   }
 

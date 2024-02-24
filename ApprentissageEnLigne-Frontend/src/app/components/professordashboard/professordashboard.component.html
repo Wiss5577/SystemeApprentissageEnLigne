@@ -23,14 +23,14 @@
     </li>
     <li [routerLink]="['/addCourse']">
       <a>
-        <i class='fa fa-cart-plus'></i>
+        <i class='fa fa-plus-square'></i>
         <span class="links_name">Ajouter cours</span>
       </a>
       <span class="tooltip">Ajouter cours</span>
     </li>
     <li [routerLink]="['/mycoursesprof']">
       <a>
-        <i class='fa fa-graduation-cap'></i>
+        <i class='fa fa-th-list'></i>
         <span class="links_name">Mes cours</span>
       </a>
       <span class="tooltip">Mes cours</span>
@@ -70,26 +70,28 @@
   </ul>
 </div>
 
+
+
+
+
 <div class="home-section">
   <div class="container">
     <div class="row">
 
-
       <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-        <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-trophy"></i></div>
-        <div class="text"
-          style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
-          Cours</div>
-        <div class="sub-text" *ngFor="let course of courses | async">{{course}} Cours disponibles</div>
-      </div>
-
-
-      <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-        <div class="circle"><i id="icons" style="margin-left: 15px;" class="fa fa-graduation-cap"></i></div>
+        <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-th-list"></i></div>
         <div class="text"
           style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
           Mes cours</div>
-        <div class="sub-text" *ngFor="let count of enrollmentcount | async">{{count}} Inscriptions
+        <div class="sub-text" *ngFor="let course of courses | async">{{course}} cours ajoutés par moi</div>
+      </div>
+
+      <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
+        <div class="circle"><i id="icons" style="margin-left: 23px;" class="fa fa-list-alt"></i></div>
+        <div class="text"
+          style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
+          Inscriptions</div>
+        <div class="sub-text" *ngFor="let count of enrollmentcount | async">{{count}} se sont inscrites à mes cours
         </div>
       </div>
 
@@ -97,8 +99,8 @@
         <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-trophy"></i></div>
         <div class="text"
           style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
-          Inscriptions</div>
-        <div class="sub-text" *ngFor="let course of courses | async">{{course}} insc</div>
+          Likes</div>
+        <div class="sub-text" *ngFor="let course of courses | async">{{course}} ont aimé mes cours</div>
       </div>
 
 

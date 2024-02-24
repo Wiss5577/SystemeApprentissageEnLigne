@@ -5,6 +5,7 @@
 
 .content {
 	width: 100%;
+	margin: 0%;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -17,15 +18,16 @@
 	position: relative;
 	height: 500;
 	width: 100%;
-	padding: 0 80px;
+	padding: 0px;
 	box-shadow: 1px 1px 18px #888888;
 }
 
 .nav {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	justify-content: left;
+	align-items: left;
 	margin-top: 15px;
+	margin-left: 20px;
 }
 
 #logo {
@@ -132,12 +134,12 @@ li:hover {
 
 .text h1 {
 	color: #fff;
-	font-family: 'Stick', sans-serif;
 	font-size: 45px;
 }
 
 .text h2 {
 	color: #fff;
+
 }
 
 .text p {
@@ -171,23 +173,28 @@ li:hover {
 #create_acc {
 	padding: 10px 20px;
 	background: #fff;
-	color: rgb(0, 13, 30);
+	color: black;
 	border: none;
 	border-radius: 10px;
-	margin-left: 15px;
 	cursor: pointer;
 	outline: none;
 	transition: all 1s ease;
 	transform: scale(1);
+	/* margin-left: 450px; */
+	margin-left: 640px;
+	justify-content: right;
+	font-family: Georgia, serif;
+
 }
 
 #create_acc:hover {
 	padding: 6px 15px;
-	background: linear-gradient(to bottom, rgb(238, 240, 235) 0%, rgb(238, 240, 235) 100%);
-	color: rgb(0, 13, 30);
+	background: linear-gradient(to bottom, rgb(6, 20, 38) 0%, rgb(0, 13, 30) 100%);
+	color: white;
 	border: none;
 	border-radius: 15px;
-	margin-left: 15px;
+	margin-left: 660px;
+	/* margin-left: 450px; */
 	cursor: pointer;
 	outline: none;
 	transform: scale(1.0) perspective(5px);
@@ -210,6 +217,8 @@ li:hover {
 	outline: none;
 	transition: all 1s ease;
 	transform: scale(1);
+	font-family: Georgia, serif;
+
 }
 
 #log:hover {
@@ -372,6 +381,7 @@ li:hover {
 	letter-spacing: 2.5px;
 	font-weight: bolder;
 	font-size: large;
+	font-family: Georgia, serif;
 }
 
 .subtextapp {
@@ -381,6 +391,7 @@ li:hover {
 	font-weight: bolder;
 	font-size: large;
 	text-align-last: center;
+	font-family: Georgia, serif;
 }
 
 .subtext1:hover,
@@ -395,7 +406,7 @@ li:hover {
 	display: none;
 	font-weight: 500;
 	line-height: 25px;
-	font-family: cursive;
+	font-family: Georgia, serif;
 	cursor: pointer;
 }
 
@@ -542,5 +553,4 @@ li:hover {
 .detail_4:hover {
 	transform: scale(1.05);
 	cursor: pointer;
-	background-color: rgb(6, 54, 50);
 }

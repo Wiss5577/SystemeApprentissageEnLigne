@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdmindashboardComponent implements OnInit {
 
-  name = 'admin';
+  name = 'Manager';
   gender = '';
   loggedUser = '';
   currRole = '';
@@ -26,18 +26,11 @@ export class AdmindashboardComponent implements OnInit {
   constructor(private _route: Router, private _service: AdminService) { }
 
   ngOnInit(): void {
-    this.name = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
-    this.name = this.name.replace(/"/g, '');
-
-    this.gender = JSON.stringify(sessionStorage.getItem('gender') || '{}');
-    this.gender = this.gender.replace(/"/g, '');
 
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser') || '{}');
     this.loggedUser = this.loggedUser.replace(/"/g, '');
-
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
     this.currRole = this.currRole.replace(/"/g, '');
-
     this.professors = this._service.getTotalProfessors();
     this.users = this._service.getTotalUsers();
     this.courses = this._service.getTotalCourses();

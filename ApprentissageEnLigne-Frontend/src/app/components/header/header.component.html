@@ -1,7 +1,13 @@
 <div class="sidebar-logo">
+
     <b class="sidebar-text" style="color: whitesmoke;"><i class="fa fa-user"></i> Bienvenue <label></label>
         {{loggedUser}} </b>
-    <button class="logoutbtn" style="margin-right: 1%;" (click)="navigateHome()"><i class="fa fa-home"></i>
-        Accueil</button>
-    <button class="logoutbtn" (click)="logout()"><i class="fa fa-sign-out"></i> Déconnecter</button>
+    <span class="log">
+        <button class="logoutbtn" style="margin-right: 1%;" (click)="navigateHome()"><i class="fa fa-home"></i>
+            Accueil</button>
+
+        <button class="logoutbtn" (click)="logout()"><i class="fa fa-sign-out"></i> Déconnecter</button>
+
+    </span>
+
 </div>

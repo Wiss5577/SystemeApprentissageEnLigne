@@ -22,7 +22,7 @@ input {
     color: rgb(244, 29, 34);
     text-align: center;
     margin-top: -20px;
-    font-family: 'Aladin', cursive;
+    font-family: 'Aladin';
     padding: 5px;
     text-transform: uppercase;
 }
@@ -105,4 +105,15 @@ input {
 .headbtn1 {
     margin-top: -40%;
     margin-bottom: 10%;
+}
+
+.logo {
+    text-align: center;
+    margin-left: 27%;
+    margin-bottom: 1%;
+    margin-right: 25%;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgb(0, 13, 30);
+    cursor: pointer;
 }

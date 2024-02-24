@@ -1,17 +1,19 @@
+.sidebar-logo {
+  padding: 15px 15px 15px 30px;
+  font-size: 20px;
+  text-align: left;
+  background-color: rgb(32, 37, 40);
+  width: 100%;
+}
+
 .sidebar-text {
   font-size: medium;
+  margin-left: 250px;
+
 }
 
 .content-container {
   padding-top: 20px;
-}
-
-.sidebar-logo {
-  padding: 15px 15px 15px 30px;
-  font-size: 20px;
-  text-align: right;
-  background-color: rgb(32, 37, 40);
-  width: 100%;
 }
 
 .logoutbtn {
@@ -29,4 +31,9 @@
   background: linear-gradient(to bottom, rgb(6, 20, 38) 0%, rgb(0, 13, 30) 100%);
   padding: 5px 10px 5px 10px;
   border-radius: 15px;
+}
+
+.log {
+  margin-left: 520px;
+
 }

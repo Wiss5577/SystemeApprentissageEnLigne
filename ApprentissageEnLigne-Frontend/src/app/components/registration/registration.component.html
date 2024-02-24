@@ -1,24 +1,34 @@
 <div class="container register">
     <div class="row">
         <div class="col-md-9 register-right">
+
+
+            <!--prof & etud-->
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link nav1" id="home-tab" data-toggle="tab" data-target="#home" role="tab"
-                        aria-controls="home" aria-selected="true">Utilisateur</a>
+                        aria-controls="home" aria-selected="true">Étudiant</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav2" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile"
                         aria-selected="false">Professeur</a>
                 </li>
             </ul>
+
+
+
+            <!--Etudiant-->
+
+
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="register-heading">Inscription en tant qu'utilisateur</h3>
+                    <h3 class="register-heading">Inscription en tant qu'étudiant</h3>
                     <br>
-                    <small class="text-danger"><b>{{msg}}</b></small>
                     <form #userform="ngForm" (ngSubmit)="registerUser()">
                         <div class="row register-form">
                             <div class="col-md-6">
+
+
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Nom *" name="username"
                                         [(ngModel)]="user.username" required #username="ngModel"
@@ -27,14 +37,21 @@
                                         [class.d-none]="username.valid || username.untouched"><b>Champ
                                             obligatoire</b></small>
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Sexe *" name="usergender"
-                                        [(ngModel)]="user.gender" required #usergender="ngModel"
-                                        [class.is-invalid]="usergender.invalid && usergender.touched">
+                                    <b style="color:rgb(0, 0, 0)">Sexe * </b>:
+                                    <label for="f" style="margin-right: 1%;">Femme</label> <input id="f" type="radio"
+                                        name="usergender" [(ngModel)]="user.gender" required #usergender="ngModel"
+                                        [class.is-invalid]="usergender.invalid && usergender.touched" value="Femme">
+                                    <label for="h" style="margin-right: 1%;margin-left: 1%;">Homme</label> <input id="h"
+                                        type="radio" name="usergender" [(ngModel)]="user.gender" required
+                                        #usergender="ngModel"
+                                        [class.is-invalid]="usergender.invalid && usergender.touched" value="Homme">
                                     <small class="text-danger"
                                         [class.d-none]="usergender.valid || usergender.untouched"><b>Champ
                                             obligatoire</b></small>
                                 </div>
+
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Votre profession *"
                                         name="userprofession" [(ngModel)]="user.profession" required
@@ -44,6 +61,7 @@
                                         [class.d-none]="userprofession.valid || userprofession.untouched"><b>Champ
                                             obligatoire</b></small>
                                 </div>
+
                                 <div class="form-group">
                                     <input type="password" class="form-control" placeholder="Mot de passe *" name="pwd"
                                         [(ngModel)]="user.password" required #userpassword="ngModel"
@@ -52,12 +70,9 @@
                                         <small class="text-danger" *ngIf="userpassword.errors.required"><b>Champ
                                                 obligatoire</b></small>
                                     </div>
-                                    <small style="color: gray; font-size: 10px;">Au moins une lettre majuscule, un
-                                        chiffre,
-                                        une lettre minuscule, un caractère spécial, longueur de 6 à 20
-                                        caractères.</small>
                                 </div>
                             </div>
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="email" class="form-control" placeholder="Adresse email *"
@@ -81,6 +96,7 @@
                                         [class.d-none]="usermobile.valid || usermobile.untouched"><b>Champ
                                             obligatoire</b></small>
                                 </div>
+
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Adresse *" name="useraddress"
                                         [(ngModel)]="user.address" required #useraddress="ngModel"
@@ -104,8 +120,7 @@
                             </div>
                         </div>
                         <div class="checkbox" style="margin-top: -8%; margin-left: 11%;">
-                            <small style="color: gray;"><input type="checkbox" class="checkbox" name="remember"
-                                    required> J'accepte toutes les conditions</small>
+                            <small class="text-danger"><b>{{msg}}</b></small>
                         </div>
                         <div
                             style="margin-top: -3%; margin-left: 58.5%; margin-bottom: 3%; color: rgb(0, 0, 0); font-size: 16px;">
@@ -115,11 +130,18 @@
                                     ici</b></small>
                         </div>
                         <button [disabled]="userform.form.invalid" type="submit" class="btnRegister">S'inscrire</button>
+                        <button class="retour1" [routerLink]="['/']"><i class="fa fa-sign-out"></i></button>
                     </form>
                 </div>
+
+
+
+
+                <!--Professeur-->
+
+
                 <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <h3 class="register-heading">Inscription en tant que professeur</h3>
-                    <small class="text-danger"><b>{{msg}}</b></small>
                     <form #professorform="ngForm" (ngSubmit)="registerProfessor()">
                         <div class="row register-form">
                             <div class="col-md-6">
@@ -132,6 +154,7 @@
                                             obligatoire
                                         </b></small>
                                 </div>
+
                                 <div class="form-group">
                                     <input type="email" class="form-control" placeholder="Adresse email *"
                                         name="professoremail" [(ngModel)]="professor.email" required
@@ -145,10 +168,19 @@
                                                 email invalide</b></small>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Sexe *" name="professorgender"
-                                        [(ngModel)]="professor.gender" required #professorgender="ngModel"
-                                        [class.is-invalid]="professorgender.invalid && professorgender.touched">
+                                    <b style="color:rgb(0, 0, 0)">Sexe * </b>:
+                                    <label for="fe" style="margin-right: 1%;">Femme</label>
+                                    <input type="radio" id="fe" name="professorgender" [(ngModel)]="professor.gender"
+                                        required #professorgender="ngModel"
+                                        [class.is-invalid]="professorgender.invalid && professorgender.touched"
+                                        value="Femme">
+                                    <label for="ho" style="margin-right: 1%;margin-left: 1%;">Homme</label>
+                                    <input type="radio" id="ho" name="professorgender" [(ngModel)]="professor.gender"
+                                        required #professorgender="ngModel"
+                                        [class.is-invalid]="professorgender.invalid && professorgender.touched"
+                                        value="Homme">
                                     <small class="text-danger"
                                         [class.d-none]="professorgender.valid || professorgender.untouched"><b>Champ
                                             obligatoire</b></small>
@@ -171,9 +203,6 @@
                                         <small class="text-danger" *ngIf="professorpassword.errors.required"><b>Champ
                                                 obligatoire</b></small>
                                     </div>
-                                    <small style="color: gray; font-size: 10px;">Au moins une lettre majuscule, un
-                                        chiffre, une lettre minuscule, un caractère spécial, longueur de 6 à 20
-                                        caractères.</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -225,8 +254,8 @@
                             </div>
                         </div>
                         <div class="checkbox" style="margin-top: -8%; margin-left: 11%;">
-                            <small style="color: gray;"><input type="checkbox" class="checkbox" name="remember"
-                                    required> J'accepte toutes les conditions </small>
+                            <small class="text-danger"><b>{{msg}}</b></small>
+
                         </div>
                         <div
                             style="margin-top: -3%; margin-left: 58.5%; margin-bottom: 3%; color: rgb(0, 0, 0); font-size: 16px;">
@@ -236,7 +265,8 @@
                                     ici</b></small>
                         </div>
                         <button [disabled]="professorform.form.invalid" type="submit"
-                            class="btnRegister">S'inscrire</button>
+                            class="btnRegister">S'inscrire</button> <br>
+                        <span class="retour2" [routerLink]="['/']"><i class="fa fa-sign-out"></i></span>
                     </form>
                 </div>
             </div>
@@ -244,3 +274,5 @@
     </div>
 
 </div>
+
+<app-footer></app-footer>

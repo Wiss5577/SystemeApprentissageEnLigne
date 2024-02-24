@@ -10,22 +10,21 @@ import { ProfessorService } from 'src/app/services/professor.service';
   styleUrls: ['./professorprofile.component.css']
 })
 export class ProfessorprofileComponent implements OnInit {
- 
-  profileDetails : Observable<Professor[]> | undefined;
+
+  profileDetails: Observable<Professor[]> | undefined;
   professor: Professor = new Professor;
   msg = ' ';
   currRole = '';
   loggedUser = '';
   temp = false;
 
-  constructor(private _service: ProfessorService, private activatedRoute: ActivatedRoute, private _router : Router) { }
+  constructor(private _service: ProfessorService, private activatedRoute: ActivatedRoute, private _router: Router) { }
 
-  ngOnInit(): void 
-  {
-    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
+  ngOnInit(): void {
+    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser') || '{}');
     this.loggedUser = this.loggedUser.replace(/"/g, '');
 
-    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
+    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
     this.currRole = this.currRole.replace(/"/g, '');
 
     $("#profilecard").show();
@@ -33,20 +32,19 @@ export class ProfessorprofileComponent implements OnInit {
     this.getProfileDetails(this.loggedUser);
   }
 
-  editProfile()
-  {
+  editProfile() {
     $("#profilecard").hide();
     $("#profileform").show();
   }
 
-  getProfileDetails(loggedUser : string)
-  {
+
+  getProfileDetails(loggedUser: string) {
     this.profileDetails = this._service.getProfileDetails(this.loggedUser);
     console.log(this.profileDetails);
   }
 
-  updateProfessorProfile()
-  {
+
+  updateProfessorProfile() {
     this._service.UpdateUserProfile(this.professor).subscribe(
       data => {
         console.log("Professor Profile Updated succesfully");
@@ -57,8 +55,8 @@ export class ProfessorprofileComponent implements OnInit {
         $("#profilecard").show();
         $("#profileform").hide();
         setTimeout(() => {
-            this._router.navigate(['/professordashboard']);
-          }, 6000);
+          this._router.navigate(['/professordashboard']);
+        }, 6000);
       },
       error => {
         console.log("Profile Updation Failed");

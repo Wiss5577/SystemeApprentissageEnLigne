@@ -51,4 +51,5 @@ export class WelcomepageComponent implements OnInit {
     this._router.navigate(['/login']);
   }
 
+
 }

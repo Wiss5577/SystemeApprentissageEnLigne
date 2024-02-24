@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
     this._service.loginUserFromRemote(this.user).subscribe(
       (data: any) => {
         console.log(data);
-        console.log("Response Received");
+        console.log("Connecté avec bdd");
         sessionStorage.setItem('loggedUser', this.user.email);
         sessionStorage.setItem('USER', "user");
         sessionStorage.setItem('ROLE', "user");
@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
       },
       (error: { error: any; }) => {
         console.log(error.error);
-        this.msg = "Bad credentials, please enter valid credentials !!!";
+        this.msg = "L'email ou le mot de passe que vous avez entré est incorrect.";
       }
     )
   }
@@ -99,23 +99,22 @@ export class LoginComponent implements OnInit {
       },
       (error: { error: any; }) => {
         console.log(error.error);
-        this.msg = "Bad credentials, please enter valid credentials !!!";
+        this.msg = "L'email ou le mot de passe que vous avez entré est incorrect.";
       }
     )
   }
-  //bdlt hna
+  //Changer email et mdps dans login.service.ts
   adminLogin() {
     if (this._service.adminLoginFromRemote(this.adminEmail, this.adminPassword)) {
       sessionStorage.setItem('loggedUser', this.adminEmail);
       sessionStorage.setItem('USER', "admin");
       sessionStorage.setItem('ROLE', "admin");
-      sessionStorage.setItem('name', "admin");
-      sessionStorage.setItem('gender', "male");
+      sessionStorage.setItem('name', "Manager");
       this._router.navigate(['/admindashboard']);
     }
     else {
       console.log("Exception Occured");
-      this.msg = 'Bad admin credentials !!!'
+      this.msg = 'Etes-vous vraiment le manager?';
     }
   }
 

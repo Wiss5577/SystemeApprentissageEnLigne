@@ -1,5 +1,7 @@
 <app-header></app-header>
 
+<!--Sidebar-->
+
 <div class="sidebar-container">
   <ul class="sidebar-navigation">
     <div class="card" style="width:235px; background-color: rgb(0, 13, 30);">
@@ -10,42 +12,45 @@
         <h4 style="font-weight: bolder;" class="card-title"><b>{{name}}</b></h4>
       </div>
     </div>
-
     <li>
       <i class="fa fa-plus" aria-hidden="true"></i> <label [routerLink]="['/addProfessor']"
-        style="cursor: pointer;">Ajouter Professeur</label>
-    </li>
-
-    <li>
-      <i class="fa fa-check-square" aria-hidden="true"></i> <label [routerLink]="['/approveprofessor']"
-        style="cursor: pointer;">Demandes</label>
+        style="cursor: pointer; font-family: Georgia, serif; font-size: 18px;">Ajouter Professeur</label>
     </li>
     <li>
-      <i class="fa fa-clock-o" aria-hidden="true"></i> <label [routerLink]="['/addetudiant']"
-        style="cursor: pointer;">Cours en attente</label>
+      <i class="fa fa-check-square-o" aria-hidden="true"></i> <label [routerLink]="['/approveprofessor']"
+        style="cursor: pointer; font-family: Georgia, serif;font-size: 18px;">Demandes</label>
     </li>
     <li>
-      <i class="fa fa-list" aria-hidden="true"></i> <label [routerLink]="['/courselist']"
-        style="cursor: pointer;">Cours</label>
+      <i class="fa fa-clock-o" aria-hidden="true"></i> <label [routerLink]="['/approvecourse']"
+        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Cours en attente</label>
+    </li>
+    <li>
+      <i class="fa fa-th-list" aria-hidden="true"></i> <label [routerLink]="['/courselist']"
+        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Cours</label>
     </li>
 
     <li>
       <i class="fa fa-user-o" aria-hidden="true"></i> <label [routerLink]="['/professorlist']"
-        style="cursor: pointer;">Professeurs</label>
+        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Professeurs</label>
     </li>
     <li>
       <i class="fa fa-user" aria-hidden="true"></i> <label [routerLink]="['/userlist']"
-        style="cursor: pointer;">Étudiants</label>
+        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Étudiants</label>
     </li>
     <li>
-      <i class="fa fa-sticky-note-o" aria-hidden="true"></i> <label [routerLink]="['/Notes']"
-        style="cursor: pointer;">Mes
+      <i class="fa fa-keyboard-o" aria-hidden="true"></i> <label [routerLink]="['/notes']"
+        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Mes
         notes</label>
+    </li>
+    <li>
+      <i class="fa fa-history" aria-hidden="true"></i> <label [routerLink]="['/history']"
+        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Inscriptions</label>
     </li>
   </ul>
 </div>
 
 
+<!--Container Home page-->
 
 
 <div class="container">
@@ -54,36 +59,36 @@
     <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
       <div class="circle"><i id="icons" style="margin-left: 30px;" class="fa fa-user"></i></div>
       <div class="text">Étudiants</div>
-      <div class="sub-text" *ngFor="let user of users | async">{{user}} Étudiants </div>
+      <div class="sub-text" *ngFor="let user of users | async">{{user}} étudiants inscrits</div>
     </div>
     <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
       <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-user-o"></i></div>
-      <div class="text">Professeurs</div>
+      <div class=" text">Professeurs</div>
       <div class="sub-text" *ngFor="let professor of professors | async">{{professor}}
-        Professeurs qui enseignent actuellement </div>
+        professeurs qui enseignent actuellement </div>
     </div>
     <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-      <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-trophy"></i></div>
+      <div class="circle"><i id="icons" style="margin-left: 20px; margin-top: 20px;" class="fa fa-th-list"></i></div>
       <div class="text">Cours</div>
-      <div class="sub-text" *ngFor="let course of courses | async">{{course}} Cours disponibles </div>
+      <div class="sub-text" *ngFor="let course of courses | async">{{course}} cours disponibles </div>
     </div>
     <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-      <div class="circle"><i id="icons" style="margin-left: 15px;" class="fa fa-graduation-cap"></i></div>
+      <div class="circle"><i id="icons" style="margin-left: 20px;   margin-top: 20%;" class="fa fa-list-alt"></i></div>
       <div class="text">Inscriptions </div>
-      <div class="sub-text" *ngFor="let count of enrollmentcount | async">{{count}} Inscriptions par <b
-          *ngFor="let enrollment of enrollments | async">{{enrollment}}</b> étudiants</div>
+      <div class="sub-text" *ngFor="let count of enrollmentcount | async"><b
+          *ngFor="let enrollment of enrollments | async">{{enrollment}} inscriptions effectuées </b> </div>
     </div>
     <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-      <div class="circle"><i id="icons" style="margin-left: 20px;" class="fa fa-list"></i></div>
-      <div class="text">Chapitres</div>
-      <div class="sub-text" *ngFor="let chapter of chapters | async">{{chapter}} Cours avec <br> des chapitres détaillés
+      <div class="circle"><i id="icons" style="margin-left: 20px;margin-top: 17px;" class="fa fa-address-card"></i>
       </div>
+      <div class="text">Nouveaux professeurs</div>
+      <div class="sub-text" *ngFor="let chapter of chapters | async">{{chapter}} demandes en attente d'approbation</div>
     </div>
     <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-      <div class="circle"><i id="icons" style="margin-left: 20px;" class="fa fa-heart"></i></div>
-      <div class="text">Favoris </div>
-      <div class="sub-text" *ngFor="let wishlists of wishlist | async">{{wishlists}} Cours sont appréciés par la
-        plupart des inscrits</div>
+      <div class="circle"><i id="icons" style="margin-left: 20px;" class="fa fa-files-o"></i></div>
+      <div class="text">Nouveaux cours</div>
+      <div class="sub-text" *ngFor="let wishlists of wishlist | async">{{wishlists}} cours en attente d'approbation
+      </div>
     </div>
   </div>
 </div>

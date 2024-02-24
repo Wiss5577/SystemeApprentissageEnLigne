@@ -24,126 +24,131 @@
         </div>
     </div>
 </div>
+<div>
+    <div class="container register" id="profileform" *ngFor="let professor of profileDetails | async">
+        <div class="row">
+            <div class="col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="textual">Modifier les informations de votre profil </h3>
+                        <small *ngIf="temp === false"
+                            style="font-weight: bold; margin-left: 25%; text-align: center; color: grey;"><b>
+                                {{professor.professorname}},saisir des informations correctes.</b></small>
+                        <small *ngIf="temp === true" style="text-align: center; color: green;"><b>Profil mis à jour avec
+                                succès.</b></small>
 
-<div class="container register" id="profileform">
-    <div class="row">
-        <div class="col-md-9 register-right">
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="textual">Modifier les informations de votre profil </h3>
-                    <small *ngIf="temp === false"
-                        style="font-weight: bold; margin-left: 25%; text-align: center; color: grey;"><b>
-                            {{loggedUser}}, Modifier votre profil ici</b></small>
-                    <small *ngIf="temp === true" style="text-align: center; color: green;"><b>Profil mis à jour avec
-                            succès.</b></small>
-                    <form #Updateform="ngForm" style="margin-top: -15%;" (ngSubmit)="updateProfessorProfile()">
-                        <div class="row register-form">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Nom *" name="professorname"
-                                        [(ngModel)]="professor.professorname" required #professorname="ngModel"
-                                        [class.is-invalid]="professorname.invalid && professorname.touched">
-                                    <small class="text-danger"
-                                        [class.d-none]="professorname.valid || professorname.untouched"><b>Champ
-                                            obligatoire</b></small>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Adresse email *"
-                                        name="professoremail" [(ngModel)]="professor.email" required
-                                        pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #professoremail="ngModel"
-                                        [class.is-invalid]="professoremail.invalid && professoremail.touched">
-                                    <div
-                                        *ngIf="professoremail.errors && (professoremail.invalid && professoremail.touched)">
-                                        <small class="text-danger" *ngIf="professoremail.errors.required"><b>Champ
-                                                obligatoire</b></small>
-                                        <small class="text-danger" *ngIf="professoremail.errors.pattern"><b>Adresse
-                                                email invalide</b></small>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Sexe *" name="professorgender"
-                                        [(ngModel)]="professor.gender" required #professorgender="ngModel"
-                                        [class.is-invalid]="professorgender.invalid && professorgender.touched">
-                                    <small class="text-danger"
-                                        [class.d-none]="professorgender.valid || professorgender.untouched"><b>Champ
-                                            obligatoire</b></small>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" maxlength="10" minlength="10" class="form-control"
-                                        placeholder="Téléphone *" name="professormobile" [(ngModel)]="professor.mobile"
-                                        required #professormobile="ngModel"
-                                        [class.is-invalid]="professormobile.invalid && professormobile.touched">
-                                    <small class="text-danger"
-                                        [class.d-none]="professormobile.valid || professormobile.untouched"><b>Champ
-                                            obligatoire</b></small>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Mot de passe *" name="pwd"
-                                        [(ngModel)]="professor.password" required #professorpassword="ngModel"
-                                        [class.is-invalid]="professorpassword.invalid && professorpassword.touched">
-                                    <div
-                                        *ngIf="professorpassword.errors && professorpassword.invalid && professorpassword.touched">
-                                        <small class="text-danger" *ngIf="professorpassword.errors.required"><b>Champ
-                                                obligatoire</b></small>
+
+                        <form #Updateform="ngForm" style="margin-top: -15%;" (ngSubmit)="updateProfessorProfile()">
+                            <div class="row register-form">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" [value]="professorname"
+                                            name="professorname" [(ngModel)]="professor.professorname" readonly
+                                            #professorname="ngModel"
+                                            [class.is-invalid]="professorname.invalid && professorname.touched">
+
                                     </div>
 
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="professoremail"
+                                            [(ngModel)]="professor.email" readonly
+                                            pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #professoremail="ngModel"
+                                            [class.is-invalid]="professoremail.invalid && professoremail.touched">
+                                        <div
+                                            *ngIf="professoremail.errors && (professoremail.invalid && professoremail.touched)">
+                                            <small class="text-danger" *ngIf="professoremail.errors.required"><b>Champ
+                                                    obligatoire</b></small>
+                                            <small class="text-danger" *ngIf="professoremail.errors.pattern"><b>Adresse
+                                                    email invalide</b></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="professorgender"
+                                            [(ngModel)]="professor.gender" readonly #professorgender="ngModel"
+                                            [class.is-invalid]="professorgender.invalid && professorgender.touched">
+                                        <small class="text-danger"
+                                            [class.d-none]="professorgender.valid || professorgender.untouched"><b>Champ
+                                                obligatoire</b></small>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" maxlength="10" minlength="10" class="form-control"
+                                            name="professormobile" [(ngModel)]="professor.mobile" required
+                                            #professormobile="ngModel"
+                                            [class.is-invalid]="professormobile.invalid && professormobile.touched">
+                                        <small class="text-danger"
+                                            [class.d-none]="professormobile.valid || professormobile.untouched"><b>Champ
+                                                obligatoire</b></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="pwd"
+                                            [(ngModel)]="professor.password" readonly #professorpassword="ngModel"
+                                            [class.is-invalid]="professorpassword.invalid && professorpassword.touched">
+                                        <div
+                                            *ngIf="professorpassword.errors && professorpassword.invalid && professorpassword.touched">
+                                            <small class="text-danger"
+                                                *ngIf="professorpassword.errors.required"><b>Champ
+                                                    obligatoire</b></small>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Nom d'institut *"
+                                            name="institutionname" [(ngModel)]="professor.institutionname" required
+                                            #institutionname="ngModel"
+                                            [class.is-invalid]="institutionname.invalid && institutionname.touched">
+                                        <small class="text-danger"
+                                            [class.d-none]="institutionname.valid || institutionname.untouched"><b>Champ
+                                                obligatoire</b></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Département *"
+                                            name="department" [(ngModel)]="professor.department" required
+                                            #department="ngModel"
+                                            [class.is-invalid]="department.invalid && department.touched">
+                                        <small class="text-danger"
+                                            [class.d-none]="department.valid || department.untouched"><b>Champ
+                                                obligatoire</b></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" placeholder="Années d'expérience *"
+                                            name="experience" [(ngModel)]="professor.experience" required
+                                            #experience="ngModel"
+                                            [class.is-invalid]="experience.invalid && experience.touched">
+                                        <small class="text-danger"
+                                            [class.d-none]="experience.valid || experience.untouched"><b>Champ
+                                                obligatoire</b></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Diplome obtenu *"
+                                            name="degreecompleted" [(ngModel)]="professor.degreecompleted" required
+                                            #degreecompleted="ngModel"
+                                            [class.is-invalid]="degreecompleted.invalid && degreecompleted.touched">
+                                        <small class="text-danger"
+                                            [class.d-none]="degreecompleted.valid || degreecompleted.untouched"><b>Champ
+                                                obligatoire</b></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control"
+                                            placeholder="Confirmer le mot de passe *" name="ConfirmPassword"
+                                            (ngModel)="professor.password" required #professorconfirmPassword="ngModel"
+                                            [class.is-invalid]="professorconfirmPassword.invalid && professorconfirmPassword.touched">
+                                        <small class="text-danger"
+                                            [class.d-none]="(professorconfirmPassword.value == professorpassword.value) || professorconfirmPassword.untouched"><b>Les
+                                                mots de passe saisis ne correspondent pas.</b></small>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Nom d'institut *"
-                                        name="institutionname" [(ngModel)]="professor.institutionname" required
-                                        #institutionname="ngModel"
-                                        [class.is-invalid]="institutionname.invalid && institutionname.touched">
-                                    <small class="text-danger"
-                                        [class.d-none]="institutionname.valid || institutionname.untouched"><b>Champ
-                                            obligatoire</b></small>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Département *"
-                                        name="department" [(ngModel)]="professor.department" required
-                                        #department="ngModel"
-                                        [class.is-invalid]="department.invalid && department.touched">
-                                    <small class="text-danger"
-                                        [class.d-none]="department.valid || department.untouched"><b>Champ
-                                            obligatoire</b></small>
-                                </div>
-                                <div class="form-group">
-                                    <input type="number" class="form-control" placeholder="Années d'expérience *"
-                                        name="experience" [(ngModel)]="professor.experience" required
-                                        #experience="ngModel"
-                                        [class.is-invalid]="experience.invalid && experience.touched">
-                                    <small class="text-danger"
-                                        [class.d-none]="experience.valid || experience.untouched"><b>Champ
-                                            obligatoire</b></small>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Diplome obtenu *"
-                                        name="degreecompleted" [(ngModel)]="professor.degreecompleted" required
-                                        #degreecompleted="ngModel"
-                                        [class.is-invalid]="degreecompleted.invalid && degreecompleted.touched">
-                                    <small class="text-danger"
-                                        [class.d-none]="degreecompleted.valid || degreecompleted.untouched"><b>Champ
-                                            obligatoire</b></small>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control"
-                                        placeholder="Confirmer le mot de passe *" name="ConfirmPassword"
-                                        (ngModel)="professor.password" required #professorconfirmPassword="ngModel"
-                                        [class.is-invalid]="professorconfirmPassword.invalid && professorconfirmPassword.touched">
-                                    <small class="text-danger"
-                                        [class.d-none]="(professorconfirmPassword.value == professorpassword.value) || professorconfirmPassword.untouched"><b>Les
-                                            mots de passe saisis ne correspondent pas.</b></small>
-                                </div>
-                            </div>
-                        </div>
-                        <button [disabled]="Updateform.form.invalid" type="submit"
-                            class="btn registerbtn">Modifier</button>
-                    </form>
+                            <button [disabled]="Updateform.form.invalid" type="submit"
+                                class="btn registerbtn">Modifier</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<app-footer></app-footer>
+    <app-footer></app-footer>

@@ -3,7 +3,7 @@
 
 .sidebar-container {
   position: relative;
-  width: 235px;
+  width: 240px;
   height: 970px;
   left: 0;
   overflow-x: hidden;
@@ -11,6 +11,7 @@
   background: rgb(0, 13, 30);
   color: #fff;
 }
+
 
 .content-container {
   padding-top: 20px;
@@ -33,7 +34,7 @@
   line-height: 20px;
   padding: 20px 15px 30px 20px;
   display: block;
-  margin-top: 8%;
+  margin-top: 6%;
   color: #fff;
   transition: transform .2s;
   -webkit-transition: background-color 1s ease-out;
@@ -158,17 +159,17 @@
 }
 
 .text {
-  font-family: 'aladin';
+  font-family: Georgia, serif;
   letter-spacing: 1px;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: bolder;
   color: black;
 }
 
 .sub-text {
-  font-family: 'aladin';
+  font-family: Georgia, serif;
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color: rgb(244, 29, 34);
 }

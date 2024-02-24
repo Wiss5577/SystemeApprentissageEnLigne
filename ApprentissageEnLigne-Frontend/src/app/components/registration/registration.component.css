@@ -130,3 +130,21 @@ input {
 .form-group {
     margin-bottom: 4%;
 }
+
+.retour1 {
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border-radius: 15px;
+    background-color: rgb(0, 13, 30);
+    cursor: pointer;
+}
+
+.retour2 {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgb(0, 13, 30);
+    cursor: pointer;
+}

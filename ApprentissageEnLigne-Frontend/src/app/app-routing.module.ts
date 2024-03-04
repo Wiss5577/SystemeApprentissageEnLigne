@@ -19,31 +19,33 @@ import { UserdashboardComponent } from './components/userdashboard/userdashboard
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { WelcomepageComponent } from './components/welcomepage/welcomepage.component';
+import { PasswordForgottenComponent } from './password-forgotten/password-forgotten.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ProfessorGuard } from './guards/professor.guard';
 import { RouterGuard } from './guards/router.guard';
 import { UserGuard } from './guards/user.guard';
 
 const routes: Routes = [
-  {path:'',component:WelcomepageComponent},
-  {path:'login',component:LoginComponent},
-  {path:'registration',component:RegistrationComponent},
-  {path:'registrationsuccess',component:RegistrationsuccessComponent},
-  {path:'admindashboard',component:AdmindashboardComponent,canActivate:[AdminGuard]},
-  {path:'userdashboard',component:UserdashboardComponent,canActivate:[UserGuard]},
-  {path:'professordashboard',component:ProfessordashboardComponent,canActivate:[ProfessorGuard]},
-  {path:'addProfessor',component:AddprofessorComponent,canActivate:[AdminGuard]},
-  {path:'addCourse',component:AddcourseComponent,canActivate:[RouterGuard]},
-  {path:'approveprofessor',component:ApprovalstatusComponent,canActivate:[RouterGuard]},
-  {path:'professorlist',component:ProfessorlistComponent,canActivate:[RouterGuard]},
-  {path:'userlist',component:UserlistComponent,canActivate:[RouterGuard]},
-  {path:'courselist',component:CourselistComponent,canActivate:[RouterGuard]},
-  {path:'addchapter',component:AddchapterComponent,canActivate:[RouterGuard]},
-  {path:'fullcourse/:coursename',component:FullcourseComponent,canActivate:[RouterGuard]},
-  {path:'editprofessorprofile',component:ProfessorprofileComponent,canActivate:[ProfessorGuard]},
-  {path:'edituserprofile',component:UserprofileComponent,canActivate:[UserGuard]},
-  {path:'mywishlist',component:MywishlistComponent,canActivate:[RouterGuard]},
-  {path:'mycourses',component:MycoursesComponent,canActivate:[RouterGuard]}
+  { path: '', component: WelcomepageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'registrationsuccess', component: RegistrationsuccessComponent },
+  { path: 'admindashboard', component: AdmindashboardComponent, canActivate: [AdminGuard] },
+  { path: 'userdashboard', component: UserdashboardComponent, canActivate: [UserGuard] },
+  { path: 'professordashboard', component: ProfessordashboardComponent, canActivate: [ProfessorGuard] },
+  { path: 'addProfessor', component: AddprofessorComponent, canActivate: [AdminGuard] },
+  { path: 'addCourse', component: AddcourseComponent, canActivate: [RouterGuard] },
+  { path: 'approveprofessor', component: ApprovalstatusComponent, canActivate: [RouterGuard] },
+  { path: 'professorlist', component: ProfessorlistComponent, canActivate: [RouterGuard] },
+  { path: 'userlist', component: UserlistComponent, canActivate: [RouterGuard] },
+  { path: 'courselist', component: CourselistComponent, canActivate: [RouterGuard] },
+  { path: 'addchapter', component: AddchapterComponent, canActivate: [RouterGuard] },
+  { path: 'fullcourse/:coursename', component: FullcourseComponent, canActivate: [RouterGuard] },
+  { path: 'editprofessorprofile', component: ProfessorprofileComponent, canActivate: [ProfessorGuard] },
+  { path: 'edituserprofile', component: UserprofileComponent, canActivate: [UserGuard] },
+  { path: 'mywishlist', component: MywishlistComponent, canActivate: [RouterGuard] },
+  { path: 'mycourses', component: MycoursesComponent, canActivate: [RouterGuard] },
+  { path: 'pwdforgotten', component: PasswordForgottenComponent }
 ];
 
 @NgModule({

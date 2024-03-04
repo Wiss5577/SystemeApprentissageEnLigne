@@ -149,6 +149,19 @@ public class ProfessorController {
 		return new ResponseEntity<List<String>>(al,HttpStatus.OK);
 	}
 	
+	//!!!!!! Pour envoyer autre demande d'app par prof
+		@GetMapping("/sendrequest/{email}")
+		@CrossOrigin(origins = "http://localhost:4200")
+		public ResponseEntity<List<String>> SendRequest(@PathVariable String email) throws Exception
+		{
+			professorService.SendRequest(email);
+			List<String> al=new ArrayList<>();
+			al.add("pas encore");
+			return new ResponseEntity<List<String>>(al,HttpStatus.OK);
+		}
+	
+	
+	
 	//les info d'un prof
 	@GetMapping("/professorprofileDetails/{email}")
 	@CrossOrigin(origins = "http://localhost:4200")

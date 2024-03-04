@@ -10,68 +10,59 @@ const NAV_URL = environment.apiURL;
 @Injectable({
   providedIn: 'root'
 })
-export class ProfessorService 
-{
-  constructor(private _http : HttpClient) { }
+export class ProfessorService {
+  constructor(private _http: HttpClient) { }
 
-  acceptRequestForProfessorApproval(curremail: string): Observable<any>
-  {
-    return this._http.get<any>(`${NAV_URL}/acceptstatus/`+curremail);
+  acceptRequestForProfessorApproval(curremail: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/acceptstatus/` + curremail);
   }
-  
-  rejectRequestForProfessorApproval(curremail: string): Observable<any> 
-  {
-    return this._http.get<any>(`${NAV_URL}/rejectstatus/`+curremail);
+
+  rejectRequestForProfessorApproval(curremail: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/rejectstatus/` + curremail);
   }
-  
-  getProfessorList() : Observable<any>
-  {
+
+  RequestForProfessorApproval(curremail: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/sendrequest/` + curremail);
+  }
+
+  getProfessorList(): Observable<any> {
     return this._http.get<any>(`${NAV_URL}/professorlist`);
   }
 
-  getYoutubeCourseList() : Observable<any>
-  {
+  getYoutubeCourseList(): Observable<any> {
     return this._http.get<any>(`${NAV_URL}/youtubecourselist`);
   }
 
-  getWebsiteCourseList() : Observable<any>
-  {
+  getWebsiteCourseList(): Observable<any> {
     return this._http.get<any>(`${NAV_URL}/websitecourselist`);
   }
 
-  getCourseListByName(coursename : string) : Observable<any>
-  {
-    return this._http.get<any>(`${NAV_URL}/courselistbyname/`+coursename);
+  getCourseListByName(coursename: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/courselistbyname/` + coursename);
   }
 
-  addCourse(course : Course) : Observable<any>
-  {
-    return this._http.post<any>(`${NAV_URL}/addCourse`,course);
+  addCourse(course: Course): Observable<any> {
+    return this._http.post<any>(`${NAV_URL}/addCourse`, course);
   }
 
-  getProfessorListByEmail(email : string) : Observable<any>
-  {
-    return this._http.get<any>(`${NAV_URL}/professorlistbyemail/`+email);
+  getProfessorListByEmail(email: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/professorlistbyemail/` + email);
   }
 
-  addNewChapters(chapter : Chapter) : Observable<any>
-  {
-    return this._http.post<any>(`${NAV_URL}/addnewchapter`,chapter);
+  addNewChapters(chapter: Chapter): Observable<any> {
+    return this._http.post<any>(`${NAV_URL}/addnewchapter`, chapter);
   }
 
-  getProfileDetails(loggedUser : string) : Observable<any>
-  {
-    return this._http.get(`${NAV_URL}/professorprofileDetails/`+loggedUser);
+  getProfileDetails(loggedUser: string): Observable<any> {
+    return this._http.get(`${NAV_URL}/professorprofileDetails/` + loggedUser);
   }
-  
-  UpdateUserProfile(professor : any):Observable<any>
-  {
-    return this._http.put<any>(`${NAV_URL}/updateprofessor`,professor);
+
+  UpdateUserProfile(professor: any): Observable<any> {
+    return this._http.put<any>(`${NAV_URL}/updateprofessor`, professor);
   }
-  
-  getCourseListNames() : Observable<any>
-  {
+
+  getCourseListNames(): Observable<any> {
     return this._http.get(`${NAV_URL}/getcoursenames/`);
   }
-  
+
 }

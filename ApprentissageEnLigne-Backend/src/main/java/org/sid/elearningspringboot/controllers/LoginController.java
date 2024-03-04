@@ -24,7 +24,7 @@ public class LoginController
 	@GetMapping("/")
     public String welcomeMessage()
     {
-    	return "Welcome to Elearning Management system !!!";
+    	return "Welcome";
     }
 	
 	//login de user
@@ -42,7 +42,7 @@ public class LoginController
 		}
 		if(userObj == null)
 		{
-			throw new Exception("User does not exists!!! Please enter valid credentials...");
+			throw new Exception("User doesnt exist");
 		}		
 		return userObj;
 	}
@@ -62,7 +62,7 @@ public class LoginController
 		}
 		if(professorObj == null)
 		{
-			throw new Exception("Professor does not exists!!! Please enter valid credentials...");
+			throw new Exception("Professor doesnt exist");
 		}		
 		return professorObj;
 	}

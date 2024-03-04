@@ -28,7 +28,8 @@
 
 .logoutbtn:hover {
   cursor: pointer;
-  background: linear-gradient(to bottom, rgb(6, 20, 38) 0%, rgb(0, 13, 30) 100%);
+  color: rgb(0, 13, 30);
+  background: white;
   padding: 5px 10px 5px 10px;
   border-radius: 15px;
 }

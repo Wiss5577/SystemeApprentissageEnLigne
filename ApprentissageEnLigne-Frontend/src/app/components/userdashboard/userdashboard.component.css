@@ -319,17 +319,16 @@
 }
 
 .text {
-  font-family: 'aladin';
-  letter-spacing: 1px;
-  font-size: 35px;
+  font-family: Georgia;
+  letter-spacing: 0.5px;
   font-weight: bolder;
   color: rgb(5, 44, 42);
 }
 
 .sub-text {
-  font-family: 'aladin';
+  font-family: Georgia;
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   color: gray;
 }

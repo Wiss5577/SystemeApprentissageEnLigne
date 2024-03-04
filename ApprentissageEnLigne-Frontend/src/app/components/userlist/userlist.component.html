@@ -1,26 +1,26 @@
 <app-header></app-header>
-
-<div class="heading-text"><b>Liste des utilisateurs</b></div>
+<!---Done-->
+<div class="heading-text"><b>Liste des étudiants inscrits</b></div>
 <div class="row">
     <div *ngFor="let user of users | async" class="col-4 card" id="bloodCards">
         <div class="img-block">
             <div class="circle">
-                <img *ngIf="user.gender === 'Homme' || user.gender === 'Male' || user.gender === 'M'" class="bloodimg"
-                    [src]="'assets/img/maleuser.png'" width="120" height="120">
-                <img *ngIf="user.gender === 'Femme' || user.gender === 'Female'  || user.gender === 'F' "
+                <img *ngIf="user.gender === 'Homme' || user.gender === 'Male' || user.gender === 'homme'"
+                    class="bloodimg" [src]="'assets/img/maleuser.png'" width="120" height="120">
+                <img *ngIf="user.gender === 'Femme' || user.gender === 'Female'  || user.gender === 'femme' "
                     class="bloodimg" [src]="'assets/img/femaleuser.png'" width="120" height="120">
             </div>
         </div>
         <div class="card-block">
             <div class="text"><b style="color: black;"> {{user.username}} </b></div>
             <div class="text"><b style="color: gray;"> {{user.userid}} </b></div>
-            <div class="text"><b style="color: rgb(0, 77, 131);"> {{user.email}} </b></div>
+            <div class="text"><b style="color: rgb(244, 29, 34);"> {{user.email}} </b></div>
             <div class="text"><b style="color: black;"> {{user.profession}} </b></div>
-            <div class="text"><b style="color: black;"> {{user.gender}} </b></div>
+            <div class="text"><b style="color: black;"> {{user.address}} </b></div>
+            <div class="text"><b style="color: rgb(17, 54, 103);"> {{user.univ}} </b></div>
             <div class="text"><b style="color: black;"> {{user.mobile}} </b></div>
         </div>
     </div>
 </div>
 
 <br><br><br>
-<app-footer></app-footer>

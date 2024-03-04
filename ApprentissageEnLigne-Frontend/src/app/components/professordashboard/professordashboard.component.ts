@@ -12,39 +12,42 @@ export class ProfessordashboardComponent implements OnInit {
 
   loggedUser = '';
   currRole = '';
-  courses : Observable<any[]> | undefined;
-  enrollments : Observable<any[]> | undefined;
-  enrollmentcount : Observable<any[]> | undefined;
-  wishlist : Observable<any[]> | undefined;
-  chapters : Observable<any[]> | undefined;
-  
-  constructor(private _service : AdminService) {}
+  Name = '';
+  courses: Observable<any[]> | undefined;
+  enrollments: Observable<any[]> | undefined;
+  enrollmentcount: Observable<any[]> | undefined;
+  wishlist: Observable<any[]> | undefined;
+  chapters: Observable<any[]> | undefined;
 
-  ngOnInit(): void 
-  {
+  constructor(private _service: AdminService) { }
 
-    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
+  ngOnInit(): void {
+
+    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser') || '{}');
     this.loggedUser = this.loggedUser.replace(/"/g, '');
 
-    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
+    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
     this.currRole = this.currRole.replace(/"/g, '');
 
-    $("#btn").click(function(){
+    this.Name = JSON.stringify(sessionStorage.getItem('name') || '{}');
+    this.Name = this.Name.replace(/"/g, '');
+
+    $("#btn").click(function () {
       $(".sidebar").toggleClass("open");
       menuBtnChange();
     });
-    
-    $(".bx-search").click(function(){ 
+
+    $(".bx-search").click(function () {
       $(".sidebar").toggleClass("open");
-      menuBtnChange(); 
+      menuBtnChange();
     });
-    
+
     function menuBtnChange() {
-     if($(".sidebar").hasClass("open")){
-      $("#btn").removeClass("fa-bars").addClass("fa-ellipsis-v");
-     }else {
-      $("#btn").removeClass("fa-ellipsis-v").addClass("fa-bars");
-     }
+      if ($(".sidebar").hasClass("open")) {
+        $("#btn").removeClass("fa-bars").addClass("fa-ellipsis-v");
+      } else {
+        $("#btn").removeClass("fa-ellipsis-v").addClass("fa-bars");
+      }
     }
 
     this.courses = this._service.getTotalCourses();

@@ -7,7 +7,7 @@
 }
 
 thead {
-  background-color: rgb(98, 157, 199);
+  background-color: rgb(0, 13, 30);
   padding: 10px 5px 10px 5px;
 }
 
@@ -44,16 +44,16 @@ td {
 }
 
 .accepted {
-  border: 1px solid black;
+  border: 1px solid rgb(0, 13, 30);
   border-radius: 10px;
-  background-color: rgb(30, 116, 30);
+  background-color: rgb(22, 132, 61);
   padding: 5px 10px 5px 10px;
   color: white;
   font-weight: bolder;
 }
 
 .pending {
-  border: 1px solid black;
+  border: 1px solid rgb(0, 13, 30);
   border-radius: 10px;
   background-color: rgb(196, 137, 28);
   padding: 5px 10px 5px 10px;
@@ -62,9 +62,9 @@ td {
 }
 
 .rejected {
-  border: 1px solid black;
+  border: 1px solid rgb(0, 13, 30);
   border-radius: 10px;
-  background-color: red;
+  background-color: rgb(244, 29, 34);
   padding: 5px 10px 5px 10px;
   color: white;
   font-weight: bolder;
@@ -72,22 +72,21 @@ td {
 
 .date-cover {
   border-radius: 10px;
-  background-color: rgb(14, 9, 58);
   padding: 5px 10px 5px 10px;
-  color: white;
+  color: rgb(0, 13, 30);
   width: auto;
   font-size: 18px;
   font-weight: bolder;
 }
 
 .headercolor {
-  background-color: rgb(98, 157, 199);
+  background-color: grey;
 }
 
 .panel-heading h2 {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 0;
   position: relative;
 }

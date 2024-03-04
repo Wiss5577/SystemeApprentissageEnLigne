@@ -11,9 +11,9 @@
     <!--Espace etudiant-->
 
     <div class="user-login-form">
-      <h2 class="textual">Étudier en ligne</h2>
+      <h4 class="textual">Étudier en ligne</h4>
       <form #userloginform="ngForm" (ngSubmit)="loginUser()">
-        <small class="text-danger"><b>{{msg}}</b></small>
+        <small class="text-danger"><b>{{msg1}}</b></small>
         <div class="form-group">
           <label for="email">Adresse email<b class="text-danger"> *</b></label>
           <input type="email" class="form-control" placeholder="Entrer votre email" name="email"
@@ -36,20 +36,20 @@
           <small style="color: gray; font-size: 10px;"></small>
         </div>
         <div class="checkbox" style="margin-top: 5px;">
-          <small style="color: rgb(0,13,30); margin-left: 30%; cursor: pointer;">Mot de passe oublié ?</small>
+          <small style="color: rgb(0,13,30); margin-left: 30%; cursor: pointer;" [routerLink]="['/pwdforgotten']">Mot de
+            passe oublié ?</small>
         </div>
         <button [disabled]="userloginform.form.invalid" type="submit" class="btn loginbtn">Se connecter</button>
       </form>
       <div class="sign-up" style=" text-align: center; margin-top: 10px;">Vous n'avez pas de compte ?<small
-          [routerLink]="['/registration']" style="color: rgb(0,13,30); text-align: center; cursor: pointer;"><b> Créer
+          [routerLink]="['/registration']" style="color: rgb(5, 111, 111); text-align: center; cursor: pointer;"><b>
+            Créer
             un
             compte</b></small></div>
       <hr>
-      <p class="text-center mt-3"><b>Retour à l'accueil</b></p>
+      <p class="text-center mt-3" style="color : rgb(29, 29, 30)"><b>Retour à l'accueil</b></p>
       <div class="text-center">
-        <div class="logo" [routerLink]="['/']">
-          <b style="font-family: Georgia;color : white" [routerLink]="['/']">StudyStream</b>
-        </div>
+        <button type="submit" [routerLink]="['/']" class="btn" id="logo">StudyStream</button>
       </div>
     </div>
 
@@ -57,9 +57,9 @@
     <!--Espace professeur-->
 
     <div class="professor-login-form">
-      <h2 class="textual">Enseignez en ligne</h2>
+      <h4 class="textual">Enseignez en ligne</h4>
       <form #professorloginform="ngForm" (ngSubmit)="loginProfessor()">
-        <small class="text-danger"><b>{{msg}}</b></small>
+        <small class="text-danger"><b>{{msg2}}</b></small>
         <div class="form-group">
           <label for="email">Adresse email <b class="text-danger">*</b></label>
           <input type="email" class="form-control" placeholder="Entrer votre email" name="professoremail"
@@ -82,19 +82,20 @@
           <small style="color: gray; font-size: 10px;"></small>
         </div>
         <div class="checkbox" style="margin-top: 5px;">
-          <small style="color: rgb(0,13,30); margin-left: 30%; cursor: pointer;">Mot de passe oublié ?</small>
+          <small style="color: rgb(0,13,30); margin-left: 30%; cursor: pointer;" routerLink="/pwdforgotten">Mot de passe
+            oublié ?</small>
         </div>
         <button [disabled]="professorloginform.form.invalid" type="submit" class="btn loginbtn">Se connecter</button>
       </form>
       <div class="sign-up" style=" text-align: center; margin-top: 10px;">Vous n'avez pas de compte ? <small
-          [routerLink]="['/registration']" style="color: rgb(0,13,30); text-align: center; cursor: pointer;"><b>Créer un
+          [routerLink]="['/registration']"
+          style="color: rgb(5, 111, 111); text-align: center; cursor: pointer;"><b>Créer
+            un
             compte</b></small></div>
       <hr>
-      <p class="text-center mt-3"><b>Retour à l'accueil</b></p>
+      <p class="text-center mt-3" style="color : rgb(29, 29, 30)"><b>Retour à l'accueil</b></p>
       <div class="text-center">
-        <div class="logo" [routerLink]="['/']">
-          <b style="font-family: Georgia;color : white" [routerLink]="['/']">StudyStream</b>
-        </div>
+        <button type="submit" [routerLink]="['/']" class="btn" id="logo">StudyStream</button>
       </div>
     </div>
 
@@ -103,9 +104,9 @@
     <!--Espace manager-->
 
     <div class="admin-login-form">
-      <h2 class="textual">Espace Manager</h2>
+      <h4 class="textual">Espace Manager</h4>
       <form #adminloginform="ngForm" (ngSubmit)="adminLogin()">
-        <small class="text-danger"><b>{{msg}}</b></small>
+        <small class="text-danger"><b>{{msg3}}</b></small>
         <div class="form-group">
           <label for="email"> Identifiant <b class="text-danger">*</b></label>
           <input type="email" class="form-control" placeholder="Entrer votre identifiant" name="email"
@@ -131,11 +132,9 @@
         <button [disabled]="adminloginform.form.invalid" type="submit" class="btn loginbtn">Se connecter</button>
       </form>
       <hr>
-      <p class="text-center mt-3"><b>Retour à l'accueil</b></p>
+      <p class="text-center mt-3" style="color : rgb(29, 29, 30)"><b>Retour à l'accueil</b></p>
       <div class="text-center">
-        <div class="logo" [routerLink]="['/']">
-          <b style="font-family: Georgia;color : white" [routerLink]="['/']">StudyStream</b>
-        </div>
+        <button type="submit" [routerLink]="['/']" class="btn" id="logo">StudyStream</button>
       </div>
       <br>
     </div>
@@ -143,4 +142,3 @@
 
 
   </div>
-  <app-footer></app-footer>

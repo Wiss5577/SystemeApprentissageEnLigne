@@ -31,4 +31,8 @@ public interface ProfessorRepository extends CrudRepository<Professor, String>
 	@Query(value = "update professor set status = 'reject' where email = ?1", nativeQuery = true)
 	public void rejectStatus(String email);
 	
+	@Transactional
+	@Modifying
+	@Query(value = "update professor set status = 'att' where email = ?1", nativeQuery = true)
+	public void SendRequest(String email);
 }

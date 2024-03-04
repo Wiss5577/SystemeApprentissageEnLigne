@@ -1,6 +1,6 @@
 <app-header></app-header>
-
-<div class="heading-text"><b>Liste des professeurs</b></div>
+<!-- Done tqriban-->
+<div class="heading-text"><b>Liste des enseignants</b></div>
 <div class="row">
     <div *ngFor="let professor of professorlist | async" class="col-4 card" id="bloodCards">
         <div class="img-block">
@@ -12,22 +12,23 @@
             </div>
         </div>
         <div class="card-block">
-            <div class="text"><b style="color: rgb(0, 77, 131)">ID Professeur ID : </b><b style="color: black;"><small
+            <div class="text"><b style="color: rgb(0, 77, 131)">Professeur ID : </b><b style="color: black;"><small
                         class="date-cover">{{professor.professorid}}</small></b></div>
             <div class="text"><b style="color: rgb(0, 77, 131)">Nom Professeur : </b><b style="color: black;">
                     {{professor.professorname}} </b></div>
-            <div class="text"><b style="color: rgb(0, 77, 131)">Diplome obtenu : </b><b style="color: black;">
+            <div class="text"><b style="color: rgb(0, 77, 131)">Diplôme obtenu : </b><b style="color: black;">
                     {{professor.degreecompleted}} </b></div>
             <div class="text"><b style="color: rgb(0, 77, 131)">Email : </b><b style="color: black;">
                     {{professor.email}} </b></div>
+            <div class="text"><b style="color: rgb(0, 77, 131)">Université : </b><b style="color: black;">
+                    {{professor.univ}} </b></div>
             <div class="text"><b style="color: rgb(0, 77, 131)">Nom d'institut : </b><b style="color: black;">
                     {{professor.institutionname}} </b></div>
             <div class="text"><b style="color: rgb(0, 77, 131)">Département : </b><b style="color: black;">
                     {{professor.department}} </b></div>
             <div class="text"><b style="color: rgb(0, 77, 131)">Expérience : </b><b style="color: black;">
                     {{professor.experience}} years </b></div>
-            <div class="text"><b style="color: rgb(0, 77, 131)">Sexe : </b><b style="color: black;">
-                    {{professor.gender}} </b></div>
+
             <div class="text"><b style="color: rgb(0, 77, 131)">Téléphone : </b><b style="color: black;">
                     {{professor.mobile}} </b></div>
             <div *ngIf="professor.status === 'accept'">
@@ -36,11 +37,10 @@
             <div *ngIf="professor.status === 'reject'">
                 <div class="status-btn2">Rejeté</div>
             </div>
-            <div *ngIf="professor.status === 'false'">
-                <div class="status-btn1">Approbation en Attente</div>
+            <div *ngIf="professor.status === 'att'">
+                <div class="status-btn1">En attente</div>
             </div>
         </div>
     </div>
 </div>
 <br><br><br>
-<app-footer></app-footer>

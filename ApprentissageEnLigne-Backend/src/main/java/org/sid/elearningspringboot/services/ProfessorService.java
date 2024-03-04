@@ -66,6 +66,10 @@ public class ProfessorService
 	{
 		professorRepo.rejectStatus(email);
 	}
+	public void SendRequest(String email) 
+	{
+		professorRepo.SendRequest(email);
+	}
 
 	public List<Professor> getProfessorsByEmail(String email)
 	{

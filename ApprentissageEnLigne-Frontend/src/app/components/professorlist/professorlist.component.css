@@ -107,10 +107,10 @@
 
 .heading-text {
   font-weight: bolder;
-  font-size: 40px;
-  margin-top: 2%;
-  color: red;
-  font-family: 'Aladin', cursive;
+  font-size: 25px;
+  margin-top: 1%;
+  color: rgb(244, 29, 34);
+  font-family: Georgia;
   letter-spacing: 1px;
   margin-left: 36%;
 }

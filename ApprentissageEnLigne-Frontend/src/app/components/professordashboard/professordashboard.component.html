@@ -1,5 +1,7 @@
 <app-header></app-header>
 
+<!--Professor SideBar-->
+
 <div class="sidebar">
   <div class="logo-details">
     <i class='fa fa-bars'></i>
@@ -10,32 +12,40 @@
     <li [routerLink]="['/editprofessorprofile']">
       <a>
         <i class='fa fa-edit'></i>
-        <span class="links_name">Modifier mon profil</span>
+        <span class="links_name">Modifier mon profil !</span>
       </a>
       <span class="tooltip">Modifier Mon Profil</span>
     </li>
     <li [routerLink]="['/approveprofessor']">
       <a>
         <i class='fa fa-check-square'></i>
-        <span class="links_name">Statut d'approbation</span>
+        <span class="links_name">Statut</span>
       </a>
-      <span class="tooltip">Statut d'approbation</span>
+      <span class="tooltip">Statut</span>
     </li>
     <li [routerLink]="['/addCourse']">
       <a>
         <i class='fa fa-plus-square'></i>
-        <span class="links_name">Ajouter cours</span>
+        <span class="links_name">Ajouter cours !</span>
       </a>
       <span class="tooltip">Ajouter cours</span>
     </li>
+    <!--!!!!!-->
     <li [routerLink]="['/mycoursesprof']">
       <a>
         <i class='fa fa-th-list'></i>
-        <span class="links_name">Mes cours</span>
+        <span class="links_name">Mes cours ?</span>
       </a>
       <span class="tooltip">Mes cours</span>
     </li>
-
+    <!---!!!!!!!-->
+    <li [routerLink]="['/courseslist']">
+      <a>
+        <i class='fa fa-table'></i>
+        <span class="links_name">Cours ?</span>
+      </a>
+      <span class="tooltip">Cours</span>
+    </li>
     <li [routerLink]="['/professorlist']">
       <a>
         <i class='fa fa-user-o'></i>
@@ -50,13 +60,7 @@
       </a>
       <span class="tooltip">Étudiants</span>
     </li>
-    <li [routerLink]="['/addchapter']">
-      <a>
-        <i class='fa fa-lock'></i>
-        <span class="links_name">Changer mot de passe</span>
-      </a>
-      <span class="tooltip">Changer mot de passe</span>
-    </li>
+
     <li style="align-content: center;" class="profile">
       <div class="profile-details">
         <div class="name_job">
@@ -72,7 +76,7 @@
 
 
 
-
+<!--Home Professor-->
 
 <div class="home-section">
   <div class="container">
@@ -81,7 +85,7 @@
       <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
         <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-th-list"></i></div>
         <div class="text"
-          style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
+          style="font-family: Georgia; letter-spacing: 1px; font-size: 25px; font-weight: bolder; color: black;">
           Mes cours</div>
         <div class="sub-text" *ngFor="let course of courses | async">{{course}} cours ajoutés par moi</div>
       </div>
@@ -89,7 +93,7 @@
       <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
         <div class="circle"><i id="icons" style="margin-left: 23px;" class="fa fa-list-alt"></i></div>
         <div class="text"
-          style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
+          style="font-family: Georgia; letter-spacing: 1px; font-size: 25px; font-weight: bolder; color: black;">
           Inscriptions</div>
         <div class="sub-text" *ngFor="let count of enrollmentcount | async">{{count}} se sont inscrites à mes cours
         </div>
@@ -98,7 +102,7 @@
       <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
         <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-trophy"></i></div>
         <div class="text"
-          style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
+          style="font-family: Georgia; letter-spacing: 1px; font-size: 25px; font-weight: bolder; color: black;">
           Likes</div>
         <div class="sub-text" *ngFor="let course of courses | async">{{course}} ont aimé mes cours</div>
       </div>
@@ -107,7 +111,7 @@
       <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
         <div class="circle"><i id="icons" style="margin-left: 15px;" class="fa fa-graduation-cap"></i></div>
         <div class="text"
-          style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
+          style="font-family: Georgia; letter-spacing: 1px; font-size: 25px; font-weight: bolder; color: black;">
           Mes cours</div>
         <div class="sub-text" *ngFor="let count of enrollmentcount | async">{{count}} Inscriptions
         </div>
@@ -117,5 +121,3 @@
 
     </div>
   </div>
-  <br><br><br><br><br><br>
-  <app-footer></app-footer>

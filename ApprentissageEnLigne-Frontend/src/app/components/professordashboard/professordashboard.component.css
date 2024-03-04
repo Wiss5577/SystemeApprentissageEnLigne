@@ -6,6 +6,7 @@
   bottom: 0;
   left: 0;
   top: 0;
+  bottom: 0;
   height: 100%;
   width: 78px;
   background: rgb(0, 13, 30);
@@ -320,7 +321,7 @@
 }
 
 .text {
-  font-family: 'aladin';
+  font-family: Georgia;
   letter-spacing: 1px;
   font-size: 35px;
   font-weight: bolder;
@@ -328,9 +329,9 @@
 }
 
 .sub-text {
-  font-family: 'aladin';
+  font-family: Georgia;
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   color: gray;
 }

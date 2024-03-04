@@ -22,8 +22,8 @@
 
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="register-heading">Inscription en tant qu'étudiant</h3>
                     <br>
+                    <h4 class="register-heading">Inscription en tant qu'étudiant</h4>
                     <form #userform="ngForm" (ngSubmit)="registerUser()">
                         <div class="row register-form">
                             <div class="col-md-6">
@@ -51,7 +51,6 @@
                                         [class.d-none]="usergender.valid || usergender.untouched"><b>Champ
                                             obligatoire</b></small>
                                 </div>
-
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Votre profession *"
                                         name="userprofession" [(ngModel)]="user.profession" required
@@ -126,11 +125,14 @@
                             style="margin-top: -3%; margin-left: 58.5%; margin-bottom: 3%; color: rgb(0, 0, 0); font-size: 16px;">
                             Avez-vous déjà un compte ?
                             <small [routerLink]="['/login']"
-                                style="color: rgb(244, 29, 34); text-align: center; cursor: pointer;"><b>Cliquer
+                                style="color: rgb(5, 111, 111); text-align: center; cursor: pointer;"><b>Cliquer
                                     ici</b></small>
                         </div>
-                        <button [disabled]="userform.form.invalid" type="submit" class="btnRegister">S'inscrire</button>
-                        <button class="retour1" [routerLink]="['/']"><i class="fa fa-sign-out"></i></button>
+                        <div id="logo">
+                            <button type="submit" [routerLink]="['/']" class="btnRegister">Retour à l'accueil</button>
+                            <button [disabled]="userform.form.invalid" type="submit"
+                                class="btnRegister">S'inscrire</button>
+                        </div>
                     </form>
                 </div>
 
@@ -141,7 +143,8 @@
 
 
                 <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <h3 class="register-heading">Inscription en tant que professeur</h3>
+                    <br>
+                    <h4 class="register-heading">Inscription en tant que professeur</h4>
                     <form #professorform="ngForm" (ngSubmit)="registerProfessor()">
                         <div class="row register-form">
                             <div class="col-md-6">
@@ -261,12 +264,15 @@
                             style="margin-top: -3%; margin-left: 58.5%; margin-bottom: 3%; color: rgb(0, 0, 0); font-size: 16px;">
                             Avez-vous déjà un compte ?
                             <small [routerLink]="['/login']"
-                                style="color: rgb(244, 29, 34); text-align: center; cursor: pointer;"><b>Cliquer
+                                style="color: rgb(5, 111, 111); text-align: center; cursor: pointer;"><b>Cliquer
                                     ici</b></small>
                         </div>
-                        <button [disabled]="professorform.form.invalid" type="submit"
-                            class="btnRegister">S'inscrire</button> <br>
-                        <span class="retour2" [routerLink]="['/']"><i class="fa fa-sign-out"></i></span>
+                        <div id="logo">
+
+                            <button type="submit" [routerLink]="['/']" class="btnRegister">Retour à l'accueil</button>
+                            <button [disabled]="professorform.form.invalid" type="submit"
+                                class="btnRegister">S'inscrire</button>
+                        </div>
                     </form>
                 </div>
             </div>

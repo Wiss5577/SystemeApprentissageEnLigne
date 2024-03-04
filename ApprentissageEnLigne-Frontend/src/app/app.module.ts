@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -29,6 +28,7 @@ import { AddchapterComponent } from './components/addchapter/addchapter.componen
 import { MycoursesComponent } from './components/mycourses/mycourses.component';
 import { MywishlistComponent } from './components/mywishlist/mywishlist.component';
 import { WelcomepageComponent } from './components/welcomepage/welcomepage.component';
+import { PasswordForgottenComponent } from './password-forgotten/password-forgotten.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,8 @@ import { WelcomepageComponent } from './components/welcomepage/welcomepage.compo
     AddchapterComponent,
     MycoursesComponent,
     MywishlistComponent,
-    WelcomepageComponent
+    WelcomepageComponent,
+    PasswordForgottenComponent
   ],
   imports: [
     BrowserModule,

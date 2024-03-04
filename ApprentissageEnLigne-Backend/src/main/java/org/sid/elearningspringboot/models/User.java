@@ -20,15 +20,15 @@ public class User{
 	//id : email string ! 
 	@Id
 	private String email;
-	
-	
 	private String username;
 	private String userid;
 	private String mobile;
 	private String gender;
 	private String profession;
 	private String address;
+	private String univ;
 	private String password;
+
 
 	//rls entre user et insc (user 1---lancer--- 1..n insc)
 	
@@ -111,4 +111,15 @@ public class User{
 	{
 		this.password = password;
 	}
+
+	public String getUniv() {
+		return univ;
+	}
+
+	public void setUniv(String univ) {
+		this.univ = univ;
+	}
+
+
+	
 }

@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
 
   user = new User();
   professor = new Professor();
-  msg = "";
+  msg1 = "";
+  msg2 = "";
+  msg3 = "";
   adminEmail = "";
   adminPassword = "";
 
@@ -73,13 +75,12 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('loggedUser', this.user.email);
         sessionStorage.setItem('USER', "user");
         sessionStorage.setItem('ROLE', "user");
-        sessionStorage.setItem('name', this.user.email);
-        sessionStorage.setItem('gender', "male");
+        sessionStorage.setItem('name', this.user.username);
         this._router.navigate(['/userdashboard']);
       },
       (error: { error: any; }) => {
         console.log(error.error);
-        this.msg = "L'email ou le mot de passe que vous avez entré est incorrect.";
+        this.msg1 = "L'email ou le mot de passe que vous avez entré est incorrect.";
       }
     )
   }
@@ -94,12 +95,12 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('USER', "professor");
         sessionStorage.setItem('ROLE', "professor");
         sessionStorage.setItem('professorname', this.professor.email);
-        sessionStorage.setItem('gender', "male");
+        sessionStorage.setItem('name', this.professor.professorname);
         this._router.navigate(['/professordashboard']);
       },
       (error: { error: any; }) => {
         console.log(error.error);
-        this.msg = "L'email ou le mot de passe que vous avez entré est incorrect.";
+        this.msg2 = "L'email ou le mot de passe que vous avez entré est incorrect.";
       }
     )
   }
@@ -114,7 +115,7 @@ export class LoginComponent implements OnInit {
     }
     else {
       console.log("Exception Occured");
-      this.msg = 'Etes-vous vraiment le manager?';
+      this.msg3 = 'Etes-vous vraiment un manager?';
     }
   }
 

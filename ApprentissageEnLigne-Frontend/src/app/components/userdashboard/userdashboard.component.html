@@ -70,7 +70,7 @@
   </ul>
 </div>
 
-
+<!--Home-->
 
 <div class="home-section">
   <div class="container">
@@ -79,7 +79,7 @@
       <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
         <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-trophy"></i></div>
         <div class="text"
-          style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
+          style="font-family: Georgia; letter-spacing: 1px; font-size: 25px; font-weight: bolder; color: black;">
           Cours</div>
         <div class="sub-text" *ngFor="let course of courses | async">{{course}} Cours disponibles </div>
       </div>
@@ -88,10 +88,9 @@
       <div class="dashboard-card" style="background-color: white;box-shadow: 2px 2px 2px 2px gray;">
         <div class="circle"><i id="icons" style="margin-left: 20px;" class="fa fa-list"></i></div>
         <div class="text"
-          style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
+          style="font-family: Georgia; letter-spacing: 1px; font-size: 25px; font-weight: bolder; color: black;">
           Chapitres</div>
-        <div class="sub-text" *ngFor="let chapter of chapters | async">{{chapter}} Cours disponibles avec des
-          <br>chapitres
+        <div class="sub-text" *ngFor="let chapter of chapters | async">{{chapter}} Cours disponibles avec des chapitres
           détaillés
         </div>
       </div>
@@ -99,7 +98,7 @@
       <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
         <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-id-card-o "></i></div>
         <div class="text"
-          style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">
+          style="font-family: Georgia; letter-spacing: 1px; font-size: 25px; font-weight: bolder; color: black;">
           Inscriptions</div>
         <div class="sub-text" *ngFor="let course of courses | async">Je me suis inscrit à {{course}} cours</div>
       </div>
@@ -107,8 +106,7 @@
 
       <div class="dashboard-card" style="background-color: white;box-shadow: 2px 2px 2px 2px gray;">
         <div class="circle"><i id="icons" style="margin-left: 20px;" class="fa fa-check"></i></div>
-        <div class="text"
-          style="font-family: 'aladin'; letter-spacing: 1px; font-size: 35px; font-weight: bolder; color: black;">Cours
+        <div class="text" style="font-family: Georgia;font-size: 25px; font-weight: bolder; color: black;">Cours
           terminés</div>
         <div class="sub-text" *ngFor="let chapter of chapters | async">J'ai terminé {{chapter}} cours</div>
       </div>
@@ -117,5 +115,3 @@
 
 
   </div>
-  <br> <br> <br>
-  <app-footer></app-footer>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Professor } from 'src/app/models/professor';
 import { ProfessorService } from 'src/app/services/professor.service';
 
@@ -11,8 +10,7 @@ import { ProfessorService } from 'src/app/services/professor.service';
 })
 export class ProfessorprofileComponent implements OnInit {
 
-  profileDetails: Observable<Professor[]> | undefined;
-  professor: Professor = new Professor;
+  professor: Professor = new Professor();
   msg = ' ';
   currRole = '';
   loggedUser = '';
@@ -27,8 +25,9 @@ export class ProfessorprofileComponent implements OnInit {
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
     this.currRole = this.currRole.replace(/"/g, '');
 
-    $("#profilecard").show();
-    $("#profileform").hide();
+    $("#profilecard").hide();
+    $("#profileform").show();
+
     this.getProfileDetails(this.loggedUser);
   }
 
@@ -39,12 +38,14 @@ export class ProfessorprofileComponent implements OnInit {
 
 
   getProfileDetails(loggedUser: string) {
-    this.profileDetails = this._service.getProfileDetails(this.loggedUser);
-    console.log(this.profileDetails);
+    this._service.getProfileDetails(this.loggedUser).subscribe(data => {
+      this.professor = data;
+    })
+    console.log(this.professor);
   }
 
-
-  updateProfessorProfile() {
+  UpdateProfessor() {
+    console.log(this.professor);
     this._service.UpdateUserProfile(this.professor).subscribe(
       data => {
         console.log("Professor Profile Updated succesfully");
@@ -64,6 +65,10 @@ export class ProfessorprofileComponent implements OnInit {
         this.msg = "Profile Updation Failed !!!";
       }
     )
+  }
+
+  updateProfessorProfile() {
+
   }
 
 }

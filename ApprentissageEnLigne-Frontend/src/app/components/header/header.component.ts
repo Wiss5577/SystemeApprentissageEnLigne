@@ -21,6 +21,8 @@ export class HeaderComponent implements OnInit {
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
     this.currRole = this.currRole.replace(/"/g, '');
 
+
+
     if (this.loggedUser === "admin@gmail.com") {
       this.title = "";
     }

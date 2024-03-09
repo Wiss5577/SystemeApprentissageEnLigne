@@ -52,9 +52,9 @@ public class ProfessorService
 		return professorRepo.findByEmailAndPassword(email, password);
 	}
 	
-	public List<Professor> fetchProfileByEmail(String email)
+	public Professor fetchProfileByEmail(String email)
 	{
-		return (List<Professor>)professorRepo.findProfileByEmail(email);
+		return professorRepo.findProfileByEmail(email);
 	}
 
 	public void updateStatus(String email) 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { Observable } from 'rxjs';
 import { AdminService } from 'src/app/services/admin.service';
+import { Professor } from 'src/app/models/professor';
+
 
 @Component({
   selector: 'app-professordashboard',
@@ -13,6 +15,7 @@ export class ProfessordashboardComponent implements OnInit {
   loggedUser = '';
   currRole = '';
   Name = '';
+  professor: Professor = new Professor;
   courses: Observable<any[]> | undefined;
   enrollments: Observable<any[]> | undefined;
   enrollmentcount: Observable<any[]> | undefined;

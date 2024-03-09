@@ -29,6 +29,9 @@ import { MycoursesComponent } from './components/mycourses/mycourses.component';
 import { MywishlistComponent } from './components/mywishlist/mywishlist.component';
 import { WelcomepageComponent } from './components/welcomepage/welcomepage.component';
 import { PasswordForgottenComponent } from './password-forgotten/password-forgotten.component';
+import { AddedcoursesComponent } from './components/addedcourses/addedcourses.component';
+import { MyinscComponent } from './components/myinsc/myinsc.component';
+import { StudentsinscComponent } from './components/studentsinsc/studentsinsc.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { PasswordForgottenComponent } from './password-forgotten/password-forgot
     MycoursesComponent,
     MywishlistComponent,
     WelcomepageComponent,
-    PasswordForgottenComponent
+    PasswordForgottenComponent,
+    AddedcoursesComponent,
+    MyinscComponent,
+    StudentsinscComponent
   ],
   imports: [
     BrowserModule,

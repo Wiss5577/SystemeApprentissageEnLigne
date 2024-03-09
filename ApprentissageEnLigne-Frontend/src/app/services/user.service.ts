@@ -13,76 +13,64 @@ const NAV_URL = environment.apiURL;
 })
 export class UserService {
 
-  constructor(private _http : HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
-  getAllUsers() : Observable<any>
-  {
+  getAllUsers(): Observable<any> {
     return this._http.get<any>(`${NAV_URL}/userlist`);
   }
 
-  getYoutubeCourseList() : Observable<any>
-  {
+  getYoutubeCourseList(): Observable<any> {
     return this._http.get<any>(`${NAV_URL}/youtubecourselist`);
   }
 
-  getWebsiteCourseList() : Observable<any>
-  {
+  getWebsiteCourseList(): Observable<any> {
     return this._http.get<any>(`${NAV_URL}/websitecourselist`);
   }
 
-  getCourseListByName(coursename : string) : Observable<any>
-  {
-    return this._http.get<any>(`${NAV_URL}/courselistbyname/`+coursename);
+  getCourseListByName(coursename: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/courselistbyname/` + coursename);
   }
 
-  enrollNewCourse(enrollment : Enrollment, loggedUser : string, currRole : string) : Observable<any>
-  {
-    return this._http.post<any>(`${NAV_URL}/enrollnewcourse/`+loggedUser+"/"+currRole,enrollment);
+  enrollNewCourse(enrollment: Enrollment, loggedUser: string, currRole: string): Observable<any> {
+    return this._http.post<any>(`${NAV_URL}/enrollnewcourse/` + loggedUser + "/" + currRole, enrollment);
   }
 
-  addToWishlist(wishlist : Wishlist) : Observable<any>
-  {
-    return this._http.post<any>(`${NAV_URL}/addtowishlist`,wishlist);
+  addToWishlist(wishlist: Wishlist): Observable<any> {
+    return this._http.post<any>(`${NAV_URL}/addtowishlist`, wishlist);
   }
 
-  getEnrollmentStatus(coursename : string, loggedUser : string, currRole : string) : Observable<any>
-  {
-    return this._http.get<any>(`${NAV_URL}/getenrollmentstatus/`+coursename+"/"+loggedUser+"/"+currRole);
+  getEnrollmentStatus(coursename: string, loggedUser: string, currRole: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/getenrollmentstatus/` + coursename + "/" + loggedUser + "/" + currRole);
   }
 
-  getEnrollmentByEmail(loggedUser : string, currRole : string) : Observable<any>
-  {
-    return this._http.get<any>(`${NAV_URL}/getenrollmentbyemail/`+loggedUser+"/"+currRole);
+  getEnrollmentByEmail(loggedUser: string, currRole: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/getenrollmentbyemail/` + loggedUser + "/" + currRole);
   }
 
-  getWishlistStatus(coursename : string, loggedUser : string) : Observable<any>
-  {
-    return this._http.get<any>(`${NAV_URL}/getwishliststatus/`+coursename+"/"+loggedUser);
+  getWishlistStatus(coursename: string, loggedUser: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/getwishliststatus/` + coursename + "/" + loggedUser);
   }
 
-  getWishlistByEmail(loggedUser : string) : Observable<any>
-  {
-    return this._http.get<any>(`${NAV_URL}/getwishlistbyemail/`+loggedUser);
+  getWishlistByEmail(loggedUser: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/getwishlistbyemail/` + loggedUser);
   }
 
-  getAllWishlist() : Observable<any>
-  {
+  getAllWishlist(): Observable<any> {
     return this._http.get<any>(`${NAV_URL}/getallwishlist`);
   }
 
-  getChappterListByCourseName(coursename : string) : Observable<any>
-  {
-    return this._http.get<any>(`${NAV_URL}/getchapterlistbycoursename/`+coursename);
+  getChappterListByCourseName(coursename: string): Observable<any> {
+    return this._http.get<any>(`${NAV_URL}/getchapterlistbycoursename/` + coursename);
   }
 
-  getProfileDetails(loggedUser : string) : Observable<any>
-  {
-    return this._http.get(`${NAV_URL}/userprofileDetails/`+loggedUser);
+  getProfileDetails(loggedUser: string): Observable<any> {
+    return this._http.get(`${NAV_URL}/userprofileDetails/` + loggedUser);
   }
-  
-  UpdateUserProfile(user : any):Observable<any>
-  {
-    return this._http.put<any>(`${NAV_URL}/updateuser`,user);
+
+  UpdateUserProfile(user: any): Observable<any> {
+    return this._http.put<any>(`${NAV_URL}/updateuser`, user);
   }
+
+
 
 }

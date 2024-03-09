@@ -19,7 +19,7 @@ public interface ProfessorRepository extends CrudRepository<Professor, String>
 	
 	public Professor findByEmailAndPassword(String email, String password);
 	
-	public List<Professor> findProfileByEmail(String email);
+	public Professor findProfileByEmail(String email);
 	
 	@Transactional
 	@Modifying
@@ -35,4 +35,5 @@ public interface ProfessorRepository extends CrudRepository<Professor, String>
 	@Modifying
 	@Query(value = "update professor set status = 'att' where email = ?1", nativeQuery = true)
 	public void SendRequest(String email);
+	
 }

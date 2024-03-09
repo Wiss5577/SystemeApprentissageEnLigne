@@ -3,7 +3,7 @@
 
 
     <button class="headbtn1" id="userbtn">Étudiant</button>
-    <button class="headbtn2" id="professorbtn">Professeur</button>
+    <button class="headbtn2" id="professorbtn">Enseignant</button>
     <button class="headbtn3" id="adminbtn">Manager</button>
 
 
@@ -47,9 +47,8 @@
             un
             compte</b></small></div>
       <hr>
-      <p class="text-center mt-3" style="color : rgb(29, 29, 30)"><b>Retour à l'accueil</b></p>
       <div class="text-center">
-        <button type="submit" [routerLink]="['/']" class="btn" id="logo">StudyStream</button>
+        <button type="submit" [routerLink]="['/']" class="btn" id="logo">Retour à l'accueil</button>
       </div>
     </div>
 
@@ -57,7 +56,7 @@
     <!--Espace professeur-->
 
     <div class="professor-login-form">
-      <h4 class="textual">Enseignez en ligne</h4>
+      <h4 class="textual">Enseigner en ligne</h4>
       <form #professorloginform="ngForm" (ngSubmit)="loginProfessor()">
         <small class="text-danger"><b>{{msg2}}</b></small>
         <div class="form-group">
@@ -93,9 +92,8 @@
             un
             compte</b></small></div>
       <hr>
-      <p class="text-center mt-3" style="color : rgb(29, 29, 30)"><b>Retour à l'accueil</b></p>
       <div class="text-center">
-        <button type="submit" [routerLink]="['/']" class="btn" id="logo">StudyStream</button>
+        <button type="submit" [routerLink]="['/']" class="btn" id="logo">Retour à l'accueil</button>
       </div>
     </div>
 
@@ -132,9 +130,8 @@
         <button [disabled]="adminloginform.form.invalid" type="submit" class="btn loginbtn">Se connecter</button>
       </form>
       <hr>
-      <p class="text-center mt-3" style="color : rgb(29, 29, 30)"><b>Retour à l'accueil</b></p>
       <div class="text-center">
-        <button type="submit" [routerLink]="['/']" class="btn" id="logo">StudyStream</button>
+        <button type="submit" [routerLink]="['/']" class="btn" id="logo">Retour à l'accueil</button>
       </div>
       <br>
     </div>

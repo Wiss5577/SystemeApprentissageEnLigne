@@ -64,7 +64,7 @@ export class ApprovalstatusComponent implements OnInit {
     this._service.RequestForProfessorApproval(curremail)
       .subscribe((response) => {
         console.log('Response from server:', response);
-        this._router.navigate(['/approveprofessor']);
+        this.approval = this._service.getProfessorListByEmail(this.loggedUser);
       }, (error) => {
         console.error('Error occurred:', error);
       });

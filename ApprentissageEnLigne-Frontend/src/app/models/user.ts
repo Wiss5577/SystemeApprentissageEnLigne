@@ -9,6 +9,8 @@ export class User {
     address: string = '';
     univ: string = '';
     password: string = '';
-
-    constructor() { }
+    level: string = '';
+    pic: string = '';
+    constructor() {
+    }
 }

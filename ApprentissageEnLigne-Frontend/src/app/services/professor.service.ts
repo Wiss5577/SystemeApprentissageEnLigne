@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Chapter } from '../models/chapter';
 import { Course } from '../models/course';
+import { Professor } from '../models/professor';
 
 const NAV_URL = environment.apiURL;
 
@@ -53,12 +54,13 @@ export class ProfessorService {
     return this._http.post<any>(`${NAV_URL}/addnewchapter`, chapter);
   }
 
-  getProfileDetails(loggedUser: string): Observable<any> {
-    return this._http.get(`${NAV_URL}/professorprofileDetails/` + loggedUser);
+  getProfileDetails(loggedUser: string): Observable<Professor> {
+    const url = `${NAV_URL}/professorprofileDetails/`;
+    return this._http.get<Professor>(url + loggedUser);
   }
 
-  UpdateUserProfile(professor: any): Observable<any> {
-    return this._http.put<any>(`${NAV_URL}/updateprofessor`, professor);
+  UpdateUserProfile(professor: Professor): Observable<Professor> {
+    return this._http.put<Professor>(`${NAV_URL}/updateprofessor`, professor);
   }
 
   getCourseListNames(): Observable<any> {

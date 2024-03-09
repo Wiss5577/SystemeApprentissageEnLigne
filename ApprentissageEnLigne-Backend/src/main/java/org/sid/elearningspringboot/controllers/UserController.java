@@ -1,5 +1,7 @@
 package org.sid.elearningspringboot.controllers;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -317,5 +319,21 @@ public class UserController
 		enrollmentsCount.add(enrollments.size());
 		return new ResponseEntity<List<Integer>>(enrollmentsCount, HttpStatus.OK);
 	}
+	
+	//convertir l'url de pic
+	@GetMapping("/getPicUser/{email}")
+    public byte[] getPicUser(@PathVariable String email) throws Exception {
+        // Récupérer l'utilisateur par email
+        User user = (User) userService.fetchProfileByEmail(email);
+        
+        // Vérifier si l'utilisateur et son image existent
+        if (user != null && user.getPic() != null) {
+            // Lire les octets de l'image à partir du chemin spécifié
+            return Files.readAllBytes(Paths.get("/chemin/vers/votre/dossier/Images/" + user.getPic()));
+        } else {
+            // Gérer le cas où l'utilisateur ou son image n'existent pas
+            throw new Exception("L'utilisateur ou son image n'existent pas");
+        }
+    }
 	
 }

@@ -31,34 +31,33 @@
       <span class="tooltip">Ajouter cours</span>
     </li>
     <!--!!!!!-->
-    <li [routerLink]="['/mycoursesprof']">
+    <li [routerLink]="['/addedcourses']">
       <a>
         <i class='fa fa-th-list'></i>
         <span class="links_name">Mes cours ?</span>
       </a>
       <span class="tooltip">Mes cours</span>
     </li>
-    <!---!!!!!!!-->
-    <li [routerLink]="['/courseslist']">
+    <li [routerLink]="['/myinsc']">
+      <a>
+        <i class=' fa fa-address-card'></i>
+        <span class="links_name">Inscriptions ! </span>
+      </a>
+      <span class="tooltip">Inscriptions ! </span>
+    </li>
+    <li [routerLink]="['/studentsinsc']">
+      <a>
+        <i class='fa fa-user'></i>
+        <span class="links_name">Étudiants inscrits ! </span>
+      </a>
+      <span class="tooltip">Étudiants inscrits ! </span>
+    </li>
+    <li [routerLink]="['/courselist']">
       <a>
         <i class='fa fa-table'></i>
         <span class="links_name">Cours ?</span>
       </a>
-      <span class="tooltip">Cours</span>
-    </li>
-    <li [routerLink]="['/professorlist']">
-      <a>
-        <i class='fa fa-user-o'></i>
-        <span class="links_name">Professeurs</span>
-      </a>
-      <span class="tooltip">Professeurs</span>
-    </li>
-    <li [routerLink]="['/userlist']">
-      <a>
-        <i class='fa fa-user'></i>
-        <span class="links_name">Étudiants</span>
-      </a>
-      <span class="tooltip">Étudiants</span>
+      <span class="tooltip">Cours ?</span>
     </li>
 
     <li style="align-content: center;" class="profile">

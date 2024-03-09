@@ -11,7 +11,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav2" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile"
-                        aria-selected="false">Professeur</a>
+                        aria-selected="false">Enseignant</a>
                 </li>
             </ul>
 
@@ -30,7 +30,7 @@
 
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Nom *" name="username"
+                                    <input type="text" class="form-control" placeholder="Nom complet *" name="username"
                                         [(ngModel)]="user.username" required #username="ngModel"
                                         [class.is-invalid]="username.invalid && username.touched">
                                     <small class="text-danger"
@@ -52,12 +52,51 @@
                                             obligatoire</b></small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Votre profession *"
+                                    <input type="text" class="form-control" placeholder="Votre domaine *"
                                         name="userprofession" [(ngModel)]="user.profession" required
                                         #userprofession="ngModel"
                                         [class.is-invalid]="userprofession.invalid && userprofession.touched">
                                     <small class="text-danger"
                                         [class.d-none]="userprofession.valid || userprofession.untouched"><b>Champ
+                                            obligatoire</b></small>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <select class="form-control" name="useruniv" [(ngModel)]="user.univ" required
+                                            #useruniv="ngModel"
+                                            [class.is-invalid]="useruniv.invalid && useruniv.touched">
+                                            <option value="" disabled selected>Votre université d'études *
+                                            </option>
+                                            <option value="Cadi Ayyad">Cadi Ayyad</option>
+                                            <option value="Mohammed V de Rabat">Mohammed V de Rabat</option>
+                                            <option value="Hassan II de Casablanca">Hassan II de Casablanca</option>
+                                            <option value="Mohammed Premier d'Oujda">Mohammed Premier d'Oujda</option>
+                                            <option value="Ibn Tofail de Kenitra">Ibn Tofail de Kenitra</option>
+                                            <option value="Sidi Mohamed Ben Abdellah de Fès">Sidi Mohamed Ben Abdellah
+                                                de Fès</option>
+                                            <option value="Abdelmalek Essaâdi de Tanger">Abdelmalek Essaâdi de Tanger
+                                            </option>
+                                            <option value="Ibn Zohr d'Agadir">Ibn Zohr d'Agadir</option>
+                                            <option value="Chouaib Doukkali d'El Jadida">Chouaib Doukkali d'El Jadida
+                                            </option>
+                                            <option value="Moulay Ismail de Meknès">Moulay Ismail de Meknès</option>
+                                            <option value="Sultan Moulay Slimane de Béni Mellal">Sultan Moulay Slimane
+                                                de Béni Mellal</option>
+                                            <option value="Hassan Premier de Settat">Hassan Premier de Settat</option>
+                                            <option value="Mohammed VI Polytechnique de Benguerir">Mohammed VI
+                                                Polytechnique de Benguerir</option>
+                                            <option value="À l'étranger">À l'étranger
+                                            </option>
+                                            <option value="Autre">Autre
+                                            </option>
+                                        </select>
+                                        <small class="text-danger"
+                                            [class.d-none]="useruniv.valid || useruniv.untouched"><b>Champ
+                                                obligatoire</b></small>
+                                    </div>
+                                    <small class="text-danger"
+                                        [class.d-none]="useruniv.valid || useruniv.untouched"><b>Champ
                                             obligatoire</b></small>
                                 </div>
 
@@ -70,6 +109,17 @@
                                                 obligatoire</b></small>
                                     </div>
                                 </div>
+
+                                <!--- <div class="form-group">
+                                    <input type="file" class="form-control" placeholder="Votre image *" name="pic"
+                                        [(ngModel)]="user.pic" required #userpic="ngModel"
+                                        [class.is-invalid]="userpic.invalid && userpassword.touched">
+                                    <div *ngIf="userpic.errors && userpic.invalid && userpic.touched">
+                                        <small class="text-danger" *ngIf="userpic.errors.required"><b>Champ
+                                                obligatoire</b></small>
+                                    </div>
+                                </div> --->
+
                             </div>
 
                             <div class="col-md-6">
@@ -104,6 +154,25 @@
                                         [class.d-none]="useraddress.valid || useraddress.untouched"><b>Champ
                                             obligatoire</b></small>
                                 </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" name="userlevel" [(ngModel)]="user.level" required
+                                        #userlevel="ngModel"
+                                        [class.is-invalid]="userlevel.invalid && userlevel.touched">
+                                        <option value="" disabled selected>Votre niveau d'études *</option>
+                                        <option value="Baccalauréat">Baccalauréat</option>
+                                        <option value="Licence">Licence</option>
+                                        <option value="Master">Master</option>
+                                        <option value="Doctorat">Doctorat</option>
+                                        <option value="Diplôme d'ingénieur">Diplôme d'ingénieur</option>
+                                        <option value="Aucun diplôme">Aucun diplôme</option>
+                                        <option value="Autre">Autre</option>
+                                    </select>
+                                    <small class="text-danger"
+                                        [class.d-none]="userlevel.valid || userlevel.untouched"><b>Champ
+                                            obligatoire</b></small>
+                                </div>
+
                                 <div class="form-group">
                                     <input type="password" class="form-control"
                                         placeholder="Confirmer le mot de passe *" name="ConfirmPassword"
@@ -144,13 +213,14 @@
 
                 <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <br>
-                    <h4 class="register-heading">Inscription en tant que professeur</h4>
+                    <h4 class="register-heading">Inscription en tant qu'enseignant</h4>
                     <form #professorform="ngForm" (ngSubmit)="registerProfessor()">
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Nom *" name="professorname"
-                                        [(ngModel)]="professor.professorname" required #professorname="ngModel"
+                                    <input type="text" class="form-control" placeholder="Nom complet *"
+                                        name="professorname" [(ngModel)]="professor.professorname" required
+                                        #professorname="ngModel"
                                         [class.is-invalid]="professorname.invalid && professorname.touched">
                                     <small class="text-danger"
                                         [class.d-none]="professorname.valid || professorname.untouched"><b>Champ
@@ -170,6 +240,40 @@
                                         <small class="text-danger" *ngIf="professoremail.errors.pattern"><b>Adresse
                                                 email invalide</b></small>
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" name="professoruniv" [(ngModel)]="professor.univ"
+                                        required #professoruniv="ngModel"
+                                        [class.is-invalid]="professoruniv.invalid && professoruniv.touched">
+                                        <option value="" disabled selected>Votre université *
+                                        </option>
+                                        <option value="Cadi Ayyad">Cadi Ayyad</option>
+                                        <option value="Mohammed V de Rabat">Mohammed V de Rabat</option>
+                                        <option value="Hassan II de Casablanca">Hassan II de Casablanca</option>
+                                        <option value="Mohammed Premier d'Oujda">Mohammed Premier d'Oujda</option>
+                                        <option value="Ibn Tofail de Kenitra">Ibn Tofail de Kenitra</option>
+                                        <option value="Sidi Mohamed Ben Abdellah de Fès">Sidi Mohamed Ben Abdellah
+                                            de Fès</option>
+                                        <option value="Abdelmalek Essaâdi de Tanger">Abdelmalek Essaâdi de Tanger
+                                        </option>
+                                        <option value="Ibn Zohr d'Agadir">Ibn Zohr d'Agadir</option>
+                                        <option value="Chouaib Doukkali d'El Jadida">Chouaib Doukkali d'El Jadida
+                                        </option>
+                                        <option value="Moulay Ismail de Meknès">Moulay Ismail de Meknès</option>
+                                        <option value="Sultan Moulay Slimane de Béni Mellal">Sultan Moulay Slimane
+                                            de Béni Mellal</option>
+                                        <option value="Hassan Premier de Settat">Hassan Premier de Settat</option>
+                                        <option value="Mohammed VI Polytechnique de Benguerir">Mohammed VI
+                                            Polytechnique de Benguerir</option>
+                                        <option value="À l'étranger">À l'étranger
+                                        </option>
+                                        <option value="Autre">Autre
+                                        </option>
+                                    </select>
+                                    <small class="text-danger"
+                                        [class.d-none]="professoruniv.valid || professoruniv.untouched"><b>Champ
+                                            obligatoire</b></small>
                                 </div>
 
                                 <div class="form-group">
@@ -207,10 +311,14 @@
                                                 obligatoire</b></small>
                                     </div>
                                 </div>
+                                <small style="color : rgb(161, 106, 34); font-size: 12px;margin-right: 0%;">Après
+                                    l'inscription, une
+                                    demande d’enseignement sera automatiquement envoyée, attendez qu’elle soit
+                                    traitée</small>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Nom de l'institution *"
+                                    <input type="text" class="form-control" placeholder="Nom d'établissement *"
                                         name="institutionname" [(ngModel)]="professor.institutionname" required
                                         #institutionname="ngModel"
                                         [class.is-invalid]="institutionname.invalid && institutionname.touched">
@@ -237,14 +345,23 @@
                                             obligatoire</b></small>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Diplôme obtenu *"
-                                        name="degreecompleted" [(ngModel)]="professor.degreecompleted" required
-                                        #degreecompleted="ngModel"
+                                    <select class="form-control" name="degreecompleted"
+                                        [(ngModel)]="professor.degreecompleted" required #degreecompleted="ngModel"
                                         [class.is-invalid]="degreecompleted.invalid && degreecompleted.touched">
+                                        <option value="" disabled selected>Diplôme obtenu * </option>
+                                        <option value="Baccalauréat">Baccalauréat</option>
+                                        <option value="Licence">Licence</option>
+                                        <option value="Master">Master</option>
+                                        <option value="Doctorat">Doctorat</option>
+                                        <option value="Diplôme d'ingénieur">Diplôme d'ingénieur</option>
+                                        <option value="Aucun diplôme">Aucun diplôme</option>
+                                        <option value="Autre">Autre</option>
+                                    </select>
                                     <small class="text-danger"
                                         [class.d-none]="degreecompleted.valid || degreecompleted.untouched"><b>Champ
                                             obligatoire</b></small>
                                 </div>
+
                                 <div class="form-group">
                                     <input type="password" class="form-control"
                                         placeholder="Confirmer le mot de passe *" name="ConfirmPassword"
@@ -280,5 +397,3 @@
     </div>
 
 </div>
-
-<app-footer></app-footer>

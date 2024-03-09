@@ -29,7 +29,9 @@ public class Professor {
 	private String mobile;
 	private String gender;
 	private String password;
-	private String status;
+	private String status;	
+	private String univ;
+    private String pic;
 	
 	//Normalement  relation entre prof et course ( prof 1..n ---teach--- 1..n course)
 	
@@ -142,4 +144,20 @@ public class Professor {
 	{
 		this.status = status;
 	}
+
+	public String getUniv() {
+		return univ;
+	}
+
+	public void setUniv(String univ) {
+		this.univ = univ;
+	}
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
+	
 }

@@ -28,7 +28,8 @@ public class User{
 	private String address;
 	private String univ;
 	private String password;
-
+	private String level;
+    private String pic;
 
 	//rls entre user et insc (user 1---lancer--- 1..n insc)
 	
@@ -118,6 +119,22 @@ public class User{
 
 	public void setUniv(String univ) {
 		this.univ = univ;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
 
 

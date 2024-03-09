@@ -11,6 +11,7 @@ export class Professor {
     password: string = '';
     univ: string = '';
     status: string = 'att';
-
-    constructor() { }
+    pic: string = '';
+    constructor() {
+    }
 }

@@ -1,22 +1,30 @@
 <app-header></app-header>
 
+<!--lwla-->
+
 <div class="row" id="profilecard">
-    <div *ngFor="let professor of profileDetails | async" id="bloodCards">
+    <div id="bloodCards">
         <a><img *ngIf="professor.gender === 'Male' || professor.gender === 'Homme'|| professor.gender === 'H' || professor.gender === 'homme'"
                 class="bloodimg" [src]="'assets/img/maleprofessor.png'" width="140" height="140"></a>
         <a><img *ngIf="professor.gender === 'Female' || professor.gender === 'Femme' || professor.gender === 'femme'|| professor.gender === 'F'"
                 class="bloodimg" [src]="'assets/img/femaleprofessor.png'" width="140" height="140"></a>
         <div class="card-block">
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.professorname}}</b> </div>
+            <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-user-circle'></i>
+                    {{professor.professorname}}</b> </div>
             <div class="text"><small
                     style="font-size: smaller; margin-left: 6%; padding: 3px 8px 3px 8px; background-color: gray; border-radius: 10px; font-weight: bold; width: 55%; color: white;">{{professor.professorid}}</small>
             </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.degreecompleted}}</b> </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.mobile}}</b> </div>
+            <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-address-book-o'></i>
+                    {{professor.degreecompleted}}</b> </div>
+            <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-phone'></i>
+                    {{professor.mobile}}</b> </div>
+            <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.univ}}</b> </div>
+
             <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.institutionname}}</b> </div>
             <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.email}}</b> </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.experience}} years of
-                    experience</b> </div>
+            <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.experience}} ans d'expérience</b>
+            </div>
+
             <div class="btndiv" style="align-items: center;"><button class="editbtn" (click)="editProfile()"><i
                         class="fa fa-edit"></i> Modifier</button></div>
             <small id="message" *ngIf="temp === true" style="text-align: center; margin-top: 3%; color: green;"><b>
@@ -24,8 +32,13 @@
         </div>
     </div>
 </div>
-<div>
-    <div class="container register" id="profileform" *ngFor="let professor of profileDetails | async">
+
+
+
+<!--Modifier-->
+
+<div id="profileform">
+    <div class="container register">
         <div class="row">
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
@@ -38,7 +51,9 @@
                                 succès.</b></small>
 
 
-                        <form #Updateform="ngForm" style="margin-top: -15%;" (ngSubmit)="updateProfessorProfile()">
+
+                        <!--formulaire-->
+                        <form #Updateform="ngForm" style="margin-top: -15%;" (ngSubmit)="UpdateProfessor()">
                             <div class="row register-form">
                                 <div class="col-md-6">
 
@@ -84,7 +99,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" name="pwd"
-                                            [(ngModel)]="professor.password" readonly #professorpassword="ngModel"
+                                            [(ngModel)]="professor.password" #professorpassword="ngModel"
                                             [class.is-invalid]="professorpassword.invalid && professorpassword.touched">
                                         <div
                                             *ngIf="professorpassword.errors && professorpassword.invalid && professorpassword.touched">
@@ -97,12 +112,33 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Nom d'institut *"
-                                            name="institutionname" [(ngModel)]="professor.institutionname" required
-                                            #institutionname="ngModel"
-                                            [class.is-invalid]="institutionname.invalid && institutionname.touched">
+                                        <select class="form-select" name="professoruniv" [(ngModel)]="professor.univ"
+                                            required #professoruniv="ngModel"
+                                            [class.is-invalid]="professoruniv.invalid && professoruniv.touched">
+                                            <option value="" disabled selected>Votre université *</option>
+                                            <option value="Cadi Ayyad">Cadi Ayyad</option>
+                                            <option value="Mohammed V de Rabat">Mohammed V de Rabat</option>
+                                            <option value="Hassan II de Casablanca">Hassan II de Casablanca</option>
+                                            <option value="Mohammed Premier d'Oujda">Mohammed Premier d'Oujda</option>
+                                            <option value="Ibn Tofail de Kenitra">Ibn Tofail de Kenitra</option>
+                                            <option value="Sidi Mohamed Ben Abdellah de Fès">Sidi Mohamed Ben Abdellah
+                                                de Fès</option>
+                                            <option value="Abdelmalek Essaâdi de Tanger">Abdelmalek Essaâdi de Tanger
+                                            </option>
+                                            <option value="Ibn Zohr d'Agadir">Ibn Zohr d'Agadir</option>
+                                            <option value="Chouaib Doukkali d'El Jadida">Chouaib Doukkali d'El Jadida
+                                            </option>
+                                            <option value="Moulay Ismail de Meknès">Moulay Ismail de Meknès</option>
+                                            <option value="Sultan Moulay Slimane de Béni Mellal">Sultan Moulay Slimane
+                                                de Béni Mellal</option>
+                                            <option value="Hassan Premier de Settat">Hassan Premier de Settat</option>
+                                            <option value="Mohammed VI Polytechnique de Benguerir">Mohammed VI
+                                                Polytechnique de Benguerir</option>
+                                            <option value="À l'étranger">À l'étranger</option>
+                                            <option value="Autre">Autre</option>
+                                        </select>
                                         <small class="text-danger"
-                                            [class.d-none]="institutionname.valid || institutionname.untouched"><b>Champ
+                                            [class.d-none]="professoruniv.valid || professoruniv.untouched"><b>Champ
                                                 obligatoire</b></small>
                                     </div>
                                     <div class="form-group">
@@ -124,14 +160,23 @@
                                                 obligatoire</b></small>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Diplome obtenu *"
-                                            name="degreecompleted" [(ngModel)]="professor.degreecompleted" required
-                                            #degreecompleted="ngModel"
+                                        <select class="form-select" name="degreecompleted"
+                                            [(ngModel)]="professor.degreecompleted" required #degreecompleted="ngModel"
                                             [class.is-invalid]="degreecompleted.invalid && degreecompleted.touched">
+                                            <option value="" disabled selected>Diplôme obtenu *</option>
+                                            <option value="Baccalauréat">Baccalauréat</option>
+                                            <option value="Licence">Licence</option>
+                                            <option value="Master">Master</option>
+                                            <option value="Doctorat">Doctorat</option>
+                                            <option value="Diplôme d'ingénieur">Diplôme d'ingénieur</option>
+                                            <option value="Aucun diplôme">Aucun diplôme</option>
+                                            <option value="Autre">Autre</option>
+                                        </select>
                                         <small class="text-danger"
                                             [class.d-none]="degreecompleted.valid || degreecompleted.untouched"><b>Champ
                                                 obligatoire</b></small>
                                     </div>
+
                                     <div class="form-group">
                                         <input type="password" class="form-control"
                                             placeholder="Confirmer le mot de passe *" name="ConfirmPassword"
@@ -151,4 +196,4 @@
             </div>
         </div>
     </div>
-    <app-footer></app-footer>
+</div>

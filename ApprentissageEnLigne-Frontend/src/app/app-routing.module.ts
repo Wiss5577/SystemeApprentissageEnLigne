@@ -24,6 +24,10 @@ import { AdminGuard } from './guards/admin.guard';
 import { ProfessorGuard } from './guards/professor.guard';
 import { RouterGuard } from './guards/router.guard';
 import { UserGuard } from './guards/user.guard';
+import { AddedcoursesComponent } from './components/addedcourses/addedcourses.component';
+import { MyinscComponent } from './components/myinsc/myinsc.component';
+import { StudentsinscComponent } from './components/studentsinsc/studentsinsc.component';
+
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
@@ -45,7 +49,11 @@ const routes: Routes = [
   { path: 'edituserprofile', component: UserprofileComponent, canActivate: [UserGuard] },
   { path: 'mywishlist', component: MywishlistComponent, canActivate: [RouterGuard] },
   { path: 'mycourses', component: MycoursesComponent, canActivate: [RouterGuard] },
-  { path: 'pwdforgotten', component: PasswordForgottenComponent }
+  { path: 'pwdforgotten', component: PasswordForgottenComponent },
+  { path: 'addedcourses', component: AddedcoursesComponent },
+  { path: 'myinsc', component: MyinscComponent },
+  { path: 'studentsinsc', component: StudentsinscComponent }
+
 ];
 
 @NgModule({

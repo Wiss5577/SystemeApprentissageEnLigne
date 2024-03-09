@@ -165,11 +165,11 @@ public class ProfessorController {
 	//les info d'un prof
 	@GetMapping("/professorprofileDetails/{email}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public ResponseEntity<List<Professor>> getProfileDetails(@PathVariable String email) throws Exception
+	public Professor getProfileDetails(@PathVariable String email) throws Exception
 	{
-		List<Professor> professors = professorService.fetchProfileByEmail(email);
-		return new ResponseEntity<List<Professor>>(professors, HttpStatus.OK);
-	}
+		Professor professors = professorService.fetchProfileByEmail(email);
+return professors;
+}
 	
 	//modifier info de prof
 	@PutMapping("/updateprofessor")

@@ -2,10 +2,13 @@ package org.sid.elearningspringboot.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -63,6 +66,22 @@ public class ProfessorController {
 		return new ResponseEntity<List<Course>>(websiteCourseList, HttpStatus.OK);
 	}
 	
+	
+	// cours by instructor email
+	@GetMapping("/courselistbyinsemail/{email}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public List<Course> GetCoursesByProfessorEmail(@PathVariable String email){
+		List<Course> liste = courseService.GetCoursesByEmail(email);
+		return  liste;
+	}
+	
+	//Delete course
+	@DeleteMapping("/deletecourse/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public void DeleteCourse(@PathVariable int id) {
+		courseService.DeleteCourse(id);
+	}
+
 	//cours by name
 	@GetMapping("/courselistbyname/{coursename}")
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -242,6 +261,24 @@ return professors;
 		return new ResponseEntity<List<String>>(coursenames, HttpStatus.OK);
 	}
   
+  
+  //course by id
+  @GetMapping("/getcoursebyid/{id}")
+ @CrossOrigin(origins = "http://localhost:4200")
+  public Optional<Course> GetCourseById(@PathVariable int id) {
+	  return courseService.GetCourseById(id);
+  }
+	
+  
+//Update cours
+	@PutMapping("/UpdateCourse")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Course UpdateCourse(@RequestBody Course course) throws Exception
+	{
+		Course courseObj = null;
+		courseObj = courseService.UpdateCourse(course);
+		return courseObj;
+	}
 	
 	public String getNewID()
 	{

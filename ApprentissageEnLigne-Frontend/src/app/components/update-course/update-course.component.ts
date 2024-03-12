@@ -1,34 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Course } from 'src/app/models/course';
 import { ProfessorService } from 'src/app/services/professor.service';
 import * as $ from 'jquery';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Professor } from 'src/app/models/professor';
 
 @Component({
-  selector: 'app-addcourse',
-  templateUrl: './addcourse.component.html',
-  styleUrls: ['./addcourse.component.css']
+  selector: 'app-update-course',
+  templateUrl: './update-course.component.html',
+  styleUrls: ['./update-course.component.css']
 })
-export class AddcourseComponent implements OnInit {
-
+export class UpdateCourseComponent implements OnInit {
   course = new Course();
-  msg = ' ';
   loggedUser = '';
   currRole = '';
   professor: Professor = new Professor();
-  dateToday: string = ""; // Vous pouvez définir le type en fonction de vos besoins
+  dateToday: string = "";
+  id: number = 0;
 
-  constructor(private _professorService: ProfessorService, private _router: Router) { }
+  constructor(private _professorService: ProfessorService, private _router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser') || '{}');
     this.loggedUser = this.loggedUser.replace(/"/g, '');
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
     this.currRole = this.currRole.replace(/"/g, '');
-
     this.getProfessor(this.loggedUser);
-
+    this.getCourse(this.id);
     $("#websitelink, #youtubelink").css("display", "none");
     $("#websitelink").hide();
 
@@ -45,31 +44,6 @@ export class AddcourseComponent implements OnInit {
         }
       });
     }).change();
-
-    this.setDateToday();
-
-  }
-
-  test() {
-    console.log("hi");
-  }
-
-  addCourse() {
-    this.course.email = this.loggedUser;
-    this.course.enrolleddate = this.dateToday;
-    this.course.instructorname = this.professor.professorname;
-    this.course.instructorinstitution = this.professor.institutionname;
-    this._professorService.addCourse(this.course).subscribe(
-      data => {
-        console.log("Course added Successfully !!!");
-        this._router.navigate(['/addedcourses']);
-      },
-      (error: { error: any; }) => {
-        console.log("Process Failed");
-        console.log(error.error);
-        this.msg = "Course with " + this.course.coursename + " already exists !!!";
-      }
-    )
   }
 
   getProfessor(loggedUser: string) {
@@ -79,10 +53,25 @@ export class AddcourseComponent implements OnInit {
     })
   }
 
-  setDateToday(): void {
-    const today: Date = new Date();
-    // Formater la date en format ISO (AAAA-MM-JJ) pour l'élément input date
-    this.dateToday = today.toISOString().slice(0, 10);
+  getCourse(id: number) {
+    this._professorService.GetCourseById(id).subscribe(data => {
+      this.course = data;
+    })
   }
+
+  UpdateCourse() {
+    console.log(this.course);
+    this._professorService.UpdateCourse(this.course).subscribe(
+      data => {
+        console.log("Course  Updated succesfully");
+        this._router.navigate(['/addedcourses']);
+      },
+      error => {
+        console.log(error.error);
+      }
+    )
+  }
+
+
 
 }

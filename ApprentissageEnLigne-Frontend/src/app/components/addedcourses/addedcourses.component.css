@@ -1,0 +1,28 @@
+.heading-text {
+    font-weight: bolder;
+    font-size: 25px;
+    margin-top: 1%;
+    color: rgb(244, 29, 34);
+    font-family: Georgia;
+    letter-spacing: 1px;
+    margin-left: 36%;
+}
+
+#d {
+    background-color: rgb(244, 29, 34);
+    border-color: rgb(244, 29, 34);
+}
+
+#d:hover {
+    background-color: rgb(171, 36, 39);
+    border-color: rgb(171, 36, 39);
+}
+
+th,
+tr {
+    text-align: center;
+}
+
+.t {
+    text-align: initial;
+}

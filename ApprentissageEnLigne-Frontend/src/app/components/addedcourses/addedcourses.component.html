@@ -1,1 +1,30 @@
-<p>addedcourses works!</p>
+<app-header></app-header>
+<h3 class="heading-text">Mes cours</h3>
+<table class="table" style="margin: 2% 3% 4% 3%;border: 1px;">
+    <thead>
+        <tr style="background-color: rgb(188, 217, 217);">
+            <th scope="col">ID</th>
+            <th scope="col">Code de Cours</th>
+            <th scope="col">Nom de Cours</th>
+            <th scope="col">Type</th>
+            <th scope="col">Date d'ajout</th>
+            <th scope="col">Nombre d'inscrits</th>
+            <th scope="col">Statut</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let course of courses">
+            <th scope="row">{{course.id}}</th>
+            <td>{{course.courseid}}</td>
+            <td>{{course.coursename}}</td>
+            <td>{{course.coursetype}}</td>
+            <td>{{course.enrolleddate}}</td>
+            <td style="text-align: center;">{{course.enrolledcount}}</td>
+            <td>En attente</td>
+            <td class="t"><button class="btn btn-primary" (click)="Modifier(course.id)">Modifier</button></td>
+            <td class="t"><button id="d" class="btn btn-primary" (click)="Supprimer(course.id)">Supprimer</button></td>
+        </tr>
+    </tbody>
+</table>

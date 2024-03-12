@@ -29,9 +29,16 @@ public interface CourseRepository extends CrudRepository<Course, Integer>{
 	
 	public List<Course> findByLanguage(String language);
 	
+	
 	@Transactional
 	@Modifying
 	@Query(value = "update course set enrolledcount = ?1 where coursename = ?2",nativeQuery = true)
 	public void updateEnrolledcount(int enrolledcount, String coursename);
+	
+	@Transactional
+	@Modifying
+	@Query(value = "select * from course where email = ?1", nativeQuery = true)
+	public List<Course> GetCoursesByEmail(String email);
+	
 	
 }

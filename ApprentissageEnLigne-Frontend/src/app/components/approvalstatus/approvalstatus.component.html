@@ -27,7 +27,7 @@
       <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.experience}} ans d'expérience</b>
         <div>
           <div *ngIf="currRole === 'professor' || currRole === 'PROFESSOR' && professor.email === loggedUser">
-            <div *ngIf="professor.status === 'accept'" class="acceptedprof">Accepté</div>
+            <div *ngIf="professor.status === 'accept'" class="acceptedprof">Approuvé</div>
             <div *ngIf="professor.status === 'att'" class="pendingprof">En attente</div>
             <div *ngIf="professor.status === 'reject'" class="rejectedprof">Rejeté</div>
           </div>

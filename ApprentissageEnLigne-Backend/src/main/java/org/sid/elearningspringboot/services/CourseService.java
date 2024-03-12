@@ -1,6 +1,8 @@
 package org.sid.elearningspringboot.services;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.sid.elearningspringboot.models.Course;
@@ -81,5 +83,26 @@ public class CourseService
 	{
 		return (List<Course>)courseRepo.findByLanguage(language);
 	}
+	
+	
+	public List<Course> GetCoursesByEmail(String email){
+		
+		return courseRepo.GetCoursesByEmail(email);
+	}
+	
+	public void DeleteCourse (int id) {
+		 courseRepo.deleteById(id);
+		
+	}
+	
+	public Optional<Course> GetCourseById( int id) {
+		return courseRepo.findById(id);
+	}
+	
+	public Course UpdateCourse(Course course)
+	{
+		return courseRepo.save(course);
+	}
+	    
 	
 }

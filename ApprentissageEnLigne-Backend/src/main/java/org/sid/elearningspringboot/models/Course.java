@@ -32,6 +32,7 @@ public class Course {
 	private String skilllevel;
 	private String language;
 	private String description;
+	private String email;
 	
 	
 	//je pense relation entre course et prof  
@@ -143,6 +144,14 @@ public class Course {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }

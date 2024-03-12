@@ -32,6 +32,7 @@ import { PasswordForgottenComponent } from './password-forgotten/password-forgot
 import { AddedcoursesComponent } from './components/addedcourses/addedcourses.component';
 import { MyinscComponent } from './components/myinsc/myinsc.component';
 import { StudentsinscComponent } from './components/studentsinsc/studentsinsc.component';
+import { UpdateCourseComponent } from './components/update-course/update-course.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { StudentsinscComponent } from './components/studentsinsc/studentsinsc.co
     PasswordForgottenComponent,
     AddedcoursesComponent,
     MyinscComponent,
-    StudentsinscComponent
+    StudentsinscComponent,
+    UpdateCourseComponent
   ],
   imports: [
     BrowserModule,

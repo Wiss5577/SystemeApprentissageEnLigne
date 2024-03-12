@@ -42,8 +42,8 @@ export class ProfessorService {
     return this._http.get<any>(`${NAV_URL}/courselistbyname/` + coursename);
   }
 
-  addCourse(course: Course): Observable<any> {
-    return this._http.post<any>(`${NAV_URL}/addCourse`, course);
+  addCourse(course: Course): Observable<Course> {
+    return this._http.post<Course>(`${NAV_URL}/addCourse`, course);
   }
 
   getProfessorListByEmail(email: string): Observable<any> {
@@ -65,6 +65,23 @@ export class ProfessorService {
 
   getCourseListNames(): Observable<any> {
     return this._http.get(`${NAV_URL}/getcoursenames/`);
+  }
+
+  GetCoursesByEmail(loggedUser: string): Observable<Course[]> {
+    const url = `${NAV_URL}/courselistbyinsemail/`;
+    return this._http.get<Course[]>(url + loggedUser);
+  }
+
+  DeleteCourseById(id: number): Observable<any> {
+    const url = `${NAV_URL}/deletecourse/`;
+    return this._http.delete<Course[]>(url + id);
+  }
+  GetCourseById(id: number): Observable<any> {
+    const url = `${NAV_URL}/getcoursebyid/`;
+    return this._http.get<Course>(url + id);
+  }
+  UpdateCourse(course: Course): Observable<Course> {
+    return this._http.put<Course>(`${NAV_URL}/UpdateCourse`, course);
   }
 
 }

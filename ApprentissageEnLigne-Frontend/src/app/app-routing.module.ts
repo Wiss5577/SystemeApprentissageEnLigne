@@ -27,6 +27,7 @@ import { UserGuard } from './guards/user.guard';
 import { AddedcoursesComponent } from './components/addedcourses/addedcourses.component';
 import { MyinscComponent } from './components/myinsc/myinsc.component';
 import { StudentsinscComponent } from './components/studentsinsc/studentsinsc.component';
+import { UpdateCourseComponent } from './components/update-course/update-course.component';
 
 
 const routes: Routes = [
@@ -52,7 +53,8 @@ const routes: Routes = [
   { path: 'pwdforgotten', component: PasswordForgottenComponent },
   { path: 'addedcourses', component: AddedcoursesComponent },
   { path: 'myinsc', component: MyinscComponent },
-  { path: 'studentsinsc', component: StudentsinscComponent }
+  { path: 'studentsinsc', component: StudentsinscComponent },
+  { path: 'updatecourse/:id', component: UpdateCourseComponent }
 
 ];
 

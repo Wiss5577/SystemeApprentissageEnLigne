@@ -1,12 +1,11 @@
 package org.sid.elearningspringboot.repositories;
 
 import java.util.List;
-
 import jakarta.transaction.Transactional;
-
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.sid.elearningspringboot.models.Course;
 import org.sid.elearningspringboot.models.Professor;
 
 public interface ProfessorRepository extends CrudRepository<Professor, String>
@@ -35,5 +34,6 @@ public interface ProfessorRepository extends CrudRepository<Professor, String>
 	@Modifying
 	@Query(value = "update professor set status = 'att' where email = ?1", nativeQuery = true)
 	public void SendRequest(String email);
+	
 	
 }

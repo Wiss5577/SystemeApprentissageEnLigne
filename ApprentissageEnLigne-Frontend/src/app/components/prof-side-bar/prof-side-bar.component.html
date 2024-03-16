@@ -1,0 +1,76 @@
+<!--Professor SideBar-->
+
+<div class="sidebar">
+    <div class="logo-details">
+        <i class='fa fa-bars'></i>
+        <div class="logo_name">
+            <img [src]="'assets/img/prof.png'" width="55" height="50" id="img"> Professeur
+        </div>
+        <i class='fa' id="btn"></i>
+    </div>
+    <ul class="nav-list">
+
+        <li [routerLink]="['/professordashboard']">
+            <a>
+                <i class='fa fa-home'></i>
+                <span class="links_name">Accueil</span>
+            </a>
+            <span class="tooltip">Accueil</span>
+        </li>
+
+        <!--Profil-->
+        <li [routerLink]="['/approveprofessor']">
+            <a>
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                <span class="links_name">Mon profil</span>
+            </a>
+            <span class="tooltip">Mon profil</span>
+        </li>
+
+
+
+        <li [routerLink]="['/addCourse']">
+            <a>
+                <i class='fa fa-plus '></i>
+                <span class="links_name">Ajouter cours</span>
+            </a>
+            <span class="tooltip">Ajouter cours</span>
+        </li>
+
+
+        <li [routerLink]="['/addedcourses']">
+            <a>
+                <i class='fa fa-list-ul'></i>
+                <span class="links_name">Mes cours</span>
+            </a>
+            <span class="tooltip">Mes cours</span>
+        </li>
+
+
+        <li [routerLink]="['/myinsc']">
+            <a>
+                <i class=' fa fa-address-card'></i>
+                <span class="links_name">Inscriptions</span>
+            </a>
+            <span class="tooltip">Inscriptions</span>
+        </li>
+
+        <li [routerLink]="['/notes']">
+            <a>
+                <i class='fa fa-comments'></i>
+                <span class="links_name">Notes</span>
+            </a>
+            <span class="tooltip">Notes</span>
+        </li>
+
+        <li [routerLink]="['/']">
+            <a>
+                <i class='fa fa-sign-out '></i>
+                <span class="links_name">Déconnexion</span>
+            </a>
+            <span class="tooltip">Déconnexion</span>
+        </li>
+
+
+    </ul>
+</div>

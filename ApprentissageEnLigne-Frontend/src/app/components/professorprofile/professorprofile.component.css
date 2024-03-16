@@ -2,9 +2,10 @@
 
 .register {
   background: white;
-  margin-top: 0.8%;
+  margin-top: 0%;
   margin-bottom: 3%;
   border-radius: 15px;
+  margin-left: 13%;
   padding: 3%;
 }
 
@@ -70,7 +71,6 @@
   font-size: 35px;
   letter-spacing: 1.5px;
   margin-bottom: -15%;
-  font-family: 'Aladin', cursive;
   color: red;
 }
 
@@ -96,7 +96,6 @@ input {
   color: rgb(0, 77, 131);
   text-align: center;
   margin-top: 2%;
-  font-family: Georgia;
   padding: 5px;
   font-size: 25px;
   font-weight: bolder;
@@ -105,7 +104,6 @@ input {
 label {
   margin-top: 8px;
   font-weight: bold;
-  font-family: sans-serif;
   letter-spacing: 1px;
 }
 
@@ -160,7 +158,6 @@ label {
 }
 
 .text {
-  font-family: verdana;
   font-size: medium;
   font-weight: 400;
   margin-top: 1.5%;

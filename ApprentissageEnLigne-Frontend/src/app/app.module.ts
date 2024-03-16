@@ -28,12 +28,13 @@ import { AddchapterComponent } from './components/addchapter/addchapter.componen
 import { MycoursesComponent } from './components/mycourses/mycourses.component';
 import { MywishlistComponent } from './components/mywishlist/mywishlist.component';
 import { WelcomepageComponent } from './components/welcomepage/welcomepage.component';
-import { PasswordForgottenComponent } from './password-forgotten/password-forgotten.component';
+import { PasswordForgottenComponent } from './components/password-forgotten/password-forgotten.component';
 import { AddedcoursesComponent } from './components/addedcourses/addedcourses.component';
 import { MyinscComponent } from './components/myinsc/myinsc.component';
 import { StudentsinscComponent } from './components/studentsinsc/studentsinsc.component';
 import { UpdateCourseComponent } from './components/update-course/update-course.component';
-
+import { ProfSideBarComponent } from './components/prof-side-bar/prof-side-bar.component';
+import { CoursComponent } from './components/cours/cours.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,9 @@ import { UpdateCourseComponent } from './components/update-course/update-course.
     AddedcoursesComponent,
     MyinscComponent,
     StudentsinscComponent,
-    UpdateCourseComponent
+    UpdateCourseComponent,
+    ProfSideBarComponent,
+    CoursComponent,
   ],
   imports: [
     BrowserModule,

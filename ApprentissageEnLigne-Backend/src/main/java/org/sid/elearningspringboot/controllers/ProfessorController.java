@@ -75,6 +75,20 @@ public class ProfessorController {
 		return  liste;
 	}
 	
+	//nombre de mes cours
+			@GetMapping("/CountMycourses/{email}")
+			@CrossOrigin(origins = "http://localhost:4200")
+			public ResponseEntity<List<Integer>> CountMycourses(@PathVariable String email ) throws Exception
+			{
+				List<Course> courses = GetCoursesByProfessorEmail(email);
+				List<Integer> cnt = new ArrayList<>();
+				cnt.add(courses.size());
+				return new ResponseEntity<List<Integer>>(cnt, HttpStatus.OK);
+			}
+	
+	
+	
+	
 	//Delete course
 	@DeleteMapping("/deletecourse/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -291,5 +305,39 @@ return professors;
         }
         return sb.toString();
 	}
+	
+	//ajouter coursename
+		@PutMapping("/Setcoursename/{coursename}/{id}")
+		@CrossOrigin(origins = "http://localhost:4200")
+	public void SetCoursename(@PathVariable String coursename, @PathVariable int id) {
+		courseService.SetCoursename(coursename, id);
+	}
+		
+		//ajouter chapitres
+		@PostMapping("/AjouterChapitres")
+		@CrossOrigin(origins = "http://localhost:4200")
+    public void AjouterChapitres(@RequestBody Chapter chap) {
+	chapterService.AjouterChapters(chap);
+}
+		
+		//find cours by id
+		@GetMapping("/GetCoursById/{id}")
+		@CrossOrigin(origins = "http://localhost:4200")
+    public Optional<Course>  GetCoursById(@PathVariable int id) {
+			return	courseService.GetCoursById(id);
+}
+		
+		
+			
+		
+		
+		
+		//find cours by id
+	@GetMapping("/GetCoursByEmailAndName/{email}/{coursename}")
+	@CrossOrigin(origins = "http://localhost:4200")
+		public List<Course> GetCoursesByEmailAndCourseName(@PathVariable String email, @PathVariable String coursename){
+			return courseService.GetCoursesByEmailAndCourseName(email, coursename);
+		}
+	
 	
 }

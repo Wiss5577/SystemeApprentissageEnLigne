@@ -31,4 +31,7 @@ public class ChapterService
 	{
 		return (List<Chapter>)chapterRepo.findByCoursename(coursename);
 	}
+	public void AjouterChapters(Chapter chapter) {
+		chapterRepo.save(chapter);
+	}
 }

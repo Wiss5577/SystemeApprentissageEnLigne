@@ -84,4 +84,18 @@ export class ProfessorService {
     return this._http.put<Course>(`${NAV_URL}/UpdateCourse`, course);
   }
 
+  AjouterChapitres(chapter: Chapter): Observable<Chapter> {
+    return this._http.post<Chapter>(`${NAV_URL}/AjouterChapitres`, chapter);
+  }
+
+  GetCourseByNameAndEmail(email: String, coursename: String) {
+    const url = `${NAV_URL}/GetCoursByEmailAndName/`;
+    const url2 = `/`;
+    return this._http.get<Course[]>(url + email + url2 + coursename);
+  }
+  CountMycourses(email: String) {
+    const url = `${NAV_URL}/CountMycourses/`;
+    return this._http.get<number>(url + email);
+
+  }
 }

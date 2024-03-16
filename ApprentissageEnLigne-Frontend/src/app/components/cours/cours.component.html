@@ -1,0 +1,89 @@
+<app-header></app-header>
+<app-prof-side-bar></app-prof-side-bar>
+
+<div class="container register">
+    <div class="row">
+        <div class="col-md-9 register-right">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <h3 class="register-heading">Cours ajouté !</h3>
+                    <br>
+
+                    <form #courseform="ngForm" (ngSubmit)="Ajouterchapitres(course.coursename)">
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Nom du cours</label>
+                                    <input type="text" class="form-control" readonly name="coursename"
+                                        [(ngModel)]="course.coursename">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nom d'instructeur</label>
+                                    <input type="text" class="form-control" readonly name="professorname" readonly
+                                        [(ngModel)]="professor.professorname">
+                                </div>
+
+                                <div class="form-group" style="display: none;">
+                                    <label>Cours Video ID: </label>
+                                    <input type="url" class="form-control" readonly name="youtubeurl"
+                                        [(ngModel)]="course.youtubeurl">
+                                </div>
+                                <div class="form-group">
+                                    <label>Type du cours:</label>
+                                    <input class="form-control" readonly name="coursetype"
+                                        [(ngModel)]="course.coursetype">
+                                </div>
+                                <div class="form-group">
+                                    <label>Langue du cours : <b style="color:red;">*</b></label>
+                                    <input class="form-control" readonly="sel1" name="language"
+                                        [(ngModel)]="course.language">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Date d'ajout du cours : <b style="color:red;"></b></label>
+                                    <input type="date" class="form-control" [(ngModel)]="course.enrolleddate" readonly>
+                                </div>
+                                <div class="form-group">
+
+                                    <label>Établissement d'instructeur<b style="color:red;"></b></label>
+                                    <input type="text" class="form-control"
+                                        placeholder="Entrer l'institut d'instructeur" readonly
+                                        name="instructorinstitution" [(ngModel)]="professor.institutionname"
+                                        #instructorinstitution="ngModel">
+
+                                </div>
+                                <div class="form-group" style="display: none;">
+                                    <label>Cours Website URL: </label>
+                                    <input type="url" class="form-control" readonly name="websiteurl"
+                                        [(ngModel)]="course.websiteurl">
+                                </div>
+                                <div class="form-group">
+                                    <label>Niveau :</label>
+                                    <input class="form-control" readonly name="skilllevel"
+                                        [(ngModel)]="course.skilllevel">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description">Description du cours:</label>
+                                    <textarea type="text" rows="2" class="form-control"
+                                        placeholder="Entrer la description du cours" name="prescription"
+                                        [(ngModel)]="course.description" readonly #description="ngModel"
+                                        [class.is-invalid]="description.invalid && description.touched"></textarea>
+                                    <small class="text-danger"
+                                        [class.d-none]="description.valid || description.untouched"><b>Champ
+                                            obligatoire</b></small>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" [disabled]="courseform.form.invalid" class="btnRegister"> Ajouter des
+                            chapitres
+                        </button>
+                        <a [routerLink]="['/addedcourses']" style="color: rgb(0, 13, 30);">Retour aux cours</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

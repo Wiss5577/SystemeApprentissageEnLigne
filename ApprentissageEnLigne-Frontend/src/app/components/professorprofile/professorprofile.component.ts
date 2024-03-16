@@ -56,7 +56,7 @@ export class ProfessorprofileComponent implements OnInit {
         $("#profilecard").show();
         $("#profileform").hide();
         setTimeout(() => {
-          this._router.navigate(['/professordashboard']);
+          this._router.navigate(['/approveprofessor']);
         }, 6000);
       },
       error => {

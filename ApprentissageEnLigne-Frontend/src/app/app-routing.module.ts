@@ -19,7 +19,7 @@ import { UserdashboardComponent } from './components/userdashboard/userdashboard
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { WelcomepageComponent } from './components/welcomepage/welcomepage.component';
-import { PasswordForgottenComponent } from './password-forgotten/password-forgotten.component';
+import { PasswordForgottenComponent } from './components/password-forgotten/password-forgotten.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ProfessorGuard } from './guards/professor.guard';
 import { RouterGuard } from './guards/router.guard';
@@ -28,6 +28,7 @@ import { AddedcoursesComponent } from './components/addedcourses/addedcourses.co
 import { MyinscComponent } from './components/myinsc/myinsc.component';
 import { StudentsinscComponent } from './components/studentsinsc/studentsinsc.component';
 import { UpdateCourseComponent } from './components/update-course/update-course.component';
+import { CoursComponent } from './components/cours/cours.component';
 
 
 const routes: Routes = [
@@ -44,7 +45,7 @@ const routes: Routes = [
   { path: 'professorlist', component: ProfessorlistComponent, canActivate: [RouterGuard] },
   { path: 'userlist', component: UserlistComponent, canActivate: [RouterGuard] },
   { path: 'courselist', component: CourselistComponent, canActivate: [RouterGuard] },
-  { path: 'addchapter', component: AddchapterComponent, canActivate: [RouterGuard] },
+  { path: 'addchapter/:coursname', component: AddchapterComponent, canActivate: [RouterGuard] },
   { path: 'fullcourse/:coursename', component: FullcourseComponent, canActivate: [RouterGuard] },
   { path: 'editprofessorprofile', component: ProfessorprofileComponent, canActivate: [ProfessorGuard] },
   { path: 'edituserprofile', component: UserprofileComponent, canActivate: [UserGuard] },
@@ -54,8 +55,8 @@ const routes: Routes = [
   { path: 'addedcourses', component: AddedcoursesComponent },
   { path: 'myinsc', component: MyinscComponent },
   { path: 'studentsinsc', component: StudentsinscComponent },
-  { path: 'updatecourse/:id', component: UpdateCourseComponent }
-
+  { path: 'updatecourse/:id', component: UpdateCourseComponent },
+  { path: 'cours/:id', component: CoursComponent },
 ];
 
 @NgModule({

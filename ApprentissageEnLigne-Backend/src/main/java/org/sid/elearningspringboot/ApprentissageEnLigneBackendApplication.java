@@ -9,6 +9,4 @@ public class ApprentissageEnLigneBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApprentissageEnLigneBackendApplication.class, args);
 	}
-
-	
 }

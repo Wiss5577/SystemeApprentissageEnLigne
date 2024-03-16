@@ -1,30 +1,104 @@
 <app-header></app-header>
-<h3 class="heading-text">Mes cours</h3>
-<table class="table" style="margin: 2% 3% 4% 3%;border: 1px;">
-    <thead>
-        <tr style="background-color: rgb(188, 217, 217);">
-            <th scope="col">ID</th>
-            <th scope="col">Code de Cours</th>
-            <th scope="col">Nom de Cours</th>
-            <th scope="col">Type</th>
-            <th scope="col">Date d'ajout</th>
-            <th scope="col">Nombre d'inscrits</th>
-            <th scope="col">Statut</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let course of courses">
-            <th scope="row">{{course.id}}</th>
-            <td>{{course.courseid}}</td>
-            <td>{{course.coursename}}</td>
-            <td>{{course.coursetype}}</td>
-            <td>{{course.enrolleddate}}</td>
-            <td style="text-align: center;">{{course.enrolledcount}}</td>
-            <td>En attente</td>
-            <td class="t"><button class="btn btn-primary" (click)="Modifier(course.id)">Modifier</button></td>
-            <td class="t"><button id="d" class="btn btn-primary" (click)="Supprimer(course.id)">Supprimer</button></td>
-        </tr>
-    </tbody>
-</table>
+<app-prof-side-bar></app-prof-side-bar>
+
+<!--prof maccepti-->
+
+<!--Barre de recherche-->
+<div *ngIf="professor.status === 'accept' ">
+
+    <div class="body">
+        <form (ngSubmit)="RechercherByName()">
+            <div class="search">
+                <input type="search" class="search-input" placeholder="Enter le nom du cours" [(ngModel)]="coursename"
+                    name="coursename">
+                <div style="cursor: pointer;"><i (click)="RechercherByName()" class="fa fa-search" id="sicon"></i></div>
+
+            </div>
+        </form>
+    </div>
+
+
+
+    <!--Liste de cours-->
+    <div class="row">
+        <div *ngFor="let course of courses" class="col-4 card" id="bloodCards">
+            <div class="card-block">
+                <div class="img-block">
+                    <img *ngIf="course.coursetype === 'Website'" class="bloodimg" [src]="'assets/img/website.png'"
+                        width="160" height="160">
+                    <img *ngIf="course.coursetype === 'Youtube'" class="bloodimg" [src]="'assets/img/youtube.png'"
+                        width="200" height="200">
+                </div>
+
+                <div class="text"><b style="color: rgb(0, 77, 131)">Nom du cours: </b><b style="color: black;"><small
+                            class="date-cover">{{course.coursename}}</small></b></div>
+                <div class="text"><b style="color: rgb(0, 77, 131)">Type du cours: </b><b
+                        style="color: black;">{{course.coursetype}}
+                    </b></div>
+                <div class="text"><b style="color: rgb(0, 77, 131)">Date d'ajout: </b><b
+                        style="color: black;">{{course.enrolleddate}}
+                    </b></div>
+                <div class="text"><b style="color: rgb(0, 77, 131)">Nombre des inscrits: </b><b
+                        style="color: black;">{{course.enrolledcount}}
+                    </b></div>
+
+
+                <div class="text"><b style="color: rgb(0, 77, 131)">Langue : </b><b
+                        style="color: black;">{{course.language}}
+                    </b></div>
+                <div class="text"><b style="color: rgb(0, 77, 131)">Niveau : </b><b
+                        style="color: black;">{{course.skilllevel}}
+                    </b></div>
+                <div class="text"><b style="color: rgb(0, 77, 131)">Statut : </b><b style="color: black;">en
+                        attente
+                    </b></div>
+                <br>
+                <div class="text" style="margin-left: 12%;">
+                    <button class="btn btn-primary" id="m" (click)="Modifier(course.id)">Modifier</button>
+                    <button style="margin-left: 2%;" id="d" class="btn btn-primary"
+                        (click)="Supprimer(course.id)">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--prof en attente-->
+<div *ngIf="professor.status === 'att' " style="margin-top: 0%;">
+    <div class="container register" style="padding: 15%;margin-bottom: 0%;">
+        <div class="row">
+            <div class="col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab"
+                        style="padding: 3%;">
+                        <h5 style="color: rgb(196, 137, 28);;">Votre demande d'enseignement n'est pas encore
+                            approuvée.
+                        </h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+</div>
+
+<!--prof rjt-->
+<div *ngIf="professor.status === 'reject' " style="margin-top: 0%;">
+    <div class="container register" style="padding: 15%;margin-bottom: 0%;">
+        <div class="row">
+            <div class="col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab"
+                        style="padding: 3%;">
+                        <h5 style="color: rgb(244, 29, 34);">Votre demande d'enseignement a été rejetée.</h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+</div>

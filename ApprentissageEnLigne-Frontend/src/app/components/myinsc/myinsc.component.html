@@ -1,30 +1,76 @@
 <app-header></app-header>
-<h3 class="heading-text">Mes cours</h3>
-<table class="table" style="margin: 2% 3% 4% 3%;border: 1px;">
-    <thead>
-        <tr style="background-color: rgb(188, 217, 217);">
-            <th scope="col">ID</th>
-            <th scope="col">Code de Cours</th>
-            <th scope="col">Nom de Cours</th>
-            <th scope="col">Type</th>
-            <th scope="col">Date d'ajout</th>
-            <th scope="col">Nombre d'inscrits</th>
-            <th scope="col">Statut</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let course of courses">
-            <th scope="row">{{course.id}}</th>
-            <td>{{course.courseid}}</td>
-            <td>{{course.coursename}}</td>
-            <td>{{course.coursetype}}</td>
-            <td>{{course.enrolleddate}}</td>
-            <td style="text-align: center;">{{course.enrolledcount}}</td>
-            <td>En attente</td>
-            <td class="t"><button class="btn btn-primary" (click)="Modifier(course.id)">Modifier</button></td>
-            <td class="t"><button id="d" class="btn btn-primary" (click)="Supprimer(course.id)">Supprimer</button></td>
-        </tr>
-    </tbody>
-</table>
+<app-prof-side-bar></app-prof-side-bar>
+
+<main class="table" id="customers_table">
+
+    <section class="table__header">
+        <div class="input-group">
+            <input type="search" placeholder="Search Data...">
+        </div>
+    </section>
+
+    <section class="table__body">
+        <table>
+            <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Nom d'étudiant </th>
+                    <th> Nom du cours </th>
+                    <th> Date d'inscription</th>
+                    <th>Statut</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> 1 </td>
+                    <td> Seoul </td>
+                    <td> 17 Dec, 2022 </td>
+                    <td> $128.90 </td>
+                    <td>
+                        <p class="status delivered">Delivered</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td> 2 </td>
+                    <td> Kathmandu </td>
+                    <td> 27 Aug, 2023 </td>
+
+                    <td> $5350.50</td>
+                    <td>
+                        <p class="status cancelled">Cancelled</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td> 2 </td>
+                    <td> Kathmandu </td>
+                    <td> 27 Aug, 2023 </td>
+
+                    <td> $5350.50</td>
+                    <td>
+                        <p class="status cancelled">Cancelled</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td> 2 </td>
+                    <td> Kathmandu </td>
+                    <td> 27 Aug, 2023 </td>
+
+                    <td> $5350.50</td>
+                    <td>
+                        <p class="status cancelled">Cancelled</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td> 2 </td>
+                    <td> Kathmandu </td>
+                    <td> 27 Aug, 2023 </td>
+
+                    <td> $5350.50</td>
+                    <td>
+                        <p class="status cancelled">Cancelled</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>

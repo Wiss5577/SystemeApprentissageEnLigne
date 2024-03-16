@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.sid.elearningspringboot.models.Chapter;
 import org.sid.elearningspringboot.models.Course;
+import org.sid.elearningspringboot.repositories.ChapterRepository;
 import org.sid.elearningspringboot.repositories.CourseRepository;
 
 @Service
@@ -13,6 +15,8 @@ public class CourseService
 {
 	@Autowired
 	private CourseRepository courseRepo;
+	private ChapterRepository chapRepo;
+
 	
 	public Course saveCourse(Course course)
 	{
@@ -103,6 +107,19 @@ public class CourseService
 	{
 		return courseRepo.save(course);
 	}
-	    
+	  public void SetCoursename(String coursename,int id) {
+		  courseRepo.SetCoursename(coursename, id);
+	  }
+	  
+	 
+	
+	  public Optional<Course> GetCoursById(int id) {
+		return  courseRepo.findById(id);
+	  }
+	  
+	  
+	  public List<Course> GetCoursesByEmailAndCourseName(String email,String coursename){
+		  return courseRepo.GetCoursesByEmailAndCourseName(email, coursename);
+	  }
 	
 }

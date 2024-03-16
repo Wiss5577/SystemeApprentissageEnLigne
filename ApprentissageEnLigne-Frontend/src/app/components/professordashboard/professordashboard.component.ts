@@ -3,6 +3,7 @@ import * as $ from 'jquery';
 import { Observable } from 'rxjs';
 import { AdminService } from 'src/app/services/admin.service';
 import { Professor } from 'src/app/models/professor';
+import { ProfessorService } from 'src/app/services/professor.service';
 
 
 @Component({
@@ -15,14 +16,15 @@ export class ProfessordashboardComponent implements OnInit {
   loggedUser = '';
   currRole = '';
   Name = '';
-  professor: Professor = new Professor;
+  totalcourses: number = 0;
+  professor: Professor = new Professor();
   courses: Observable<any[]> | undefined;
   enrollments: Observable<any[]> | undefined;
   enrollmentcount: Observable<any[]> | undefined;
   wishlist: Observable<any[]> | undefined;
   chapters: Observable<any[]> | undefined;
 
-  constructor(private _service: AdminService) { }
+  constructor(private _service: AdminService, private _professorService: ProfessorService) { }
 
   ngOnInit(): void {
 
@@ -58,7 +60,23 @@ export class ProfessordashboardComponent implements OnInit {
     this.enrollmentcount = this._service.getTotalEnrollmentCount();
     this.wishlist = this._service.getTotalWishlist();
     this.chapters = this._service.getTotalChapters();
-
+    this.getProfessor(this.loggedUser);
+    this.getTotalInscToMyCourses(this.loggedUser);
   }
 
+
+  getProfessor(loggedUser: string) {
+    this._professorService.getProfileDetails(this.loggedUser).subscribe(data => {
+      this.professor = data;
+      console.log(this.professor);
+    })
+  }
+
+  getTotalInscToMyCourses(loggedUser: String) {
+    this._professorService.CountMycourses(this.loggedUser).subscribe(data => {
+      this.totalcourses = data;
+      console.log(this.totalcourses);
+    })
+
+  }
 }

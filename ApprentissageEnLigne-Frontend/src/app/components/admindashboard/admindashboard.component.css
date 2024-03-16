@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Aladin&family=Merienda+One&family=Staatliches&display=swap');
 
 .sidebar-container {
-  position: relative;
+  position: fixed;
   width: 240px;
   height: 970px;
   left: 0;

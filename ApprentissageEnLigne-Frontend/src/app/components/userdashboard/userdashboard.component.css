@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Aladin&family=Merienda+One&family=Staatliches&display=swap');
 
 .sidebar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   top: 0;
-  height: 100%;
+  bottom: 0;
+  height: 105%;
   width: 78px;
-  background: rgb(0, 13, 30);
+  background: rgb(121, 122, 124);
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.3s ease;
@@ -16,6 +17,8 @@
 
 .sidebar.open {
   width: 250px;
+  height: 107.5%;
+
 }
 
 .sidebar .logo-details {
@@ -31,10 +34,11 @@
 }
 
 .sidebar .logo-details .logo_name {
-  color: white;
+  color: #fff;
+  font-size: 20px;
   font-weight: 600;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .sidebar.open .logo-details .icon,
@@ -100,7 +104,7 @@
   left: calc(100% + 15px);
   z-index: 3;
   background: #fff;
-  box-shadow: 2px 2px 2px 2px gray;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   padding: 6px 12px;
   border-radius: 4px;
   font-size: 15px;
@@ -149,7 +153,7 @@
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
-  background: rgb(0, 13, 30);
+  background: rgb(121, 122, 124);
 }
 
 .sidebar li a:hover {
@@ -190,7 +194,7 @@
   height: 60px;
   width: 78px;
   left: 0;
-  bottom: -8px;
+  bottom: 52px;
   padding: 10px 14px;
   background: rgb(32, 37, 40);
   transition: all 0.5s ease;
@@ -245,6 +249,15 @@
   background: none;
 }
 
+
+
+
+
+
+
+
+
+
 .home-section {
   position: relative;
   background: white;
@@ -266,7 +279,7 @@
   color: #11101d;
   font-size: 25px;
   font-weight: 500;
-  margin: 18px
+  margin: 18px;
 }
 
 #userimg {
@@ -285,14 +298,14 @@
 }
 
 .dashboard-card {
-  background-color: white;
-  border-radius: 10px;
+  border-radius: 30px;
   border: none;
   width: 35%;
   transition: transform .4s;
+  background-color: rgb(243, 243, 243);
   box-shadow: 2px 2px 2px 2px gray;
-  margin: 2% 3% 2% 3%;
-  padding: 2%;
+  margin: 2% 3% 5.5% 3%;
+  padding: 3%;
 }
 
 .dashboard-card:hover {
@@ -309,7 +322,7 @@
   width: 30%;
   height: 90px;
   float: right;
-  background-color: rgb(120, 233, 224);
+  background-color: transparent
 }
 
 #icons {
@@ -319,16 +332,16 @@
 }
 
 .text {
-  font-family: Georgia;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  font-size: 35px;
   font-weight: bolder;
   color: rgb(5, 44, 42);
 }
 
 .sub-text {
-  font-family: Georgia;
   letter-spacing: 1px;
   font-size: 15px;
   font-weight: 600;
   color: gray;
+  margin-left: 20px;
 }

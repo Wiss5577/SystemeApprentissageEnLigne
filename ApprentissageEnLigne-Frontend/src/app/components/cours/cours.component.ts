@@ -1,21 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from 'src/app/models/course';
 import { ProfessorService } from 'src/app/services/professor.service';
 import * as $ from 'jquery';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Professor } from 'src/app/models/professor';
+import { Chapter } from 'src/app/models/chapter';
 
 @Component({
-  selector: 'app-update-course',
-  templateUrl: './update-course.component.html',
-  styleUrls: ['./update-course.component.css']
+  selector: 'app-cours',
+  templateUrl: './cours.component.html',
+  styleUrls: ['./cours.component.css']
 })
-export class UpdateCourseComponent implements OnInit {
+export class CoursComponent implements OnInit {
+
+  chapter = new Chapter();
   course = new Course();
+  id: number = 0; //1
+  msg = ' ';
   loggedUser = '';
   currRole = '';
   professor: Professor = new Professor();
-  id: number = 0;
+  dateToday: string = ""; // Vous pouvez définir le type en fonction de vos besoins
 
   constructor(private _professorService: ProfessorService, private _router: Router, private route: ActivatedRoute) { }
 
@@ -25,8 +30,9 @@ export class UpdateCourseComponent implements OnInit {
     this.loggedUser = this.loggedUser.replace(/"/g, '');
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
     this.currRole = this.currRole.replace(/"/g, '');
-    this.getProfessor(this.loggedUser);
     this.getCourse(this.id);
+    this.getProfessor(this.loggedUser);
+
     $("#websitelink, #youtubelink").css("display", "none");
     $("#websitelink").hide();
 
@@ -43,8 +49,17 @@ export class UpdateCourseComponent implements OnInit {
         }
       });
     }).change();
+
   }
 
+
+
+
+  getCourse(id: number) {
+    this._professorService.GetCourseById(id).subscribe(data => {
+      this.course = data;
+    })
+  }
   getProfessor(loggedUser: string) {
     this._professorService.getProfileDetails(this.loggedUser).subscribe(data => {
       this.professor = data;
@@ -52,25 +67,8 @@ export class UpdateCourseComponent implements OnInit {
     })
   }
 
-  getCourse(id: number) {
-    this._professorService.GetCourseById(id).subscribe(data => {
-      this.course = data;
-    })
+  Ajouterchapitres(coursname: string) {
+    console.log(coursname);
+    this._router.navigate(['/addchapter', coursname]);
   }
-
-  UpdateCourse() {
-    console.log(this.course);
-    this._professorService.UpdateCourse(this.course).subscribe(
-      data => {
-        console.log("Course  Updated succesfully");
-        this._router.navigate(['/addedcourses']);
-      },
-      error => {
-        console.log(error.error);
-      }
-    )
-  }
-
-
-
 }

@@ -1,33 +1,47 @@
 <app-header></app-header>
+<!--SideBar-->
+<app-prof-side-bar></app-prof-side-bar>
 
-<!--Espace Prof--> <!--Done-->
+
+<!--Espace Prof : Profil-->
 
 <div class="row" id="profilecard">
   <div id="bloodCards" *ngFor="let professor of approval | async">
-    <a><img
-        *ngIf="professor.gender === 'Male' || professor.gender === 'Homme'|| professor.gender === 'H' || professor.gender === 'homme'"
-        class="bloodimg" [src]="'assets/img/maleprofessor.png'" width="140" height="140"></a>
-    <a><img
-        *ngIf="professor.gender === 'Female' || professor.gender === 'Femme' || professor.gender === 'femme'|| professor.gender === 'F'"
-        class="bloodimg" [src]="'assets/img/femaleprofessor.png'" width="140" height="140"></a>
+    <a><img *ngIf="professor.gender === 'Homme'" class="bloodimg"
+        [src]="'https://cdn.pixabay.com/photo/2021/07/11/17/52/boy-6404506_1280.jpg'" width="140" height="140"></a>
+    <a><img *ngIf="professor.gender === 'Femme'" class="bloodimg"
+        [src]="'https://www.telegraph.co.uk/multimedia/archive/03249/archetypal-female-_3249633c.jpg'" width="140"
+        height="140"></a>
     <div class="card-block">
-      <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-user-circle'></i>
-          {{professor.professorname}}</b> </div>
+
       <div class="text"><small
-          style="font-size: smaller; margin-left: 6%; padding: 3px 8px 3px 8px; background-color: gray; border-radius: 10px; font-weight: bold; width: 55%; color: white;">{{professor.professorid}}</small>
+          style="font-size: smaller; margin-left: 6%; padding: 3px 8px 3px 8px; background-color: gray; border-radius: 10px; font-weight: bold; width: 55%; color: white;">
+          <i *ngIf="professor.gender === 'Femme'" class='fa fa-venus'></i>
+          <i *ngIf="professor.gender === 'Homme'" class='fa fa-mars'></i> {{professor.professorname}}</small>
       </div>
-      <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-address-book-o'></i>
+      <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-graduation-cap'></i>
           {{professor.degreecompleted}}</b> </div>
+      <div class="text"><b class="element" style="margin-left: 6%;"><i class="fa fa-university"></i> {{professor.univ}}
+        </b> </div>
       <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-phone'></i>
           {{professor.mobile}}</b> </div>
-      <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.univ}}</b> </div>
 
-      <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.institutionname}}</b> </div>
-      <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.email}}</b> </div>
-      <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.experience}} ans d'expérience</b>
+
+      <div class="text"><b class="element" style="margin-left: 6%;"><i class="fa fa-thumb-tack"></i>
+          {{professor.institutionname}}</b> </div>
+      <div class="text"><b class="element" style="margin-left: 6%;"><i class="fa fa-envelope-o "></i>
+          {{professor.email}}</b> </div>
+      <div class="text"><b class="element" style="margin-left: 6%;"><i class="fa fa-black-tie "></i>
+          {{professor.experience}} ans d'expérience</b>
+        <div class="text"><b style="font-size: smaller; margin-left: 6%; padding: 3px 8px 3px 8px; background-color: rgb(0, 77, 131); border-radius: 10px; font-weight: bold; width: 55%; color: white;
+            ;color: rgb(255, 255, 255);" [routerLink]="['/editprofessorprofile']" id="modifier">Modifier</b>
+        </div>
         <div>
           <div *ngIf="currRole === 'professor' || currRole === 'PROFESSOR' && professor.email === loggedUser">
-            <div *ngIf="professor.status === 'accept'" class="acceptedprof">Approuvé</div>
+            <div *ngIf="professor.status === 'accept' && professor.gender ==='Homme'" class="acceptedprof">Approuvé
+            </div>
+            <div *ngIf="professor.status === 'accept' && professor.gender ==='Femme'" class="acceptedprof">Approuvée
+            </div>
             <div *ngIf="professor.status === 'att'" class="pendingprof">En attente</div>
             <div *ngIf="professor.status === 'reject'" class="rejectedprof">Rejeté</div>
           </div>

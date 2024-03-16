@@ -42,7 +42,6 @@
 }
 
 .header h5 {
-	font-family: 'Fjalla One', sans-serif;
 	margin-right: 19%;
 	background: none;
 	text-transform: uppercase;
@@ -50,7 +49,6 @@
 }
 
 .header h5 span {
-	font-family: 'Fjalla One', sans-serif;
 	background: none;
 	color: rgb(221, 145, 5);
 }
@@ -62,7 +60,6 @@
 	letter-spacing: 1px;
 	font-size: 25px;
 	padding: 5px;
-	font-family: 'Skranji', cursive;
 }
 
 .nav label:hover {
@@ -183,7 +180,6 @@ li:hover {
 	/* margin-left: 450px; */
 	margin-left: 640px;
 	justify-content: right;
-	font-family: Georgia, serif;
 
 }
 
@@ -217,7 +213,6 @@ li:hover {
 	outline: none;
 	transition: all 1s ease;
 	transform: scale(1);
-	font-family: Georgia, serif;
 
 }
 
@@ -274,7 +269,6 @@ li:hover {
 .body1 p {
 	opacity: 0.7;
 	font-size: 20px;
-	font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .body2 {
@@ -295,7 +289,6 @@ li:hover {
 .body2 p {
 	opacity: 0.7;
 	font-size: 20px;
-	font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .body3 {
@@ -316,7 +309,6 @@ li:hover {
 .body3 p {
 	opacity: 0.7;
 	font-size: 20px;
-	font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .body4 {
@@ -337,7 +329,6 @@ li:hover {
 .body4 p {
 	opacity: 0.7;
 	font-size: 20px;
-	font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .body1:hover,
@@ -379,19 +370,16 @@ li:hover {
 	padding: 10px;
 	color: rgb(0, 13, 30);
 	letter-spacing: 2.5px;
-	font-weight: bolder;
 	font-size: large;
-	font-family: Georgia, serif;
+	font-weight: 500;
 }
 
 .subtextapp {
 	padding: 10px;
 	color: #edf0eb;
 	letter-spacing: 2.5px;
-	font-weight: bolder;
 	font-size: large;
 	text-align-last: center;
-	font-family: Georgia, serif;
 }
 
 .subtext1:hover,
@@ -404,10 +392,8 @@ li:hover {
 	padding: 12px 5px 0px 15px;
 	color: black;
 	display: none;
-	font-weight: 500;
-	line-height: 25px;
-	font-family: Georgia, serif;
 	cursor: pointer;
+
 }
 
 .counter {
@@ -441,7 +427,7 @@ li:hover {
 
 .section-title h2 {
 	font-size: 32px;
-	font-weight: bold;
+	font-weight: 340;
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	position: relative;

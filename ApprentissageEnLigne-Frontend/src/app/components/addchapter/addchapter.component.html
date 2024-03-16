@@ -1,79 +1,73 @@
 <app-header></app-header>
+<app-prof-side-bar></app-prof-side-bar>
 
 <div class="container">
-  <h2 class="textual"><i class="fa fa-book"></i> Nouveaux chapitres </h2>
+  <h3 class="textual"><i class="fa fa-book"></i> Nouveaux chapitres </h3>
   <small style="color:darkgreen; margin-left: 10%; font-weight: bold;"> </small>
   <form #addChapterform="ngForm" (ngSubmit)="addChapters()">
 
     <div class="form-group">
-      <label for="coursename">Course Name: <b class="text-danger">*</b></label>
-      <select class="form-control" id="sel1" name="coursename" [(ngModel)]="chapter.coursename" required
-        #coursename="ngModel">
-        <option style="color: lightgray;" selected="true" value="default">select course name</option>
-        <option *ngFor="let course of coursenames | async">{{course}}</option>
-      </select>
-      <!--<input type="text" class="form-control" placeholder="enter course name" name="coursename" [(ngModel)]="chapter.coursename" required 
-          #coursename="ngModel"
-          [class.is-invalid]="coursename.invalid && coursename.touched">
-         <small class="text-danger" [class.d-none]="coursename.valid || coursename.untouched"><b>required field</b></small>-->
+      <label for="coursename">Nom du cours :</label>
+      <input type="text" [(ngModel)]="chapter.coursename" name="chaptercoursename" class="form-control" readonly>
     </div>
-    <small style="color: gray; font-weight: bold;">Please choose course name from the drop-down</small>
 
     <div id="chapter1">
       <div class="form-group">
-        <label for="chapter1name">Chapter-1 Name: <b class="text-danger">*</b></label>
-        <input type="text" class="form-control" placeholder="enter chapter-1 name" id="chapter1nametxt"
+        <label for="chapter1name">Nom du chapitre 1:<b class="text-danger">*</b></label>
+        <input type="text" class="form-control" placeholder="Enter le nom du chapter-1" id="chapter1nametxt"
           name="chapter1name" [(ngModel)]="chapter.chapter1name">
       </div>
       <div class="form-group">
-        <label for="chapter1id">Chapter-1 URL: <b class="text-danger">*</b></label>
-        <input type="text" class="form-control" placeholder="enter chapter-1 URL as ID" id="chapter1idtxt"
+        <label for="chapter1id">URL du chapitre 1:<b class="text-danger">*</b></label>
+        <input type="text" class="form-control" placeholder="Enter le URL du chapter-1" id="chapter1idtxt"
           name="chapter1id" [(ngModel)]="chapter.chapter1id">
-        <small style="color: gray; font-weight: bold;">Please Provide the Chapter-1 video ID as the URL here...</small>
       </div>
       <div id="chapter1btn"
-        style="width: 12%; cursor: pointer; margin-top: 8px; background-color: rgb(13, 68, 65); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-plus"></i> Add</div>
+        style="width: 12%; cursor: pointer; margin-top: 8px; background-color: grey; color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
+        <i class="fa fa-plus"></i> Plus
+      </div>
     </div>
 
     <div id="chapter2">
       <div class="form-group">
-        <label for="chapter2name">Chapter-2 Name: <b class="text-danger">*</b></label>
-        <input type="text" class="form-control" placeholder="enter chapter-2 name" id="chapter2nametxt"
+        <label for="chapter2name">Nom du chapitre 2:<b class="text-danger">*</b></label>
+        <input type="text" class="form-control" placeholder="Enter le nom du chapter-2" id="chapter2nametxt"
           name="chapter2name" [(ngModel)]="chapter.chapter2name">
       </div>
       <div class="form-group">
-        <label for="chapter2id">Chapter-2 URL: <b class="text-danger">*</b></label>
-        <input type="text" class="form-control" placeholder="enter chapter-2 URL as ID" id="chapter2idtxt"
+        <label for="chapter2id">URL du chapitre 2:<b class="text-danger">*</b></label>
+        <input type="text" class="form-control" placeholder="Enter le URL du chapter-2" id="chapter2idtxt"
           name="chapter2id" [(ngModel)]="chapter.chapter2id">
-        <small style="color: gray; font-weight: bold;">Please Provide the Chapter-2 video ID as the URL here...</small>
       </div>
       <div id="chapter2btn"
-        style="width: 12%; margin-top: 8px; cursor: pointer; background-color: rgb(13, 68, 65); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-plus"></i> Add</div>
+        style="width: 12%; margin-top: 8px; cursor: pointer; background-color: gray; color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
+        <i class="fa fa-plus"></i> Plus
+      </div>
       <div id="remove2btn"
-        style="width: 15%; margin-top: -4.5%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-trash"></i> Remove</div>
+        style="width: 15%; margin-top: -4.65%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 10px 5px 15px; border-radius: 15px;">
+        <i class="fa fa-trash"></i>Remove
+      </div>
     </div>
 
     <div id="chapter3">
       <div class="form-group">
-        <label for="chapter3name">Chapter-3 Name: <b class="text-danger">*</b></label>
-        <input type="text" class="form-control" placeholder="enter chapter-3 name" id="chapter3nametxt"
+        <label for="chapter3name">Nom du chapitre 3<b class="text-danger">*</b></label>
+        <input type="text" class="form-control" placeholder="Entrer le nom du chapitre-3" id="chapter3nametxt"
           name="chapter3name" [(ngModel)]="chapter.chapter3name">
       </div>
       <div class="form-group">
-        <label for="chapter3id">Chapter-3 URL: <b class="text-danger">*</b></label>
-        <input type="text" class="form-control" placeholder="enter chapter-3 URL as ID" id="chapter3idtxt"
+        <label for="chapter3id">URL du chapitre 3<b class="text-danger">*</b></label>
+        <input type="text" class="form-control" placeholder="Entrer le URL du chapitre-3" id="chapter3idtxt"
           name="chapter3id" [(ngModel)]="chapter.chapter3id">
-        <small style="color: gray; font-weight: bold;">Please Provide the Chapter-3 video ID as the URL here...</small>
       </div>
       <div id="chapter3btn"
         style="width: 12%; margin-top: 8px; cursor: pointer; background-color: rgb(13, 68, 65); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-plus"></i> Add</div>
+        <i class="fa fa-plus"></i> Add
+      </div>
       <div id="remove3btn"
-        style="width: 15%; margin-top: -4.5%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-trash"></i> Remove</div>
+        style="width: 15%; margin-top: -4.65%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 10px 5px 15px; border-radius: 15px;">
+        <i class="fa fa-trash"></i>Remove
+      </div>
     </div>
 
     <div id="chapter4">
@@ -90,10 +84,12 @@
       </div>
       <div id="chapter4btn"
         style="width: 12%; margin-top: 8px; cursor: pointer; background-color: rgb(13, 68, 65); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-plus"></i> Add</div>
-      <div id="remove4btn"
-        style="width: 15%; margin-top: -4.5%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-trash"></i> Remove</div>
+        <i class="fa fa-plus"></i> Add
+      </div>
+      <div id="remove2btn"
+        style="width: 15%; margin-top: -4.65%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 10px 5px 15px; border-radius: 15px;">
+        <i class="fa fa-trash"></i>Remove
+      </div>
     </div>
 
     <div id="chapter5">
@@ -110,10 +106,12 @@
       </div>
       <div id="chapter5btn"
         style="width: 12%; margin-top: 8px; cursor: pointer; background-color: rgb(13, 68, 65); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-plus"></i> Add</div>
-      <div id="remove5btn"
-        style="width: 15%; margin-top: -4.5%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-trash"></i> Remove</div>
+        <i class="fa fa-plus"></i> Add
+      </div>
+      <div id="remove2btn"
+        style="width: 15%; margin-top: -4.65%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 10px 5px 15px; border-radius: 15px;">
+        <i class="fa fa-trash"></i>Remove
+      </div>
     </div>
 
     <div id="chapter6">
@@ -130,10 +128,12 @@
       </div>
       <div id="chapter6btn"
         style="width: 12%; margin-top: 8px; cursor: pointer; background-color: rgb(13, 68, 65); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-plus"></i> Add</div>
-      <div id="remove6btn"
-        style="width: 15%; margin-top: -4.5%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-trash"></i> Remove</div>
+        <i class="fa fa-plus"></i> Add
+      </div>
+      <div id="remove2btn"
+        style="width: 15%; margin-top: -4.65%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 10px 5px 15px; border-radius: 15px;">
+        <i class="fa fa-trash"></i>Remove
+      </div>
     </div>
 
     <div id="chapter7">
@@ -150,10 +150,12 @@
       </div>
       <div id="chapter7btn"
         style="width: 12%; margin-top: 8px; cursor: pointer; background-color: rgb(13, 68, 65); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-plus"></i> Add</div>
-      <div id="remove7btn"
-        style="width: 15%; margin-top: -4.5%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-trash"></i> Remove</div>
+        <i class="fa fa-plus"></i> Add
+      </div>
+      <div id="remove2btn"
+        style="width: 15%; margin-top: -4.65%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 10px 5px 15px; border-radius: 15px;">
+        <i class="fa fa-trash"></i>Remove
+      </div>
     </div>
 
     <div id="chapter8">
@@ -170,20 +172,17 @@
       </div>
       <div id="chapter8btn"
         style="width: 12%; margin-top: 8px; cursor: pointer; background-color: rgb(13, 68, 65); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-plus"></i> Add</div>
-      <div id="remove8btn"
-        style="width: 15%; margin-top: -4.5%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 15px 5px 15px; border-radius: 15px;">
-        <i class="fa fa-trash"></i> Remove</div>
+        <i class="fa fa-plus"></i> Add
+      </div>
+      <div id="remove2btn"
+        style="width: 15%; margin-top: -4.65%; margin-left: 14%; cursor: pointer; background-color: rgb(201, 13, 13); color: white; font-weight: bold; border: none; font-size: small; outline: none; padding: 5px 10px 5px 15px; border-radius: 15px;">
+        <i class="fa fa-trash"></i>Remove
+      </div>
     </div>
 
     <div class="checkbox" style="margin-top: 5px;">
-      <small style="font-weight: 700; color: darkred;"><input type="checkbox" name="remember" required> whether these
-        chapters has the valid contents related to the course </small>
     </div>
     <button style="margin-top: 15px;" [disabled]="addChapterform.form.invalid" type="submit" class="btn registerbtn"><i
-        class="fa fa-plus"></i>&nbsp; Add Chapter</button>
+        class="fa fa-plus"></i>&nbsp; Ajouter les chapitres</button>
   </form>
 </div>
-
-<br><br><br><br>
-<app-footer></app-footer>

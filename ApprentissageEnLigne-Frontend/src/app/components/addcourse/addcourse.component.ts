@@ -4,6 +4,7 @@ import { Course } from 'src/app/models/course';
 import { ProfessorService } from 'src/app/services/professor.service';
 import * as $ from 'jquery';
 import { Professor } from 'src/app/models/professor';
+import { Chapter } from 'src/app/models/chapter';
 
 @Component({
   selector: 'app-addcourse',
@@ -11,8 +12,9 @@ import { Professor } from 'src/app/models/professor';
   styleUrls: ['./addcourse.component.css']
 })
 export class AddcourseComponent implements OnInit {
-
+  chapter = new Chapter();
   course = new Course();
+  id: number = 0;
   msg = ' ';
   loggedUser = '';
   currRole = '';
@@ -59,10 +61,17 @@ export class AddcourseComponent implements OnInit {
     this.course.enrolleddate = this.dateToday;
     this.course.instructorname = this.professor.professorname;
     this.course.instructorinstitution = this.professor.institutionname;
+    this.AjouterCours();
+  }
+
+
+
+  AjouterCours() {
     this._professorService.addCourse(this.course).subscribe(
       data => {
+        this.course = data;
         console.log("Course added Successfully !!!");
-        this._router.navigate(['/addedcourses']);
+        this._router.navigate(['/cours', this.course.id]);
       },
       (error: { error: any; }) => {
         console.log("Process Failed");
@@ -85,4 +94,8 @@ export class AddcourseComponent implements OnInit {
     this.dateToday = today.toISOString().slice(0, 10);
   }
 
+
 }
+
+
+

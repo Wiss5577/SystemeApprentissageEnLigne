@@ -1,39 +1,6 @@
 <app-header></app-header>
 
-<!--apres modification-->
-
-<div class="row" id="profilecard">
-    <div id="bloodCards">
-        <a><img *ngIf="professor.gender === 'Male' || professor.gender === 'Homme'|| professor.gender === 'H' || professor.gender === 'homme'"
-                class="bloodimg" [src]="'assets/img/maleprofessor.png'" width="140" height="140"></a>
-        <a><img *ngIf="professor.gender === 'Female' || professor.gender === 'Femme' || professor.gender === 'femme'|| professor.gender === 'F'"
-                class="bloodimg" [src]="'assets/img/femaleprofessor.png'" width="140" height="140"></a>
-        <div class="card-block">
-            <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-user-circle'></i>
-                    {{professor.professorname}}</b> </div>
-            <div class="text"><small
-                    style="font-size: smaller; margin-left: 6%; padding: 3px 8px 3px 8px; background-color: gray; border-radius: 10px; font-weight: bold; width: 55%; color: white;">{{professor.professorid}}</small>
-            </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-address-book-o'></i>
-                    {{professor.degreecompleted}}</b> </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-phone'></i>
-                    {{professor.mobile}}</b> </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.univ}}</b> </div>
-
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.institutionname}}</b> </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.email}}</b> </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{professor.experience}} ans d'expérience</b>
-            </div>
-
-            <div class="btndiv" style="align-items: center;"><button class="editbtn" (click)="editProfile()"><i
-                        class="fa fa-edit"></i> Modifier</button></div>
-            <small id="message" *ngIf="temp === true" style="text-align: center; margin-top: 3%; color: green;"><b>
-                    profil a été modifié avec succès.</b></small>
-        </div>
-    </div>
-</div>
-
-
+<app-prof-side-bar></app-prof-side-bar>
 
 <!--Modifier-->
 
@@ -177,6 +144,15 @@
                                                 obligatoire</b></small>
                                     </div>
 
+                                    <!---Pic-->
+
+                                    <div class="form-group">
+                                        <input type="file" accept="image/*" class="form-control" name="pic"
+                                            (ngModel)="professor.pic" #professorconfirmPassword="ngModel">
+                                    </div>
+
+
+
                                     <div class="form-group">
                                         <input type="password" class="form-control"
                                             placeholder="Confirmer le mot de passe *" name="ConfirmPassword"
@@ -195,5 +171,16 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+
+
+<!--apres modification-->
+
+<div class="row" id="profilecard">
+    <div id="bloodCards">
+
+
     </div>
 </div>

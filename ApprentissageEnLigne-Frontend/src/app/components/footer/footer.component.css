@@ -2,7 +2,19 @@
     padding: 10px;
     color: #edf0eb;
     letter-spacing: 2.5px;
-    font-weight: bolder;
+    font-weight: 300;
     text-align-last: center;
-    font-family: Georgia, serif;
+}
+
+footer {
+
+    overflow-x: hidden;
+    overflow-x: hidden;
+}
+
+#footercontent {
+    width: 100%;
+    margin-bottom: 0%;
+    overflow-x: hidden;
+    overflow-x: hidden;
 }

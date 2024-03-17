@@ -22,10 +22,12 @@ public class EnrollmentService
 		return enrollmentRepo.save(enrollment);
 	}
 	
+	
 	public List<Enrollment> getAllEnrollments()
 	{
-		return (List<Enrollment>)enrollmentRepo.findAll();
+		return (List<Enrollment>) enrollmentRepo.findAll();
 	}
+	
 	
 	public void updateEnrolledcount(String coursename, int enrolledcount)
 	{

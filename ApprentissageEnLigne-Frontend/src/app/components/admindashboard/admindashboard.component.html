@@ -1,114 +1,123 @@
 <app-header></app-header>
-
 <!--Sidebar-->
 
-<div class="sidebar-container">
-  <ul class="sidebar-navigation">
-    <div class="card" style="width:235px; background-color: rgb(0, 13, 30);">
-      <div id="userimg" style="width:150px;">
-        <img [src]="'assets/img/admin.png'" alt="Card image" style="width:100%">
-      </div>
-      <div style="margin-left: auto; margin-right: auto;" class="card-body">
-        <h4 style="font-weight: bolder;" class="card-title"><b>{{name}}</b></h4>
-      </div>
-    </div>
-    <li>
-      <i class="fa fa-plus" aria-hidden="true"></i> <label [routerLink]="['/addProfessor']"
-        style="cursor: pointer; font-family: Georgia, serif; font-size: 18px;">Ajouter Professeur</label>
-    </li>
-    <li>
-      <i class="fa fa-check-square-o" aria-hidden="true"></i> <label [routerLink]="['/approveprofessor']"
-        style="cursor: pointer; font-family: Georgia, serif;font-size: 18px;">Demandes</label>
-    </li>
-    <li>
-      <i class="fa fa-clock-o" aria-hidden="true"></i> <label [routerLink]="['/approvecourse']"
-        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Cours en attente</label>
-    </li>
-    <li>
-      <i class="fa fa-th-list" aria-hidden="true"></i> <label [routerLink]="['/courselist']"
-        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Cours</label>
+<!--Student SideBar-->
+
+<div class="sidebar">
+  <div class="logo-details">
+    <i class='fa fa-bars'></i>
+    <div class="logo_name"><img [src]="'assets/img/user.png'" width="55" height="50"> Étudiant </div>
+    <i class='fa' id="btn"></i>
+  </div>
+
+  <ul class="nav-list">
+    <div> </div>
+
+    <li [routerLink]="['/addProfessor']">
+      <a>
+        <i class='fa fa-plus'></i>
+        <span class="links_name">Ajouter Professeur</span>
+      </a>
+      <span class="tooltip">Ajouter Professeur</span>
     </li>
 
-    <li>
-      <i class="fa fa-user-o" aria-hidden="true"></i> <label [routerLink]="['/professorlist']"
-        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Professeurs</label>
+    <li [routerLink]="['/approveprofessor']">
+      <a>
+        <i class='fa fa-check-square'></i>
+        <span class="links_name">Demandes</span>
+      </a>
+      <span class="tooltip">Demandes</span>
     </li>
-    <li>
-      <i class="fa fa-user" aria-hidden="true"></i> <label [routerLink]="['/userlist']"
-        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Étudiants</label>
+
+    <li [routerLink]="['/courselist']">
+      <a>
+        <i class='fa fa-list'></i>
+        <span class="links_name">Cours</span>
+      </a>
+      <span class="tooltip">Cours</span>
     </li>
-    <li>
-      <i class="fa fa-keyboard-o" aria-hidden="true"></i> <label [routerLink]="['/notes']"
-        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Mes
-        notes</label>
+    <li [routerLink]="['/professorlist']">
+      <a>
+        <i class='fa fa-user-o'></i>
+        <span class="links_name">Professeurs
+        </span>
+      </a>
+      <span class="tooltip">Professeurs</span>
     </li>
-    <li>
-      <i class="fa fa-history" aria-hidden="true"></i> <label [routerLink]="['/history']"
-        style="cursor: pointer;font-family: Georgia, serif;font-size: 18px;">Inscriptions</label>
+
+    <li [routerLink]="['/userlist']">
+      <a>
+        <i class='fa fa-user-o'></i>
+        <span class="links_name">Étudiants
+        </span>
+      </a>
+      <span class="tooltip">Étudiants</span>
+    </li>
+
+    <li [routerLink]="['/enrollmentslist']">
+      <a>
+        <i class='fa fa-heart'></i>
+        <span class="links_name">Inscriptions</span>
+      </a>
+      <span class="tooltip">Inscriptions</span>
+    </li>
+
+    <li [routerLink]="['/']">
+      <a>
+        <i class='fa fa-sign-out '></i>
+        <span class="links_name">Déconnexion</span>
+      </a>
+      <span class="tooltip">Déconnexion</span>
     </li>
   </ul>
 </div>
 
 
-<!--Container Home page-->
+
+<!--Home-->
+<div class="back">
+  <div class="home-section">
+    <div class="container">
+      <div class="row">
+
+        <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
+          <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-trophy"></i></div>
+          <div class="text"
+            style="font-family: Georgia; letter-spacing: 1px; font-size: 25px; font-weight: bolder; color: black;">
+            Cours</div>
+          <div class="sub-text" *ngFor="let user of users | async">{{user}} étudiants inscrits</div>
+        </div>
 
 
-<div class="container">
-  <br><br><br>
-  <div class="row">
-    <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-      <div class="circle"><i id="icons" style="margin-left: 30px;" class="fa fa-user"></i></div>
-      <div class="text">Étudiants</div>
-      <div class="sub-text" *ngFor="let user of users | async">{{user}} étudiants inscrits</div>
-    </div>
-    <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-      <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-user-o"></i></div>
-      <div class=" text">Professeurs</div>
-      <div class="sub-text" *ngFor="let professor of professors | async">{{professor}}
-        professeurs qui enseignent actuellement </div>
-    </div>
-    <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-      <div class="circle"><i id="icons" style="margin-left: 20px; margin-top: 20px;" class="fa fa-th-list"></i></div>
-      <div class="text">Cours</div>
-      <div class="sub-text" *ngFor="let course of courses | async">{{course}} cours disponibles </div>
-    </div>
-    <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-      <div class="circle"><i id="icons" style="margin-left: 20px;   margin-top: 20%;" class="fa fa-list-alt"></i></div>
-      <div class="text">Inscriptions </div>
-      <div class="sub-text" *ngFor="let count of enrollmentcount | async"><b
-          *ngFor="let enrollment of enrollments | async">{{enrollment}} inscriptions effectuées </b> </div>
-    </div>
-    <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-      <div class="circle"><i id="icons" style="margin-left: 20px;margin-top: 17px;" class="fa fa-address-card"></i>
+        <div class="dashboard-card" style="background-color: white;box-shadow: 2px 2px 2px 2px gray;">
+          <div class="circle"><i id="icons" style="margin-left: 20px;" class="fa fa-list"></i></div>
+          <div class="text"
+            style="font-family: Georgia; letter-spacing: 1px; font-size: 25px; font-weight: bolder; color: black;">
+            Chapitres</div>
+          <div class="sub-text" *ngFor="let professor of professors | async">{{professor}}
+            professeurs qui enseignent actuellement
+          </div>
+        </div>
+
+        <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
+          <div class="circle"><i id="icons" style="margin-left: 25px;" class="fa fa-id-card-o "></i></div>
+          <div class="text"
+            style="font-family: Georgia; letter-spacing: 1px; font-size: 25px; font-weight: bolder; color: black;">
+            Inscriptions</div>
+          <div class="sub-text" *ngFor="let course of courses | async">{{course}} cours disponibles </div>
+        </div>
+
+
+        <div class="dashboard-card" style="background-color: white;box-shadow: 2px 2px 2px 2px gray;">
+          <div class="circle"><i id="icons" style="margin-left: 20px;" class="fa fa-check"></i></div>
+          <div class="text" style="font-family: Georgia;font-size: 25px; font-weight: bolder; color: black;">Cours
+            terminés</div>
+          <div class="sub-text" *ngFor="let enrollment of enrollments | async">{{enrollment}} inscriptions effectuées
+            /div>
+          </div>
+
+        </div>
+
+
       </div>
-      <div class="text">Nouveaux professeurs</div>
-      <div class="sub-text" *ngFor="let chapter of chapters | async">{{chapter}} demandes en attente d'approbation</div>
     </div>
-    <div class="dashboard-card" style="background-color: white; box-shadow: 2px 2px 2px 2px gray;">
-      <div class="circle"><i id="icons" style="margin-left: 20px;" class="fa fa-files-o"></i></div>
-      <div class="text">Nouveaux cours</div>
-      <div class="sub-text" *ngFor="let wishlists of wishlist | async">{{wishlists}} cours en attente d'approbation
-      </div>
-    </div>
-  </div>
-</div>
-
-<br><br><br><br>
-
-<footer id="footer" class="bg-light text-center">
-  <div id="footercontent" class="text-center p-3"
-    style="background-color: rgb(0, 13, 30); font-weight: bolder; color: white;">
-    © 2024 GMI-2 FSTM
-
-    <section class="mb-4">
-
-      <a class="btn btn-primary btn-floating m-1" style="background-color: #333333; border: none;" role="button"
-        href="https://github.com/Wiss5577"><i class="fa fa-github"></i></a>
-      <a class="btn btn-primary btn-floating m-1" style="background-color: #333333; border: none;" role="button"
-        href="https://github.com/branou"><i class="fa fa-github"></i></a>
-      <a class="btn btn-primary btn-floating m-1" style="background-color: #333333; border: none;" role="button"
-        href="https://github.com/ismailIaich"><i class="fa fa-github"></i></a>
-    </section>
-
-  </div>
-</footer>

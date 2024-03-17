@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.sid.elearningspringboot.models.Chapter;
 import org.sid.elearningspringboot.models.Course;
+import org.sid.elearningspringboot.models.Enrollment;
 import org.sid.elearningspringboot.models.Professor;
 import org.sid.elearningspringboot.models.Wishlist;
 import org.sid.elearningspringboot.services.ChapterService;
 import org.sid.elearningspringboot.services.CourseService;
+import org.sid.elearningspringboot.services.EnrollmentService;
 import org.sid.elearningspringboot.services.ProfessorService;
 import org.sid.elearningspringboot.services.WishlistService;
 
@@ -37,8 +39,8 @@ public class ProfessorController {
 	
 	@Autowired
 	private WishlistService wishlistService;
-	
-	
+	@Autowired
+	private EnrollmentService enrollmentService;
 	
 	//Liste des profs
 	@GetMapping("/professorlist")
@@ -47,6 +49,16 @@ public class ProfessorController {
 		List<Professor> professors = professorService.getAllProfessors();
 		return new ResponseEntity<List<Professor>>(professors, HttpStatus.OK);
 	}
+
+	//liste des inscriptions
+	@GetMapping("/enrollmentslist")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public ResponseEntity<List<Enrollment>> getAllEnrollments() throws Exception{
+		List<Enrollment> enrollments = enrollmentService.getAllEnrollments();
+		return new ResponseEntity<List<Enrollment>>(enrollments, HttpStatus.OK);
+	}
+	
+	
 	
 	
 	//Cours de type youtube 
@@ -338,6 +350,12 @@ return professors;
 		public List<Course> GetCoursesByEmailAndCourseName(@PathVariable String email, @PathVariable String coursename){
 			return courseService.GetCoursesByEmailAndCourseName(email, coursename);
 		}
+	//find cours by nom d'enseignant
+		@GetMapping("/GetCoursByEmailEnsAndName/{name}/{coursename}")
+		@CrossOrigin(origins = "http://localhost:4200")
+			public List<Course> GetCoursByEmailEnsAndName(@PathVariable String name, @PathVariable String coursename){
+				return courseService.GetCoursByEmailEnsAndName(name, coursename);
+			}
 	
 	
 }

@@ -5,7 +5,7 @@
 
     <section class="table__header">
         <div class="input-group">
-            <input type="search" placeholder="Search Data...">
+            <input type="search" placeholder="Rechercher..">
         </div>
     </section>
 
@@ -21,53 +21,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td> 1 </td>
-                    <td> Seoul </td>
-                    <td> 17 Dec, 2022 </td>
-                    <td> $128.90 </td>
+                <tr *ngFor="let data of enrollments | async ">
+                    <td> {{data.id}} </td>
+                    <td> {{data.enrolledusername}} </td>
+                    <td> {{data.coursename}} </td>
+                    <td> {{data.enrolleddate}} </td>
                     <td>
-                        <p class="status delivered">Delivered</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td> 2 </td>
-                    <td> Kathmandu </td>
-                    <td> 27 Aug, 2023 </td>
-
-                    <td> $5350.50</td>
-                    <td>
-                        <p class="status cancelled">Cancelled</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td> 2 </td>
-                    <td> Kathmandu </td>
-                    <td> 27 Aug, 2023 </td>
-
-                    <td> $5350.50</td>
-                    <td>
-                        <p class="status cancelled">Cancelled</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td> 2 </td>
-                    <td> Kathmandu </td>
-                    <td> 27 Aug, 2023 </td>
-
-                    <td> $5350.50</td>
-                    <td>
-                        <p class="status cancelled">Cancelled</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td> 2 </td>
-                    <td> Kathmandu </td>
-                    <td> 27 Aug, 2023 </td>
-
-                    <td> $5350.50</td>
-                    <td>
-                        <p class="status cancelled">Cancelled</p>
+                        <p class="status delivered">jsp
+                        </p>
                     </td>
                 </tr>
             </tbody>

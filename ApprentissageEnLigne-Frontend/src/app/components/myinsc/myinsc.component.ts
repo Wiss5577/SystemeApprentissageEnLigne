@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/models/course';
 import { ProfessorService } from 'src/app/services/professor.service';
 import { Router } from '@angular/router';
+import { Enrollment } from 'src/app/models/enrollment';
+import { UserService } from 'src/app/services/user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-myinsc',
@@ -9,11 +12,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./myinsc.component.css']
 })
 export class MyinscComponent implements OnInit {
-  courses: Course[] = [];
   loggedUser: string = '';
   currRole: string = '';
+  enrollments: Observable<any[]> | undefined;
 
-  constructor(private profservice: ProfessorService, private _router: Router) { }
+  constructor(private userservice: UserService, private _router: Router) { }
 
   ngOnInit(): void {
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser') || '{}');
@@ -21,29 +24,11 @@ export class MyinscComponent implements OnInit {
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
     this.currRole = this.currRole.replace(/"/g, '');
     console.log(this.loggedUser);
-    this.GetCourses();
+    this.enrollments = this.userservice.getAllEnrollments();
   }
 
 
-  private GetCourses() {
-    this.profservice.GetCoursesByEmail(this.loggedUser).subscribe(
-      data => {
-        this.courses = data;
-        console.log(this.courses);
-      });
-  }
 
-  Modifier(id: number) {
-    this._router.navigate(['/updatecourse', id]);
 
-  }
-
-  Supprimer(id: number) {
-    this.profservice.DeleteCourseById(id).subscribe(
-      data => {
-        this.GetCourses();
-      });
-
-  }
 
 }

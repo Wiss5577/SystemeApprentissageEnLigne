@@ -1,8 +1,5 @@
 <app-header></app-header>
-
-<div *ngIf="currRole === 'user'" class="heading-text" style="color: rgb(244, 29, 34);"><b> Mes souhaits </b></div>
-<div *ngIf="currRole === 'professor'" class="heading-text" style="color: rgb(244, 29, 34);"><b> Mes souhaits </b>
-</div>
+<app-user-side-bar></app-user-side-bar>
 <div class="row">
     <div *ngFor="let course of wishlist | async" class="col-4 card" id="bloodCards">
         <div class="img-block">
@@ -33,7 +30,7 @@
             </div>
             <div class="text"><b style="color: rgb(0, 77, 131); font-size: large;">Langue :</b> {{course.language}}
             </div>
-            <a *ngIf="course.coursetype === 'Youtube'" (click)="visitCourse(course.coursename)"
+            <a *ngIf="course.coursetype === 'Youtube'" (click)="visitCourse(course.coursename,course.instructorname)"
                 style="margin-top: 5%; border: none;" id="enrollsuccessbtn" class="btn btn-primary">Visiter le cours</a>
             <a *ngIf="course.coursetype === 'Website'" (click)="openURL(course.websiteurl)"
                 style="margin-top: 5%; border: none;" id="enrollsuccessbtn" class="btn btn-primary">Visiter le cours</a>
@@ -42,4 +39,3 @@
 </div>
 
 <br><br><br>
-<app-footer></app-footer>

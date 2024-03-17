@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.Map;
+import java.util.Optional;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -335,5 +336,12 @@ public class UserController
             throw new Exception("L'utilisateur ou son image n'existent pas");
         }
     }
+	@GetMapping("/getuserbyid/{email}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Optional<User> GetUserByID(@PathVariable String email){
+		return userService.GetUserByID(email);
+	}
 	
+	
+
 }

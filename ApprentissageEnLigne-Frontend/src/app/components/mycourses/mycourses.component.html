@@ -1,50 +1,29 @@
 <app-header></app-header>
+<app-user-side-bar></app-user-side-bar>
 
-<div class="heading-text" style="color: rgb(244, 29, 34);"><b>Mon cursus </b></div>
-<div id="youtubecoursecard" style="margin-left: 10%; margin-right: 10%; margin-top: 2%;">
-  <owl-carousel-o [options]="owlOptions" (dragging)="owlDragging($event)">
-    <ng-container>
-      <ng-container *ngFor="let data of myenrollments | async">
-        <ng-template carouselSlide class="card" style="width: 25rem;">
-          <div class="card-body" id="youtubecard" style="	  box-shadow: 2px 2px 2px 2px gray
-            ; margin-right: 5%; margin-top: 5%; margin-bottom: 10%; width: 300px; background-color: white;">
-            <img *ngIf="data.coursetype === 'Youtube'" [src]="'assets/img/youtube.png'" width="70" height="240">
-            <img *ngIf="data.coursetype === 'Website'" [src]="'assets/img/website.png'" width="70" height="240">
-            <hr>
-            <h4 class="card-title text-center" style="margin-bottom: 4%;"><b>{{data.coursename}}</b></h4>
-            <h6 class="text-center"
-              style="margin-left: auto; margin-right: auto; padding: 5px 10px 5px 10px; background-color: gray; border-radius: 5px; font-weight: bold; width: 55%; color: white;">
-              {{data.courseid}}</h6>
-            <div><b style="color: rgb(0, 77, 131); font-size: large; margin-bottom: 1%;">Date:
-              </b><b>{{data.enrolleddate}}</b>
-            </div>
-            <div><b style="color: rgb(0, 77, 131); font-size: large; margin-bottom: 1%;">Votre ID: </b><b
-                style="margin-left: 3%; padding: 3px 8px 3px 8px; background-color: darkslateblue; border-radius: 5px; font-weight: bold; width: 55%; color: white;">{{data.enrolleduserid}}</b>
-            </div>
-            <div><b style="color: rgb(0, 77, 131); font-size: large; margin-bottom: 1%;">Instructeur:
-              </b><b>{{data.instructorname}}</b></div>
-            <div><b style="color: rgb(0, 77, 131); font-size: large; margin-bottom: 1%;">Inscrits:
-              </b><b>{{data.enrolledcount}}
-                inscrit précédemment</b></div>
-            <div><b style="color: rgb(0, 77, 131); font-size: large; margin-bottom: 1%;">Type:
-              </b><b>{{data.coursetype}}</b>
-            </div>
-            <div><b style="color: rgb(0, 77, 131); font-size: large; margin-bottom: 1%;">Niveau:
-              </b><b>{{data.skilllevel}}</b>
-            </div>
-            <div><b style="color: rgb(0, 77, 131); font-size: large; margin-bottom: 1%;">Langue:
-              </b><b>{{data.language}}</b>
-            </div>
-            <p class="card-text"><br><b
-                style="color: red; font-size: large; margin-bottom: 1%;">{{data.description}}</b></p>
-            <a (click)="visitCourse(data.coursename)" style="margin-left: auto; margin-right: auto; border: none;"
-              class="btn btn-primary">Visiter le cours</a>
-          </div>
-        </ng-template>
-      </ng-container>
-    </ng-container>
-  </owl-carousel-o>
+
+
+<div class="row" id="youtubecoursecard">
+
+  <div *ngFor="let data of myenrollments | async" class="col-4 card" id="bloodCards">
+    <div class="card-block">
+      <img *ngIf="data.coursetype === 'Youtube'" [src]="'assets/img/youtube.png'" width="240" height="240">
+      <img *ngIf="data.coursetype === 'Website'" [src]="'assets/img/website.png'" width="240" height="240">
+      <hr>
+      <h4 class="card-title text-center" style="margin-bottom: 4%;"><b>{{data.coursename}}</b></h4>
+      <div><b style="color: rgb(0, 77, 131); font-weight: 360; margin-bottom: 1%;">Enseignant:
+        </b><b>{{data.instructorname}}</b></div>
+      <div><b style="color: rgb(0, 77, 131); font-weight: 360; margin-bottom: 1%;">Langue :
+        </b><b>{{data.language}}</b></div>
+      <div><b style="color: rgb(0, 77, 131); font-weight: 360; margin-bottom: 1%;">Niveau :
+        </b><b>{{data.skilllevel}}</b></div>
+      <div><b style="color: rgb(0, 77, 131); font-weight: 360; margin-bottom: 1%;">Ajouté le :
+        </b><b>{{data.enrolleddate}}</b></div>
+      <div><b style="color: rgb(0, 77, 131); font-weight: 360; margin-bottom: 1%;">Type de cours :
+        </b><b>{{data.coursetype}}</b></div>
+      <a (click)="visitCourse(data.coursename,data.instructorname)"
+        style="margin-left: 19%; margin-right: auto; border: none;" class="btn btn-primary">Visiter le cours</a>
+    </div>
+  </div>
 </div>
-
 <br><br>
-<app-footer></app-footer>

@@ -11,33 +11,30 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MywishlistComponent implements OnInit {
 
-  wishlist : Observable<Wishlist[]> | undefined;
+  wishlist: Observable<Wishlist[]> | undefined;
   loggedUser = '';
   currRole = '';
-  constructor(private _service : UserService, private _router : Router) { }
+  constructor(private _service: UserService, private _router: Router) { }
 
-  ngOnInit(): void
-  {
-    
-    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
+  ngOnInit(): void {
+
+    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser') || '{}');
     this.loggedUser = this.loggedUser.replace(/"/g, '');
 
-    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
+    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
     this.currRole = this.currRole.replace(/"/g, '');
 
-    if(this.currRole === "admin")
+    if (this.currRole === "admin")
       this.wishlist = this._service.getAllWishlist();
     else
       this.wishlist = this._service.getWishlistByEmail(this.loggedUser);
   }
 
-  visitCourse(coursename : string)
-  {
-    this._router.navigate(['/fullcourse', coursename]);
+  visitCourse(coursename: string, instructorname: string) {
+    this._router.navigate(['/fullcourse', coursename, instructorname]);
   }
-  
-  openURL(url : string)
-  {
+
+  openURL(url: string) {
     (window as any).open(url, "_blank");
   }
 

@@ -1,20 +1,31 @@
 <app-header></app-header>
-
+<app-user-side-bar></app-user-side-bar>
 <div class="row" id="profilecard">
     <div *ngFor="let user of profileDetails | async" id="bloodCards">
         <a><img *ngIf="user.gender === 'Homme' || user.gender === 'Homme' || user.gender === 'M'" class="bloodimg"
                 [src]="'assets/img/maleuser.png'" width="140" height="140"></a>
         <a><img *ngIf="user.gender === 'Femme' || user.gender === 'Femme' || user.gender === 'F'" class="bloodimg"
-                [src]="'assets/img/femaleuser.png'" width="140" height="140"></a>
+                [src]="'assets/img/girl.png'" width="140" height="140"></a>
         <div class="card-block">
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{user.username}}</b> </div>
             <div class="text"><small
-                    style="font-size: smaller; margin-left: 6%; padding: 3px 8px 3px 8px; background-color: gray; border-radius: 10px; font-weight: bold; width: 55%; color: white;">{{user.userid}}</small>
+                    style="font-size: smaller; margin-left: 6%; padding: 3px 8px 3px 8px; background-color: gray; border-radius: 10px; font-weight: bold; width: 55%; color: white;">
+                    <i *ngIf="user.gender === 'Femme'" class='fa fa-venus'></i>
+                    <i *ngIf="user.gender === 'Homme'" class='fa fa-mars'></i> {{user.username}}</small>
             </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{user.mobile}}</b> </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{user.gender}}</b> </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{user.profession}}</b> </div>
-            <div class="text"><b class="element" style="margin-left: 6%;"> {{user.email}}</b> </div>
+            <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-graduation-cap'></i>
+                    {{user.level}}</b> </div>
+            <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-university'></i>
+                    {{user.univ}}</b> </div>
+            <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-paperclip'></i>
+                    Domaine de {{user.profession}}</b> </div>
+
+            <div class="text"><b class="element" style="margin-left: 6%;"><i class='fa fa-phone'></i>
+                    {{user.mobile}}</b> </div>
+
+            <div class="text"><b class="element" style="margin-left: 6%;"><i class="fa fa-envelope-o "></i>
+                    {{user.email}}</b> </div>
+            <div class="text"><b class="element" style="margin-left: 6%;"><i class="fa fa-thumb-tack "></i>
+                    {{user.address}}</b> </div>
             <div class="btndiv" style="align-items: center;"><button class="editbtn" (click)="editProfile()"><i
                         class="fa fa-edit"></i> Modifier</button></div>
             <small id="message" *ngIf="temp === true" style="text-align: center; margin-top: 3%; color: green;"><b>Le
@@ -34,7 +45,7 @@
                     <h3 class="textual">Modifier les informations de votre profil</h3>
                     <small *ngIf="temp === false"
                         style="font-weight: bold; margin-left: 25%; text-align: center; color: grey;"><b>
-                            {{loggedUser}}, Modifier votre profil ici</b></small>
+                            {{user.username}}, Modifier votre profil ici</b></small>
                     <small *ngIf="temp === true" style="text-align: center; color: green;"><b>Profil mis à jour avec
                             succès.</b></small>
                     <form #Updateform="ngForm" style="margin-top: -15%;" (ngSubmit)="updateUserProfile()">
@@ -42,27 +53,51 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Nom *" name="username"
-                                        [(ngModel)]="user.username" required #username="ngModel"
-                                        [class.is-invalid]="username.invalid && username.touched">
-                                    <small class="text-danger"
-                                        [class.d-none]="username.valid || username.untouched"><b>Champ
-                                            obligatoire</b></small>
+                                        [(ngModel)]="user.username" readonly #username="ngModel">
+
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Sexe *" name="usergender"
-                                        [(ngModel)]="user.gender" required #usergender="ngModel"
-                                        [class.is-invalid]="usergender.invalid && usergender.touched">
-                                    <small class="text-danger"
-                                        [class.d-none]="usergender.valid || usergender.untouched"><b>Champ
-                                            obligatoire</b></small>
+                                        [(ngModel)]="user.gender" readonly #usergender="ngModel">
+
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Votre profession *"
+                                    <input type="text" class="form-control" placeholder="Votre domaine *"
                                         name="userprofession" [(ngModel)]="user.profession" required
                                         #userprofession="ngModel"
                                         [class.is-invalid]="userprofession.invalid && userprofession.touched">
                                     <small class="text-danger"
                                         [class.d-none]="userprofession.valid || userprofession.untouched"><b>Champ
+                                            obligatoire</b></small>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-select" name="useruniv" [(ngModel)]="user.univ" required
+                                        #useruniv="ngModel" [class.is-invalid]="useruniv.invalid && useruniv.touched">
+                                        <option value="" disabled selected>Votre université *</option>
+                                        <option value="Cadi Ayyad">Cadi Ayyad</option>
+                                        <option value="Mohammed V de Rabat">Mohammed V de Rabat</option>
+                                        <option value="Hassan II de Casablanca">Hassan II de Casablanca</option>
+                                        <option value="Mohammed Premier d'Oujda">Mohammed Premier d'Oujda</option>
+                                        <option value="Ibn Tofail de Kenitra">Ibn Tofail de Kenitra</option>
+                                        <option value="Sidi Mohamed Ben Abdellah de Fès">Sidi Mohamed Ben Abdellah
+                                            de Fès</option>
+                                        <option value="Abdelmalek Essaâdi de Tanger">Abdelmalek Essaâdi de Tanger
+                                        </option>
+                                        <option value="Ibn Zohr d'Agadir">Ibn Zohr d'Agadir</option>
+                                        <option value="Chouaib Doukkali d'El Jadida">Chouaib Doukkali d'El Jadida
+                                        </option>
+                                        <option value="Moulay Ismail de Meknès">Moulay Ismail de Meknès</option>
+                                        <option value="Sultan Moulay Slimane de Béni Mellal">Sultan Moulay Slimane
+                                            de Béni Mellal</option>
+                                        <option value="Hassan Premier de Settat">Hassan Premier de Settat</option>
+                                        <option value="Mohammed VI Polytechnique de Benguerir">Mohammed VI
+                                            Polytechnique de Benguerir</option>
+                                        <option value="À l'étranger">À l'étranger</option>
+                                        <option value="Autre">Autre</option>
+                                    </select>
+                                    <small class="text-danger"
+                                        [class.d-none]="useruniv.valid || useruniv.untouched"><b>Champ
                                             obligatoire</b></small>
                                 </div>
                                 <div class="form-group">
@@ -79,15 +114,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="email" class="form-control" placeholder="Adresse email *"
-                                        name="useremail" [(ngModel)]="user.email" required
-                                        pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #useremail="ngModel"
-                                        [class.is-invalid]="useremail.invalid && useremail.touched">
-                                    <div *ngIf="useremail.errors && (useremail.invalid && useremail.touched)">
-                                        <small class="text-danger" *ngIf="useremail.errors.required"><b>Champ
-                                                obligatoire</b></small>
-                                        <small class="text-danger" *ngIf="useremail.errors.pattern"><b>Adresse email
-                                                invalide</b></small>
-                                    </div>
+                                        name="useremail" [(ngModel)]="user.email" readonly>
+
                                 </div>
                                 <div class="form-group">
                                     <input type="tel" maxlength="10" minlength="10" class="form-control"

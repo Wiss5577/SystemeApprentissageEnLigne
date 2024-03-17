@@ -11,42 +11,39 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserprofileComponent implements OnInit {
 
-  profileDetails : Observable<User[]> | undefined;
-  user: User = new User;
+  profileDetails: Observable<User[]> | undefined;
+  user: User = new User();
   msg = ' ';
   currRole = '';
   loggedUser = '';
   temp = false;
 
-  constructor(private _service: UserService, private activatedRoute: ActivatedRoute, private _router : Router) { }
+  constructor(private _service: UserService, private activatedRoute: ActivatedRoute, private _router: Router) { }
 
-  ngOnInit(): void 
-  {
-    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
+  ngOnInit(): void {
+    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser') || '{}');
     this.loggedUser = this.loggedUser.replace(/"/g, '');
 
-    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
+    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
     this.currRole = this.currRole.replace(/"/g, '');
-
+    console.log(this.loggedUser);
     $("#profilecard").show();
     $("#profileform").hide();
     this.getProfileDetails(this.loggedUser);
+    this.GetUserByID(this.loggedUser);
   }
 
-  editProfile()
-  {
+  editProfile() {
     $("#profilecard").hide();
     $("#profileform").show();
   }
 
-  getProfileDetails(loggedUser : string)
-  {
+  getProfileDetails(loggedUser: string) {
     this.profileDetails = this._service.getProfileDetails(this.loggedUser);
     console.log(this.profileDetails);
   }
 
-  updateUserProfile()
-  {
+  updateUserProfile() {
     this._service.UpdateUserProfile(this.user).subscribe(
       data => {
         console.log("UserProfile Updated succesfully");
@@ -57,8 +54,8 @@ export class UserprofileComponent implements OnInit {
         $("#profilecard").show();
         $("#profileform").hide();
         setTimeout(() => {
-            this._router.navigate(['/userdashboard']);
-          }, 6000);
+          this._router.navigate(['/edituserprofile']);
+        }, 6000);
       },
       error => {
         console.log("Profile Updation Failed");
@@ -69,4 +66,11 @@ export class UserprofileComponent implements OnInit {
   }
 
 
+  GetUserByID(loggedUser: string) {
+    this._service.GetUserByID(this.loggedUser).subscribe(data => {
+      this.user = data;
+      console.log(this.user);
+    })
+  }
 }
+

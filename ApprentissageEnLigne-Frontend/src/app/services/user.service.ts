@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Course } from '../models/course';
 import { Enrollment } from '../models/enrollment';
 import { Wishlist } from '../models/wishlist';
+import { User } from '../models/user';
 
 const NAV_URL = environment.apiURL;
 
@@ -20,19 +21,19 @@ export class UserService {
   }
 
   getYoutubeCourseList(): Observable<any> {
-    return this._http.get<any>(`${NAV_URL}/youtubecourselist`);
+    return this._http.get<Course[]>(`${NAV_URL}/youtubecourselist`);
   }
 
   getWebsiteCourseList(): Observable<any> {
-    return this._http.get<any>(`${NAV_URL}/websitecourselist`);
+    return this._http.get<Course[]>(`${NAV_URL}/websitecourselist`);
   }
 
-  getCourseListByName(coursename: string): Observable<any> {
-    return this._http.get<any>(`${NAV_URL}/courselistbyname/` + coursename);
+  getCourseListByName(coursename: string): Observable<Course[]> {
+    return this._http.get<Course[]>(`${NAV_URL}/courselistbyname/` + coursename);
   }
 
-  enrollNewCourse(enrollment: Enrollment, loggedUser: string, currRole: string): Observable<any> {
-    return this._http.post<any>(`${NAV_URL}/enrollnewcourse/` + loggedUser + "/" + currRole, enrollment);
+  enrollNewCourse(enrollment: Enrollment, loggedUser: string, currRole: string): Observable<Course> {
+    return this._http.post<Course>(`${NAV_URL}/enrollnewcourse/` + loggedUser + "/" + currRole, enrollment);
   }
 
   addToWishlist(wishlist: Wishlist): Observable<any> {
@@ -71,6 +72,16 @@ export class UserService {
     return this._http.put<any>(`${NAV_URL}/updateuser`, user);
   }
 
+
+  GetUserByID(loggedUser: string): Observable<User> {
+    const url = `${NAV_URL}/getuserbyid/`;
+    return this._http.get<User>(url + loggedUser);
+  }
+
+
+  getAllEnrollments(): Observable<any> {
+    return this._http.get<Enrollment[]>(`${NAV_URL}/enrollmentslist`);
+  }
 
 
 }

@@ -2,9 +2,10 @@
 
 .register {
   background: white;
-  margin-top: 0.8%;
+  margin-top: 0%;
   margin-bottom: 3%;
   border-radius: 15px;
+  margin-left: 13%;
   padding: 3%;
 }
 
@@ -29,8 +30,8 @@
   border: none;
   border-radius: 1.5rem;
   padding: 1%;
-  border: 1px solid rgb(0, 13, 30);
-  color: rgb(0, 13, 30);
+  border: 1px solid rgb(0, 77, 131);
+  color: rgb(0, 77, 131);
   font-weight: 600;
   font-size: 20px;
   width: 30%;
@@ -54,8 +55,7 @@
 .loginbtn:hover {
   cursor: pointer;
   background: #ffffff;
-  color: gray;
-
+  color: rgb(0, 77, 131);
 }
 
 .btnRegister:hover {
@@ -71,7 +71,6 @@
   font-size: 35px;
   letter-spacing: 1.5px;
   margin-bottom: -15%;
-  font-family: 'Aladin', cursive;
   color: red;
 }
 
@@ -94,19 +93,17 @@ input {
 }
 
 .textual {
-  color: black;
+  color: rgb(0, 77, 131);
   text-align: center;
   margin-top: 2%;
-  font-family: 'Aladin', sans-serif;
   padding: 5px;
+  font-size: 25px;
   font-weight: bolder;
-  text-transform: uppercase;
 }
 
 label {
   margin-top: 8px;
   font-weight: bold;
-  font-family: sans-serif;
   letter-spacing: 1px;
 }
 
@@ -127,22 +124,27 @@ label {
 }
 
 .registerbtn:hover {
-  background-color: rgb(0, 13, 30);
+  background-color: rgb(0, 77, 131);
   padding-left: 7%;
   padding-right: 7%;
   cursor: pointer;
   color: white;
 }
 
+
+
+
+
 #bloodCards {
   margin-right: 5%;
-  margin-bottom: 15%;
-  width: 50%;
+  margin-bottom: 11.3%;
+  width: 65%;
   border-radius: 10px;
   transition: transform .2s;
-  padding-left: 2%;
+  padding: 2%;
   box-shadow: 2px 2px 2px 2px gray;
 }
+
 
 #bloodCards:hover {
   transform: scale(1.05);
@@ -161,10 +163,10 @@ label {
 }
 
 .text {
-  font-family: verdana;
-  font-size: medium;
-  font-weight: 400;
+  white-space: nowrap;
+  font-weight: 300;
   margin-top: 1.5%;
+  letter-spacing: 0.4px;
 }
 
 .editbtn {
@@ -179,8 +181,9 @@ label {
 }
 
 .editbtn:hover {
-  background-color: gray;
   cursor: pointer;
+  background-color: gray;
+
 }
 
 .btndiv {
@@ -189,6 +192,6 @@ label {
 }
 
 #profilecard {
-  margin-left: 30%;
+  margin-left: 32%;
   margin-top: 5%;
 }

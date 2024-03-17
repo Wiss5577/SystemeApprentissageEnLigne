@@ -52,5 +52,8 @@ public interface CourseRepository extends CrudRepository<Course, Integer>{
 	
 	
 	
-	
+	@Transactional
+	@Modifying
+	@Query(value = "select * from course where instructorname = ?1 and coursename = ?2", nativeQuery = true)
+	public List<Course> GetCoursByEmailEnsAndName(String instructorname,String coursename);
 }

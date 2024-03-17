@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.sid.elearningspringboot.models.Chapter;
 import org.sid.elearningspringboot.models.Course;
+import org.sid.elearningspringboot.models.User;
 import org.sid.elearningspringboot.repositories.ChapterRepository;
 import org.sid.elearningspringboot.repositories.CourseRepository;
 
@@ -28,10 +29,7 @@ public class CourseService
 		return courseRepo.save(course);
 	}
 	
-	public List<Course> getAllCourses()
-	{
-		return (List<Course>)courseRepo.findAll();
-	}
+	
 	
 	public void updateEnrolledcount(String coursename, int enrolledcount)
 	{
@@ -121,5 +119,16 @@ public class CourseService
 	  public List<Course> GetCoursesByEmailAndCourseName(String email,String coursename){
 		  return courseRepo.GetCoursesByEmailAndCourseName(email, coursename);
 	  }
+	  
+	
+	  
+	  public List<Course> GetCoursByEmailEnsAndName(String instructorname,String coursename){
+		  return courseRepo.GetCoursByEmailEnsAndName(instructorname, coursename);
+	  }
+	  
+	  public List<Course> getAllCourses()
+		{
+			return (List<Course>)courseRepo.findAll();
+		}
 	
 }

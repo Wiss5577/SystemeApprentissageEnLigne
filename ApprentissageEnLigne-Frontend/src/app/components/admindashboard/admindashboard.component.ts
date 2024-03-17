@@ -38,7 +38,23 @@ export class AdmindashboardComponent implements OnInit {
     this.enrollmentcount = this._service.getTotalEnrollmentCount();
     this.wishlist = this._service.getTotalWishlist();
     this.chapters = this._service.getTotalChapters();
+    $("#btn").click(function () {
+      $(".sidebar").toggleClass("open");
+      menuBtnChange();
+    });
 
+    $(".bx-search").click(function () {
+      $(".sidebar").toggleClass("open");
+      menuBtnChange();
+    });
+
+    function menuBtnChange() {
+      if ($(".sidebar").hasClass("open")) {
+        $("#btn").removeClass("fa-bars").addClass("fa-ellipsis-v");
+      } else {
+        $("#btn").removeClass("fa-ellipsis-v").addClass("fa-bars");
+      }
+    }
   }
 
 }

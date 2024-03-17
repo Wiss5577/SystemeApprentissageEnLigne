@@ -1,9 +1,11 @@
 package org.sid.elearningspringboot.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.sid.elearningspringboot.models.Professor;
 import org.sid.elearningspringboot.models.User;
 import org.sid.elearningspringboot.repositories.UserRepository;
 
@@ -47,4 +49,11 @@ public class UserService
 	{
 		return (List<User>)userRepo.findProfileByEmail(email);
 	}
+	
+	public Optional<User> GetUserByID(String email)
+	{
+		return userRepo.findById(email);
+	}
+	
+	
 }

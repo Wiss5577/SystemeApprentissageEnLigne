@@ -93,9 +93,23 @@ export class ProfessorService {
     const url2 = `/`;
     return this._http.get<Course[]>(url + email + url2 + coursename);
   }
+
+  GetCoursByEmailEnsAndName(name: String, coursename: String) {
+    const url = `${NAV_URL}/GetCoursByEmailEnsAndName/`;
+    const url2 = `/`;
+    return this._http.get<Course[]>(url + name + url2 + coursename);
+  }
+
+
   CountMycourses(email: String) {
     const url = `${NAV_URL}/CountMycourses/`;
     return this._http.get<number>(url + email);
 
   }
+
+  getAllCourses(): Observable<any> {
+    return this._http.get<Course[]>(`${NAV_URL}/courseslist`);
+  }
+
+
 }

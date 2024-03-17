@@ -35,6 +35,7 @@ import { StudentsinscComponent } from './components/studentsinsc/studentsinsc.co
 import { UpdateCourseComponent } from './components/update-course/update-course.component';
 import { ProfSideBarComponent } from './components/prof-side-bar/prof-side-bar.component';
 import { CoursComponent } from './components/cours/cours.component';
+import { UserSideBarComponent } from './components/user-side-bar/user-side-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { CoursComponent } from './components/cours/cours.component';
     UpdateCourseComponent,
     ProfSideBarComponent,
     CoursComponent,
+    UserSideBarComponent,
   ],
   imports: [
     BrowserModule,

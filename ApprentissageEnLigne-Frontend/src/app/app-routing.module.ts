@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'userlist', component: UserlistComponent, canActivate: [RouterGuard] },
   { path: 'courselist', component: CourselistComponent, canActivate: [RouterGuard] },
   { path: 'addchapter/:coursname', component: AddchapterComponent, canActivate: [RouterGuard] },
-  { path: 'fullcourse/:coursename', component: FullcourseComponent, canActivate: [RouterGuard] },
+  { path: 'fullcourse/:coursename/:instructorname', component: FullcourseComponent, canActivate: [RouterGuard] },
   { path: 'editprofessorprofile', component: ProfessorprofileComponent, canActivate: [ProfessorGuard] },
   { path: 'edituserprofile', component: UserprofileComponent, canActivate: [UserGuard] },
   { path: 'mywishlist', component: MywishlistComponent, canActivate: [RouterGuard] },

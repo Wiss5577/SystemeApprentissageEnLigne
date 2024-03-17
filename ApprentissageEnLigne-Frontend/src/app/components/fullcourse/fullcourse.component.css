@@ -1,17 +1,15 @@
 .continer {
     background-color: white;
     border-radius: 10px;
-    box-shadow: 4px 4px 35px 8px darkgray;
-    margin: 3% 5% 3% 5%;
+    box-shadow: 2px 2px 2px 2px gray;
+    margin: 3% 5% 3% 18%;
     padding: 3%;
 }
 
 .chapter-list {
-    margin-top: -2%;
-    float: right;
     overflow-y: scroll;
     padding: 2%;
-    box-shadow: 4px 4px 25px 8px darkgray;
+    box-shadow: 2px 0px 2px 0px gray;
     background-color: white;
     width: 36%;
     height: 380px;
@@ -57,7 +55,6 @@
     cursor: pointer;
     margin-left: 12%;
     color: rgb(6, 54, 47);
-    font-family: 'Segoe UI', sans-serif;
 }
 
 .chapter1,
@@ -82,7 +79,6 @@
 .sub-container {
     background-color: white;
     border-radius: 10px;
-    box-shadow: 4px 4px 15px 8px darkgray;
     margin-top: 2%;
     padding: 1%;
     width: 100%;

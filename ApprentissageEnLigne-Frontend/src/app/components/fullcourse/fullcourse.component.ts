@@ -5,6 +5,8 @@ import { Chapter } from 'src/app/models/chapter';
 import { UserService } from 'src/app/services/user.service';
 import * as $ from 'jquery';
 import { Course } from 'src/app/models/course';
+import { ProfessorService } from 'src/app/services/professor.service';
+import { Professor } from 'src/app/models/professor';
 
 declare var require: any;
 const FileSaver = require('file-saver');
@@ -15,21 +17,31 @@ const FileSaver = require('file-saver');
   styleUrls: ['./fullcourse.component.css']
 })
 export class FullcourseComponent implements OnInit {
-
-  video = 'P2wNzig_SLA';
+  courses: Course[] = [];
+  loggedUser = '';
+  video = '';
+  currRole = "";
   courseName = '';
   chapterlist: Observable<Chapter[]> | undefined;
   courselist: Observable<Course[]> | undefined;
   chapter = new Chapter();
-
-  constructor(private _router: Router, private _service: UserService, private activatedRoute: ActivatedRoute) { }
+  instructorname: string = '';
+  constructor(private _router: Router, private _service: UserService, private activatedRoute: ActivatedRoute, private profservice: ProfessorService) { }
 
   ngOnInit(): void {
+    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser') || '{}');
+    this.loggedUser = this.loggedUser.replace(/"/g, '');
+    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE') || '{}');
+    this.currRole = this.currRole.replace(/"/g, '');
+    console.log(this.loggedUser);
+    this.courseName = this.activatedRoute.snapshot.params['coursename'];
+    this.instructorname = this.activatedRoute.snapshot.params['instructorname'];
 
+    console.log(this.courseName);
+    this.RechercherByName();
     $("#overview").show();
     $("#qa, #notes, #announcements, #questions, #notestxt, #downloads").hide();
     $("#downloadalert").css("display", "none");
-    this.courseName = this.activatedRoute.snapshot.params['coursename'];
 
     const target = 'https://www.youtube.com/iframe_api'
 
@@ -141,7 +153,16 @@ export class FullcourseComponent implements OnInit {
 
   openDoc() {
     const pdfUrl = './assets/Introduction to Spring MVC.pdf';
-    window.open(pdfUrl + '#page=1', '_blank', '', true);
+    window.open(pdfUrl + '#page=1', '_blank', '');
   }
 
+
+
+  RechercherByName() {
+    this.profservice.GetCoursByEmailEnsAndName(this.instructorname, this.courseName).subscribe(
+      data => {
+        this.courses = data;
+        console.log(this.courses);
+      });
+  }
 }

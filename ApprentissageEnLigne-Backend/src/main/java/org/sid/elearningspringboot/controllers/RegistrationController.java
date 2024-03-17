@@ -1,12 +1,22 @@
 package org.sid.elearningspringboot.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+import org.sid.elearningspringboot.models.Course;
+import org.sid.elearningspringboot.models.Enrollment;
 import org.sid.elearningspringboot.models.Professor;
 import org.sid.elearningspringboot.models.User;
+import org.sid.elearningspringboot.services.CourseService;
+import org.sid.elearningspringboot.services.EnrollmentService;
 import org.sid.elearningspringboot.services.ProfessorService;
 import org.sid.elearningspringboot.services.UserService;
 
@@ -19,6 +29,9 @@ public class RegistrationController
 	@Autowired
 	private ProfessorService professorService;
 	
+	@Autowired
+	private CourseService courseService;
+	private EnrollmentService enrollmentService;
 	@PostMapping("/registeruser")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public User registerUser(@RequestBody User user) throws Exception
@@ -73,4 +86,16 @@ public class RegistrationController
         }
         return sb.toString();
 	}
+	
+	@GetMapping("/courseslist")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public ResponseEntity<List<Course>> getAllCourses() throws Exception{
+		List<Course> courses =courseService.getAllCourses();
+		return new ResponseEntity<List<Course>>(courses, HttpStatus.OK);
+	}
+	
+	
+
+	
+
 }

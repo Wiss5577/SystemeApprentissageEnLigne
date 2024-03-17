@@ -1,0 +1,68 @@
+<!--Student SideBar-->
+
+<div class="sidebar">
+    <div class="logo-details">
+        <i class='fa fa-bars'></i>
+        <div class="logo_name"><img [src]="'assets/img/user.png'" width="55" height="50"> Étudiant </div>
+        <i class='fa' id="btn"></i>
+    </div>
+
+    <ul class="nav-list">
+        <div> </div>
+
+        <li [routerLink]="['/userdashboard']">
+            <a>
+                <i class='fa fa-home'></i>
+                <span class="links_name">Accueil</span>
+            </a>
+            <span class="tooltip">Accueil</span>
+        </li>
+        <li [routerLink]="['/edituserprofile']">
+            <a>
+                <i class='fa fa-user-circle'></i>
+                <span class="links_name">Mon profil</span>
+            </a>
+            <span class="tooltip">Mon profil</span>
+        </li>
+        <li [routerLink]="['/courselist']">
+            <a>
+                <i class='fa fa-list'></i>
+                <span class="links_name">Cours</span>
+            </a>
+            <span class="tooltip">Cours</span>
+        </li>
+
+        <li [routerLink]="['/mycourses']">
+            <a>
+                <i class='fa fa-graduation-cap'></i>
+                <span class="links_name">Mon apprentissage
+                </span>
+            </a>
+            <span class="tooltip">Mon apprentissage</span>
+        </li>
+
+        <li [routerLink]="['/certifications']">
+            <a>
+                <i class='fa fa-trophy'></i>
+                <span class="links_name">Mes certifications
+                </span>
+            </a>
+            <span class="tooltip">Mes certifications</span>
+        </li>
+
+        <li [routerLink]="['/mywishlist']">
+            <a>
+                <i class='fa fa-heart'></i>
+                <span class="links_name">Liste des souhaits</span>
+            </a>
+            <span class="tooltip">Liste des souhaits</span>
+        </li>
+        <li [routerLink]="['/']">
+            <a>
+                <i class='fa fa-sign-out '></i>
+                <span class="links_name">Déconnexion</span>
+            </a>
+            <span class="tooltip">Déconnexion</span>
+        </li>
+    </ul>
+</div>
